@@ -29,5 +29,8 @@ code { font-size: 14px; background: #f8f8f8; color: #204A87; padding: 1px; }
 
 div.articleEnd { text-align: center; margin-bottom: 20px; }
 
-.footer { text-align: center; }
-.footer .copyright { font-size: 14px; }
+.footer { text-align: center; font-size: 14px; padding-bottom: 10px; }
+.footer .copyright { float: left; }
+.footer .courtesy { float: right; }
+
+.clear { clear: both; }
