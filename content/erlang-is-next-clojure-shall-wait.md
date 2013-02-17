@@ -2,7 +2,7 @@ Title: Erlang is next, Clojure shall wait
 Author: Vineet Naik
 Date: 2012-07-21 18:14
 Category: Programming, Erlang, Clojure, SICP
-Summary: On why I decided to learn Erlang as a new instead of Clojure
+Summary: On why I decided to learn Erlang instead of Clojure
 
 
 A few weeks back, when I was close to completing chapter 1 exercises
