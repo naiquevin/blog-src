@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css"/>
   </head>
   <body>
+    {% if not DEBUG %}{% include "_google_analytics.html" %}{% endif %}
     <div class="container">
       <div class="header">
         <h1><a href="/">vineet@naik:~/$ cat mind &gt;&gt; web</a></h1>

@@ -13,4 +13,5 @@
     </div>
   </section>
   <div class="articleEnd">---</div>
+  {% if not DEBUG %}{% include "_disqus.html" %}{% endif %}
 {% endblock %}

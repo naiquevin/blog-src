@@ -25,4 +25,7 @@ THEME = 'naiq'
 
 MENUITEMS = (('github', 'http://github.com/naiquevin'),
              ('about', '/pages/about.html'))
+
+
+DEBUG = True
             
