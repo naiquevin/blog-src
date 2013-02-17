@@ -1,0 +1,28 @@
+body { background: #fff; color: #222; font-family: 'Merriweather', serif; font-size: 18px; line-height: 1.6em; }
+
+a { color: #333; }
+a:hover { color: #b58900; }
+
+.container { width: 810px; margin: 0 auto; }
+
+div.header { height: auto; overflow: hidden; }
+div.header h1 { width: 74%; float: left; margin-right: 1%; font-size: 30px; }
+div.header h1 a { color: #859900; text-decoration: none; }
+div.header ul { list-style: none; width: 19%; float: right; }
+div.header ul li { float: right; }
+div.header ul li a { padding: 8px; }
+
+div.content { clear: both; padding: 20px 10px; height: auto; min-height: 500px; }
+
+ul.articleList { list-style: none; padding: 0; }
+ul.articleList li { height: auto; overflow: hidden; border-bottom: 1px dashed #ddd; }
+ul.articleList li div.date { width: 24%; float: left; text-align: right; padding: 14px 1%; color: #cb4b16; }
+ul.articleList li div.details { width: 72%; float: left; text-align: left; padding: 14px 1%; height: auto; }
+ul.articleList li h1 { font-size: 20px; padding: 0; margin: 0; }
+
+.article .postInfo { font-size: 0.9em; color: #666; }
+.article h1.articleTitle { color: #cb4b16; margin-bottom: 5px; }
+
+.codehilite pre { font-size: 14px; padding: 10px 0px; font-family: Courier, Arial; border: 1px solid #fefefe; }
+
+code { font-size: 14px; background: #f8f8f8; color: #204A87; padding: 1px; }

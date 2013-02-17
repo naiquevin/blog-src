@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+  <section class="article">
+    <h1 class="articleTitle">{{ article.title }}</h1>
+    <div class="postInfo">
+      Written on <span class="published" title="{{ article.date.isoformat() }}">{{ article.locale_date }}</span>
+    </div>
+    <div class="articleContent">
+      {{ article.content }}
+    </div>
+  </section>
+  <p>
+    <i>I have completely got rid of comments on this blog. Please send
+      me a message at <email>anvxiva ng tznvy.pbz</email> or at
+      <a href="http://twitter.com/naiquevin">@naiquevin</a> on twitter.</i>
+  </p>
+{% endblock %}
