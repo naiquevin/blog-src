@@ -49,10 +49,13 @@ that we need to call the generator object's `next` method,
 
 ```pycon
     >>> g.next()
-    0
+    1
     >>> print 'Hello'
+    Hello
     >>> g.next()
-    1        
+    2
+    >>> g.next()
+    3
 ```
 
 At the time of the first call to the `next`, the yield statement will
@@ -328,7 +331,7 @@ by Ami Tavory at SciPy India 2012 where he also showed
 him for data processing and preparation.
 
 
-#### References
+#### References:
 
 - [Generator Tricks for system programmers](http://www.dabeaz.com/generators/) by David Beazley 
   (particularly a must read)
@@ -338,10 +341,15 @@ him for data processing and preparation.
   [article](http://excess.org/article/2013/02/itergen1/) by Ian Ward.
   
 
-#### If you are curious about co-routines, also see
+#### If you are curious about co-routines, also see,
 
 - [A Curious Course on Coroutines and Concurrency](http://dabeaz.com/coroutines/)
   (again by David Beazley) 
 - [Part II](http://excess.org/article/2013/02/itergen2/) of the above
   article by Ian Ward
+
+
+#### Thanks to,
+
+- [Jimit](http://twitter.com/jimymodi) for pointing out the bug in example #1
 
