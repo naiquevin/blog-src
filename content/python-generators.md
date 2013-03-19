@@ -93,7 +93,7 @@ generator object) instead of an iterable (a list in memory).
     <type 'list'>
     >>> gen_squares = (i*i for i in range(1, 11)) # generator object
     >>> type(gen_squares)
-    >>> <type 'generator'>
+    <type 'generator'>
     >>> iter(gen_squares) is gen_squares
     True    
 ```
@@ -164,10 +164,10 @@ case a normal list would be suitable.
 ```pycon
     >>> g = gen()
     >>> squares = (i*i for i in g)
-    >>> squares
+    >>> list(squares)
     [1, 4, 9, 16, 25]
     >>> cubes = (i*i*i for i in g)
-    []
+    >>> list(cubes)
 ```
 
 But if you have a series of functions, that need to be executed one
@@ -189,10 +189,10 @@ containing the first 5 positive integers :-)
 
 ```python
     def square(x):
-        print 'Square of %d' % x,
+        print 'Square of %d ->' % x,
         return x*x        
     def digit_sum(x):
-        print 'Digit Sum of %d' % x,
+        print 'Digit Sum of %d ->' % x,
         return sum(map(int, str(x)))
     numbers = gen()
     squares = [square(n) for n in numbers]
@@ -349,7 +349,8 @@ him for data processing and preparation.
   article by Ian Ward
 
 
-#### Thanks to,
+#### People who helped improve the post by pointing out errors and bugs. Thanks!
 
-- [Jimit](http://twitter.com/jimymodi) for pointing out the bug in example #1
+- [Jimit Modi](http://twitter.com/jimymodi)
+- Sanjay Bhangar
 
