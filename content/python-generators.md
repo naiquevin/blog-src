@@ -168,6 +168,7 @@ case a normal list would be suitable.
     [1, 4, 9, 16, 25]
     >>> cubes = (i*i*i for i in g)
     >>> list(cubes)
+    []
 ```
 
 But if you have a series of functions, that need to be executed one
