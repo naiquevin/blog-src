@@ -16,15 +16,17 @@ own!
 
 So, I decided to spend a few hours of this weekend writing some elisp
 code for intelligently inserting NaturalDocs style docstring in
-javascript. Here is the
-[result](https://github.com/naiquevin/emacs-config/blob/master/naiquevin/nd-js.el)
-and I am quite happy with it.
+javascript. Here is the result and I am quite happy with it.
+
+![emacs ns-js in action](theme/images/nd-js-screenshot.gif)
+
+You can find the source code [here](https://github.com/naiquevin/emacs-config/blob/master/naiquevin/nd-js.el)
 
 It was an 'achievement unlocked' moment for me as this is the first
 time I have written emacs lisp that comes so close to being called a
 "mode". But I will not call it a "mode" yet for the following reasons:
 
-- I know it just works but isn't packaged as a other emacs mode out
+- I know it just works but isn't packaged like other emacs mode out
   there.
 
 - The code may be violating elisp code conventions. I need to read up
