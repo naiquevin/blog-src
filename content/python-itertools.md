@@ -19,13 +19,13 @@ digressing, but what that search led me to was the insanely useful
 and it left me wondering - why didn't I take a _real_ look at it
 earlier!
 
-In this article I am going to show some of the the must-know itertools
+In this article I am going to show some of the must-know itertools
 that will make your everyday code more memory efficient, elegant and
 concise. Instead of focusing on one function/class from the module at
-a time, it would be helpful to see how these tools can be used
-together.
+a time, it would be helpful to see some real world (and not so real
+world) use cases and examples of itertools.
 
-But before that, I should mention that I have tried all examples on
+But before that, I should mention that I have tried the examples on
 Python 2.7.3 and would recommend you use 2.7.x to follow along,
 although they should _mostly_ work on Python 3.x too.
 
@@ -89,9 +89,8 @@ getting printed every time ``is_even`` is called (20
 times). Wait.. but we just need first 4 items right, why is it even
 getting called that many times?  The problem is that although we
 started with a generator, ``filter`` needs to run each item through
-the predicate function and so the generator ends up getting
-consumed. Finally, we get a list and all we can do now is slice out
-the first 4 items.
+the predicate and so the generator ends up getting consumed. Finally,
+we get a list from which we slice out the first 4 items.
 
 ```pycon
 
@@ -100,11 +99,10 @@ the first 4 items.
 ```
 
 How can we do better? The idea is, we need a way to delay the
-application of filter on the items in the generator.
-``itertools.ifilter`` does exactly that by returning a lazy object
-instead of a list. Items will be filtered whenever some other function
-or a for loop consumes them. Lets define another function
-``lazy_even``,
+application of filter on the generator. ``itertools.ifilter`` does
+exactly that by returning a lazy object instead of a list. Items will
+be filtered whenever some other function or a for loop consumes
+them. Lets define another function ``lazy_even``,
 
 ```python
 
@@ -152,17 +150,17 @@ As you can see, now ``is_even`` is called only while it's required.
 
 ### Counting infinitely
 
-Let's take another example. This time we need to find out smallest 3
-numbers greater than 1000 that are powers of 2. In the eariler blog
-post on generators, there was an example of counting indefinitely
+Let's take another example. This time we need to find out 3 smallest
+numbers that are greater than 1000 and powers of 2. In the eariler
+blog post on generators, there was an example of counting infinitely
 using the ``yield`` keyword. Here we need to do something similar to
-count integers one by one and test if they are powers of 2. The catch
-is that since we need to return 3 such numbers, we don't know when to
-stop counting. Ok, probably in this case it's easy to pre-calculate or
-guess, but the point is, what if the predicate function is a bit more
-complex for eg. a check for primality? With itertools, we can use the
-same technique as in the previous example. As a bonus, it comes with a
-``count`` function so we don't need to write our own.
+count integers and test whether or not each one is a power of 2. The
+catch is that since we need to return 3 such numbers, we don't know
+when to stop counting. Ok, probably in this case it's easy to
+pre-calculate or guess, but what if the predicate function is a bit
+more complex for eg. a check for primality? With itertools, we can use
+the same technique as in the previous example. As a bonus, the module
+comes with a ``count`` function so we don't need to write our own.
 
 ```pycon
 
@@ -177,7 +175,7 @@ same technique as in the previous example. As a bonus, it comes with a
     [1024, 2048, 4096]
 ```
 
-``ifilter`` will run no more than 4096 times which is what we want.
+``ifilter`` will run no more than 4096 times = win!
 
 
 ### Grouping things in style
@@ -217,8 +215,8 @@ and "odd" groups.
 
 But something is strange, isn't it? The integers are indeed grouped
 but there are many "even" and "odd" groups. The reason behind this is,
-it only groups consecutive items together. To get around this, we can
-simply provide it a sorted iterable.
+it only groups _consecutive_ items together. To get around this, we
+can simply provide it a sorted iterable.
 
 ```python
 
@@ -236,33 +234,34 @@ simply provide it a sorted iterable.
     odd: 1,3,5,9,11
 ```
 
-And now we get it correctly. An important thing to note is that the
-key function used to sort the list must be same as the one which is
-going to be passed to ``groupby``.
+And now the grouping happens the way we want it. An important thing to
+note is that the key function used to sort the list must be same as
+the one which is going to be passed to ``groupby``.
 
-### "Flatmap that shit!"
 
-Flatmap is a commonly used pattern in functional programming where we
-map a function to a list giving a list of lists which then needs to be
-flattened. For eg. given a list of directories, we want to get the
-names of all their first level children.
+### Just flatmap that shit!
+
+Flatmap is a commonly used pattern in functional programming where
+mapping a function to a list results in a list of lists that then
+needs to be flattened. For eg. given a list of directories, we want to
+get the names of all their first level children as a list.
 
 ```pycon
     
     >>> import os
     >>> dirs = ['project1/', 'project2/', 'project3/']
-    >>> map(lambda x: os.listdir(x), dirs)
+    >>> map(os.listdir, dirs)
     >>> [['settings.py', 'wsgi.py', 'templates'],
          ['app.py', 'templates'], 
          ['index.html, 'config.json']]
 ```
 
-This gives us a nested list but we need to flatten it. There are of
-course many ways to do this, one way is to use ``reduce``. But here is
-an elegant way using ``itertools.chain`` which takes many iterables as
-arguments and chains or appends them at ends. Let's define a function
-flatmap that will map a function to a list of items and flatten the
-results.
+This gives us a list of lists and we still need to flatten it. There
+are of course many ways to do this, one way is to use ``reduce``. But
+here is an elegant way using ``itertools.chain``. ``chain`` takes many
+iterables as arguments and chains or appends them at ends. Let's
+define a function ``flatmap`` that will map a function to a list of
+items and flatten the resulting list of lists.
 
 ```python
 
@@ -270,11 +269,11 @@ results.
         return itertools.chain(*map(f, items))
 ```
 
-Now we just replace the first ``map`` call with a ``flatmap``,
+And now we replace the first ``map`` call with a ``flatmap``,
 
 ```pycon
 
-    >>> list(flatmap(lambda x: os.listdir(x), dirs))
+    >>> list(flatmap(os.listdir, dirs))
     >>> ['settings.py', 'wsgi.py', 'templates', 'app.py', 
          'templates', 'index.html, 'config.json']
 ```
@@ -283,9 +282,7 @@ Now we just replace the first ``map`` call with a ``flatmap``,
 
 As a final example, let's see how we can compose an elegant solution
 entirely using our newly acquired utility belt. The problem is to find
-a set of common factors of a list of integers. (I admit it's
-completely made up and not quite a real world problem but hopefully
-good enough for the sake of understanding)
+a set of common factors of a list of integers.
 
 ```python
 
@@ -302,9 +299,10 @@ good enough for the sake of understanding)
 ```
 
 That's all for now. If you reached this far, thanks for reading and
-hope you found it helpful. I have obviously skipped some functions
-from the module but thats mainly because I am yet to fully understand
-them myself. May be I will write a part II soon.
+hope you found it helpful. Itertools obviously has many more useful
+functions and classes. I just skipped them since I failed to come up
+with good examples and use cases for them. May be I will do a part II
+some time later.
 
 ### References
 
