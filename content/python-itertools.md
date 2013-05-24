@@ -3,7 +3,7 @@ Author: Vineet Naik
 Date: 2013-05-23
 Tags: python
 Category: python
-Summary: .. with a few close to real world examples
+Summary: .. with examples and use cases
 
 
 Couple of months back I enrolled for the
