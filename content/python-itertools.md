@@ -175,7 +175,7 @@ comes with a ``count`` function so we don't need to write our own.
     [1024, 2048, 4096]
 ```
 
-``ifilter`` will run no more than 4096 times = win!
+``is_pow_two`` will be called no more than 4096 times = win!
 
 
 ### Grouping things in style
