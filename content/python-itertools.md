@@ -259,17 +259,24 @@ get the names of all their first level children as a list.
 This gives us a list of lists and we still need to flatten it. There
 are of course many ways to do this, one way is to use ``reduce``. But
 here is an elegant way using ``itertools.chain``. ``chain`` takes many
-iterables as arguments and chains or appends them at ends. Let's
-define a function ``flatmap`` that will map a function to a list of
-items and flatten the resulting list of lists.
+iterables as arguments and chains or appends them at ends. (**Edit**:
+As correctly pointed out by
+[masklinn on hacker news](https://news.ycombinator.com/item?id=5767462),
+it's better to use ``imap`` instead of ``map`` and also the alternate
+``chain`` constructor ``chain.from_iterable`` to avoid passing the
+lazy object as *args since the former will result in eager
+evaluation).  Let's define a function ``flatmap`` that will map a
+function to a list of items and flatten the resulting list of lists.
 
 ```python
 
+    from itertools import chain, imap
+
     def flatmap(f, items):
-        return itertools.chain(*map(f, items))
+        return chain.from_iterable(imap(f, items))
 ```
 
-And now we replace the first ``map`` call with a ``flatmap``,
+And now we replace the call to ``map`` with ``flatmap``,
 
 ```pycon
 
