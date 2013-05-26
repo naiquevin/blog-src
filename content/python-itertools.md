@@ -49,8 +49,12 @@ behaviour. Let's see an example to understand this.
         return x % 2 == 0
         
     def even():
-        return filter(is_even, (i for i in xrange(20)))
+        return filter(is_even, xrange(20))
 ```
+
+_**Edit**: Thanks to many comments, I replaced the redundant generator
+expression ``(i for i in xrange(20)`` with just ``xrange`` in all
+examples._
 
 The above code defines a function ``is_even`` to check if an integer
 is even. In ``even``, we pass ``is_even`` as a predicate to ``filter``
@@ -109,7 +113,7 @@ them. Lets define another function ``lazy_even``,
     import itertools
     
     def lazy_even():
-        return itertools.ifilter(is_even, (i for i in xrange(20)))
+        return itertools.ifilter(is_even, xrange(20))
 ```
 
 ```pycon
@@ -259,14 +263,17 @@ get the names of all their first level children as a list.
 This gives us a list of lists and we still need to flatten it. There
 are of course many ways to do this, one way is to use ``reduce``. But
 here is an elegant way using ``itertools.chain``. ``chain`` takes many
-iterables as arguments and chains or appends them at ends. (**Edit**:
-As correctly pointed out by
+iterables as arguments and chains or appends them at ends.
+
+_**Edit**: As correctly pointed out by
 [masklinn on hacker news](https://news.ycombinator.com/item?id=5767462),
 it's better to use ``imap`` instead of ``map`` and also the alternate
 ``chain`` constructor ``chain.from_iterable`` to avoid passing the
-lazy object as *args since the former will result in eager
-evaluation).  Let's define a function ``flatmap`` that will map a
-function to a list of items and flatten the resulting list of lists.
+lazy object as \*args since unpacking with \*args will result in eager
+evaluation._
+
+Let's define a function ``flatmap`` that will map a function to a list
+of items and flatten the resulting list of lists.
 
 ```python
 
@@ -289,7 +296,9 @@ And now we replace the call to ``map`` with ``flatmap``,
 
 As a final example, let's see how we can compose an elegant solution
 entirely using our newly acquired utility belt. The problem is to find
-a set of common factors of a list of integers.
+a set of <s>common</s> (Thanks
+[wcyee](http://naiquevin.github.io/a-look-at-some-of-pythons-useful-itertools.html#comment-908642009))
+factors of a list of integers.
 
 ```python
 
