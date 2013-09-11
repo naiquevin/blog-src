@@ -28,4 +28,7 @@ MENUITEMS = (('github', 'http://github.com/naiquevin'),
 
 
 DEBUG = True
+
+MD_EXTENSIONS = ['codehilite(css_class=codehilite)','extra']
+
             
