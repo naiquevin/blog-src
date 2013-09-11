@@ -1,5 +1,5 @@
 Jinja2==2.7.1
-Markdown==2.2.1
+Markdown==2.3.1
 MarkupSafe==0.18
 Pygments==1.6
 Unidecode==0.04.13
@@ -7,7 +7,7 @@ argparse==1.2.1
 blinker==1.3
 docutils==0.11
 feedgenerator==1.7
-pelican==3.2.2
+-e git://github.com/getpelican/pelican@9935286e190dcfcf81212b67c8746a5cf1a160f1#egg=pelican-dev
 pytz==2013d
 six==1.4.1
 wsgiref==0.1.2
