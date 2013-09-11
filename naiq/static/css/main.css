@@ -6,9 +6,9 @@ a:hover { color: #b58900; }
 .container { width: 810px; margin: 0 auto; }
 
 div.header { height: auto; overflow: hidden; }
-div.header h1 { width: 74%; float: left; margin-right: 1%; font-size: 30px; }
+div.header h1 { width: 68%; float: left; margin-right: 1%; font-size: 29px; }
 div.header h1 a { color: #859900; text-decoration: none; }
-div.header ul { list-style: none; width: 19%; float: right; }
+div.header ul { list-style: none; width: 25%; float: right; }
 div.header ul li { float: right; }
 div.header ul li a { padding: 8px; }
 
@@ -34,3 +34,5 @@ div.articleEnd { text-align: center; margin-bottom: 20px; }
 .footer .courtesy { float: right; }
 
 .clear { clear: both; }
+
+.summary p { margin: 0; }
