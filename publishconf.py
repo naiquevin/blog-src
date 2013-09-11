@@ -20,3 +20,5 @@ DISQUS_SITENAME = "naiquevinsblog"
 GOOGLE_ANALYTICS = "UA-38557598-1"
 
 DEBUG = False
+
+OUTPUT_RETENTION = ('.git', '.gitignore', 'README.md')
