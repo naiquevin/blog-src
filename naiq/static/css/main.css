@@ -36,3 +36,6 @@ div.articleEnd { text-align: center; margin-bottom: 20px; }
 .clear { clear: both; }
 
 .summary p { margin: 0; }
+
+/** General styles */
+.genTitle { color: #cb4b16; margin-bottom: 5px; }
