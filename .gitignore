@@ -5,3 +5,5 @@ output/
 
 pelican.pid
 srv.pid
+
+env/
