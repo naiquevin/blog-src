@@ -5,7 +5,7 @@ import sys
 sys.path.append('.')
 from pelicanconf import *
 
-SITEURL = 'http://naiquevin.github.com'
+SITEURL = 'http://naiquevin.github.io'
 
 OUTPUT_PATH = '../naiquevin.github.com/'
 
