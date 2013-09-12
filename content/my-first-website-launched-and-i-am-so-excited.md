@@ -2,7 +2,7 @@ Title: My first website goes live..and I am so excited!
 Author: Vineet Naik
 Date: 2009-05-28 16:53:18
 Tags: social networking, noise ok please, musician community, web development
-Category: Noise Ok Please - My first project
+Category: projects
 Summary: 
 
 

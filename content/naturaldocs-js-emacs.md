@@ -2,7 +2,7 @@ Title: NaturalDocs for Javascript in Emacs
 Author: Vineet Naik
 Date: 2013-04-01
 Tags: emacs, NaturalDocs, Javascript
-Category: emacs, elisp
+Category: emacs
 Summary: Adding NaturalDocs support for JS in emacs
 
 Last week we decided to use [NaturalDocs](http://www.naturaldocs.org/)

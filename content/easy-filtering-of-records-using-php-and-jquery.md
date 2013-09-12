@@ -1,7 +1,7 @@
 Title: Easy filtering of records using PHP and JQuery.
 Author: Vineet Naik
 Date: 2010-01-05 18:11:05
-Category: jquery, php
+Category: javascript
 Summary: 
 
 I came upon a method for filtering records using jquery and php. I am

@@ -1,7 +1,7 @@
 Title: Own the Editor
 Author: Vineet Naik
 Date: 2012-05-11 23:28
-Category: editors, emacs, programming
+Category: emacs
 Summary: On getting the most out of the editor of your choice
 
 

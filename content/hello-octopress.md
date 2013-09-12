@@ -1,7 +1,7 @@
 Title: Hello Octopress
 Author: Vineet Naik
 Date: 2012-02-18 22:50
-Category: None
+Category: octopress
 Summary: Switching from Wordpress to Octopress
 
 _Note: I no longer use Octopress. The blog is currently powered by

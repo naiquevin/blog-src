@@ -1,6 +1,7 @@
 Title: Does Firefox gets you into bad coding habits?
 Author: Vineet Naik
 Date: 2009-11-22 11:16:46
+Category: firefox
 Summary: 
 
 We all know how good Firefox is and if something works in FF and

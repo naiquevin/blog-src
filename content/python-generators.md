@@ -2,7 +2,7 @@ Title: Python generators and being lazy
 Author: Vineet Naik
 Date: 2013-03-01 12:00:00
 Tags: python, generators
-Category: tutorials
+Category: python
 Summary: A post/tutorial on Python generators with examples
 
 

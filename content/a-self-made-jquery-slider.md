@@ -1,8 +1,8 @@
 Title: A self made Jquery slider
 Author: Vineet Naik
 Date: 2009-08-23 23:47:23
-Tags: jquery, slider, image gallery, web development, image slider
-Category: jquery, javascript
+Tags: javascript, jquery, slider, web development, image slider
+Category: javascript
 Summary: 
 
 Now this post has been in the drafts section for quite some

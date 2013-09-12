@@ -2,7 +2,7 @@ Title: Pelicanized!
 Author: Vineet Naik
 Date: 2013-02-17
 Tags: pelican
-Category: 
+Category: pelican
 Summary: Moved the blog to Pelican from Octopress
 
 

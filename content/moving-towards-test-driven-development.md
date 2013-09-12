@@ -1,7 +1,7 @@
 Title: Moving towards Test Driven Development
 Author: Vineet Naik
 Date: 2010-12-14 17:48:28
-Category: javascript, code/development, php, TDD
+Category: testing
 Summary: Using Poor man's TDD techniques
 
 Recently, I have been reading a lot about Unit Testing and other stuff

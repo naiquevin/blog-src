@@ -2,7 +2,7 @@ Title: How to get rid of searchportal.information.com redirection
 Author: Vineet Naik
 Date: 2010-02-14 12:18:28
 Tags: malware, web 2.0, spyware
-Category: code/development
+Category: webdev
 Summary: 
 
 *Important note before you read further: The other day i found out that this wasn't quite the solution.  But in case you are desperately trying to get rid of this thing, this article might still give you some clues.  Please find explanation at the end of this post.*
