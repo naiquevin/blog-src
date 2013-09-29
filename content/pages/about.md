@@ -1,17 +1,20 @@
 Title: About
 
-I am Vineet Naik, a passionate computer programmer and guitar player
-from Mumbai, India.
+I am a passionate computer programmer and guitar player from Mumbai,
+India.
 
-I write code in Python, Javascript, PHP and starting to pickup
-Erlang. Python is my favourite language with Erlang coming close at
-second. I also dabble in Emacs lisp (Emacs is the editor of my choice)
-and Scheme. My interests include functional programming, text
-processing, command line tools, web development and algorithms.
+I mostly write computer programs that run on the web or the command
+line. I am a complete programming language nerd. I like to study about
+and use different languages. Since I started writing code in 2009, I
+have programmed in PHP, Javascript, Java, Python and Erlang
+professionally and Scheme/Racket, Emacs-lisp, Scala and Clojure as a
+hobbyist. (Looking forward to adding many more to the list :-D). In
+general, my interests include functional programming, text processing,
+command line tools, machine learning and data analysis algorithms.
 
-I have been playing guitar since 11 years now and although I am not a
+I have been playing guitar since 12 years now and although I am not a
 performing musician at the moment, it's significantly more than a
-hobby. My gear consists of an Ibanez RG350EX electric guitar, a
+hobby to me. My gear consists of an Ibanez RG350EX electric guitar, a
 Marshall 30dfx Combo Amplifier, MXR ZW-44 Distortion pedal, Jim Dunlop
 Crybaby and a Walden D350CE acoustic guitar. I also own a "Hobner"
 acoustic guitar (cheap imitation of Höfner with a hard `b`) that some
@@ -37,7 +40,8 @@ one of these places,
 * Rajiv Gandhi Institute of Technology (B.E Mech 2007)
 * Greave Cotton Ltd, Pune
 * Rock shows in Mumbai
-* Tech conferences in India such as Pycon India, JSFoo, SciPy India
+* Tech conferences and local tech groups in India such as Pycon India,
+  JSFoo, SciPy India, Mumpy, MumbaiJS
 * Kodeplay
 
 You can find me as `naiquevin` or `naikvin` at various other places on
@@ -46,6 +50,6 @@ the internet, such as
 [Github](http://github.com/naiquevin),
 [Twitter](http://twitter.com/naiquevin),
 [YouTube](http://www.youtube.com/user/naikvin/videos?flow=grid&view=0),
-[Google+](https://plus.google.com/u/0/117192045688450638626/posts).
-I can be reached at <email>anvxiva ng tznvy.pbz</email> by email.
+[Google+](https://plus.google.com/u/0/117192045688450638626/posts).  I
+can be reached at <email>anvxiva ng tznvy.pbz</email> by email.
 
