@@ -23,7 +23,7 @@ DEFAULT_PAGINATION = False
 
 THEME = 'naiq'
 
-MENUITEMS = (('rss', '/feeds/all.atom.xml'),
+MENUITEMS = (('feed', '/feeds/all.atom.xml'),
              ('projects', 'http://github.com/naiquevin'),
              ('about', '/pages/about.html'))
 

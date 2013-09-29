@@ -8,7 +8,7 @@ a:hover { color: #b58900; }
 div.header { height: auto; overflow: hidden; }
 div.header h1 { width: 68%; float: left; margin-right: 1%; font-size: 29px; }
 div.header h1 a { color: #859900; text-decoration: none; }
-div.header ul { list-style: none; width: 25%; float: right; }
+div.header ul { list-style: none; width: 27%; float: right; padding-left: 0px; }
 div.header ul li { float: right; }
 div.header ul li a { padding: 8px; }
 
