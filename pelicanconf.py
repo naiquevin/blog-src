@@ -32,4 +32,8 @@ DEBUG = True
 
 MD_EXTENSIONS = ['codehilite(css_class=codehilite)','extra']
 
+STATIC_PATHS = ['talks']
+
+PAGE_EXCLUDES = ['talks']
+ARTICLE_EXCLUDES = ['pages', 'talks']
             

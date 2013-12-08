@@ -1,0 +1,544 @@
+<!--
+Google IO 2012 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahe <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction to Emacs Lisp</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+<!-- <slide class="logoslide nobackground">
+  <article class="flexbox vcenter">
+    <span><img src="images/google_developers_logo.png"></span>
+  </article>
+</slide>
+ -->
+<slide class="title-slide segue nobackground">
+  <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+  <hgroup class="auto-fadein">
+    <h1 data-config-title><!-- populated from slide_config.json --></h1>
+    <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+    <p data-config-presenter><!-- populated from slide_config.json --></p>
+  </hgroup>
+</slide>
+
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>What is Emacs Lisp?</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Dialect of the Lisp programming language</li>
+<li>Used by the Emacs text editor to implement most of the editing
+  functionality</li>
+<li>Used to customize and extends emacs</li>
+</ul>
+<p>Pretty much what makes emacs the programmer's editor</p></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>This talk</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Three parts</p>
+<ul>
+<li>Emacs Lisp as a programming language</li>
+<li>Editor related features of the language</li>
+<li>An example function to implement simple functionality</li>
+</ul>
+<p>+ Some live examples in between</p></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>One-slide intro to Lisp</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><code>L</code>ots of <code>I</code>rritating <code>S</code>illy <code>P</code>arentheses!</p>
+<p>Or,</p>
+<p><code>LIS</code>t <code>P</code>rocessing</p>
+<p>The syntax is entirely made up of lists, <code>almost</code> every expression
+being a function call.</p>
+<pre class="prettyprint lang-lisp" data-lang="elisp">
+ELISP> (+ 1 2)
+3
+ELISP> (concat "hello" ", " "world")
+"hello, world"
+</pre>
+
+<p>The first element of the list evaluated to a function and applied to
+the rest of the elements as arguments</p></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Ways to evaluate expressions in Emacs</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>C-x C-e</li>
+<li>M-x {eval-buffer,eval-region,eval-defun}</li>
+<li>ielm (inferior emacs lisp mode)</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Variable binding</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><code>set</code> and <code>setq</code> can be used for top-level bindings</p>
+<pre class="prettyprint lang-lisp" data-lang="elisp">
+ELISP> (set &#39;a 20)
+20
+ELISP> (setq a 20)
+20
+ELISP> (setq b 30 c 40)
+40
+</pre>
+
+<p><code>setq</code> is a more convenient version of <code>set</code> which helps in two ways:</p>
+<ul>
+<li>takes care of quoting the symbol</li>
+<li>supports multiple bindings</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Comments</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>anything after semicolon is considered a comment (ie. ignored)</p>
+<pre class="prettyprint lang-lisp" data-lang="elisp">
+; i am inside a comment
+;; i am also inside a comment
+
+(setq name "Vineet") ; me too a comment
+</pre></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Primitive Datatypes</h2>
+      <h3>[1/2..]</h3>
+    </hgroup>
+    <article ><ul>
+<li>Numbers: 42, -100.05, 5e10, #b1010, #o37, #xabcd</li>
+<li>Boolean: <code>t</code>, <code>nil</code></li>
+<li>Strings: "hello", "world"</li>
+<li>Symbols: <code>foo</code></li>
+</ul>
+<p>Symbols are interned</p>
+<p><pre class="prettyprint lang-lisp" data-lang="elisp">
+  ELISP&gt; foo
+  *** Eval error ***  Symbol's value as variable is void: foo
+  ELISP&gt; 'foo
+  foo
+  </pre></p></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Primitive Datatypes</h2>
+      <h3>[..2/2]</h3>
+    </hgroup>
+    <article ><ul>
+<li>Cons Cells</li>
+</ul>
+<pre class="prettyprint lang-lisp" data-lang="elisp">
+ELISP> (setq p (cons 1 2))
+(1 . 2)
+ELISP> (car p)
+1
+ELISP> (cdr p)
+2
+</pre>
+
+<p>There are the most basic ones but there are many other primitive types
+related to programming such as <code>vector</code>, <code>hash-table</code> etc. as well as
+a few that are specific to emacs such as <code>buffer</code>, <code>frame</code>, <code>window</code>
+etc.</p></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Lists (Non primitive)</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint lang-lisp" data-lang="elisp">
+ELISP> (1 2 3 4)
+;; above will result in error
+ELISP> (list 1 2 3 4)
+(1 2 3 4)
+ELISP> '(1 2 3 4)
+(1 2 3 4)
+ELISP> '() ; empty list 
+ELISP> (equal &#39;() nil)
+t
+ELISP> (cons 1 '())
+ELISP> (setq nums (cons 1 (cons 2 (cons 3 (cons 4 '())))))
+(1 2 3 4)
+ELISP> (car nums) ; first
+1
+ELISP> (cdr nums) ; rest
+(2 3 4)
+</pre></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Equality Predicates</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint lang-lisp" data-lang="elisp">
+;; comparing numbers
+ELISP> (= 2 (+ 1 1))
+t
+;; checking for `same` objects
+ELISP> (eq 1 1)
+t
+ELISP> (eq 'a 'a)
+t
+ELISP> (eq "hi" "hi")
+nil
+;; comparing objects with their content
+ELISP> (equal (list 1 2 3) (list 1 2 3))
+t
+;; checking for string equality
+ELISP> (string= "hi" (concat "h" "i"))
+t
+</pre></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Control Structures</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint lang-lisp" data-lang="elisp">
+ELISP> (if t "yes" "no")
+"yes"
+ELISP> (if (not t) "yes" "no")
+"no"
+
+ELISP> (when t "yes")
+"yes"
+
+ELISP> (cond ((> a b) 1)
+             ((< a b) -1)
+             ((= a b) 0))
+</pre></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Local bindings</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint lang-lisp" data-lang="elisp">
+ELISP> (setq a 10)
+10
+ELISP> (let ((a 5)
+             (b (+ a 1))
+         (+ a b))
+16
+ELISP> a
+10
+</pre>
+
+<p><code>let*</code> can be used if subsequent bindings need to use previous ones.</p>
+<p><br/>
+<b>Note:</b> <code>set</code>, <code>setq</code>, <code>if</code>, <code>cond</code>, <code>let</code> etc. are <u>special forms</u> and
+not functions</p></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Doing stuff sequentially</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint lang-lisp" data-lang="elisp">
+ELISP> (progn
+         (do-something)
+         (do-something-else)
+         (+ 1 2)
+         (+ 3 4))
+7
+ELISP>
+</pre>
+
+<p>usually code that uses <code>progn</code> involves side effects to be carried out
+in order.</p></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Function definitions</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint lang-lisp" data-lang="elisp">
+ELISP> (defun greet (greeting name)
+         "Optional docstring"
+         (concat greeting ", " name))
+greet
+ELISP> (greet "hello" "vineet")
+"hello, vineet"
+ELISP>
+
+;; anonymous functions
+ELISP> ((lambda (x) (+ 1 x)) 3)
+4
+</pre>
+
+<p>The result of the last expression of the function body is implicitly
+returned</p></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Dynamic Binding</h2>
+      <h3>With support for Lexical Binding since v24.1</h3>
+    </hgroup>
+    <article ><pre class="prettyprint lang-lisp" data-lang="elisp">
+ELISP> (defun g (f)
+         (lambda (x)
+           (funcall f x)))
+g
+ELISP> (funcall (g (lambda (x) (+ 1 x))) 10)
+*** Eval error ***  Symbol's value as variable is void: f
+
+ELISP> (setq lexical-binding t)
+t
+ELISP> (defun g (f)
+         (lambda (x)
+           (funcall f x)))
+g
+ELISP> (funcall (g (lambda (x) (+ 1 x))) 10)
+11
+</pre></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Regex</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint lang-lisp" data-lang="elisp">
+(defconst sphinx-doc-fun-regex "^\s*def \\([a-zA-Z0-9_]+\\)(\\(.*\\)):$")
+
+(defun sphinx-doc-fun-def (string)
+  "Returns a pair of name of the function and list of the name of
+  the arguments"
+  (when (string-match sphinx-doc-fun-regex string)
+    (list (match-string 1 string)
+          (sphinx-doc-fun-args (match-string 2 string)))))
+</pre>
+
+<footer class="source">source: <a href="https://github.com/naiquevin/sphinx-doc.el/blob/master/sphinx-doc.el">sphinx-doc.el</a> [shameless plug]</footer></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Loading code</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><code>load-path</code>: list of paths where files to load are looked up</p>
+<p><code>eager loading</code>: load</p>
+<p><code>lazy loading</code>: autoload, "require"-ing provided features</p></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Programming editor functionality</h2>
+      <h3>Editor related types</h3>
+    </hgroup>
+    <article ><p><code>buffer</code>, <code>frame</code>, <code>window</code> etc are editor related types</p>
+<pre class="prettyprint lang-lisp" data-lang="elisp">
+ELISP> (current-buffer)
+#&lt;buffer *ielm*&gt;
+ELISP> (bufferp (current-buffer))
+t
+</pre></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Interactive functions</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Interactive functions can be called using <code>M-x &lt;function-name&gt;</code>.</p>
+<p>They can also be associated to keys bindings.</p>
+<p>When we type out a key sequence, emacs calls the bounded function.</p>
+<pre class="prettyprint lang-lisp" data-lang="elisp">
+(defun some-function ()
+  (interactive)
+  ...)
+</pre>
+
+<p>Evaluate the defun and then,</p>
+<pre class="prettyprint lang-lisp" data-lang="elisp">
+M-x some-function
+</pre></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Example</h2>
+      <h3>Programmatically simulating user interaction</h3>
+    </hgroup>
+    <article ><p>Write the name of the current buffer with the message "Hi! You are
+viewing the '&lt;buffer-name&gt;' buffer" on the next line with an indent of
+8 spaces and then move the cursor back to the earlier position</p></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Example</h2>
+      <h3>What would the user do?</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>goto next line</li>
+<li>type out 8 spaces from the beginning of the line</li>
+<li>type out the message along with the buffer name</li>
+<li>move to the older position</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="nobackground" >
+  
+    <hgroup>
+      <h2>Example</h2>
+      <h3>What will our function need to do?</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>goto next line</li>
+<li>type out 8 spaces from the beginning of the line</li>
+<li><code>get the name of the current buffer</code></li>
+<li>type out the message with the name of the buffer</li>
+<li>move to the older position</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="nobackground fill" >
+  
+    <hgroup>
+      <h2>Example</h2>
+      <h3>Working Code</h3>
+    </hgroup>
+    <article ><pre class="prettyprint lang-lisp" data-lang="elisp">
+(defun buffer-greet ()
+  (interactive)
+  (let ((name (buffer-name (current-buffer))))
+    (save-excursion
+      (progn
+        (next-line)
+        (move-beginning-of-line 1)
+        (insert "        ")
+        (insert (format "Hi! You are viewing the '%s' buffer" name))))))
+</pre></article>
+ 
+</slide>
+
+
+<slide class="thank-you-slide nobackground">
+  <article class="flexbox vleft auto-fadein">
+    <h2>Thank You!</h2>
+  </article>
+  <p class="auto-fadein" data-config-contact>
+    <!-- populated from slide_config.json -->
+  </p>
+</slide>
+
+<!-- <slide class="logoslide dark nobackground">
+  <article class="flexbox vcenter">
+    <span><img src="images/google_developers_logo_white.png"></span>
+  </article>
+</slide> -->
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-38557598-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
