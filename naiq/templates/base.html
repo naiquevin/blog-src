@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <title>{% block title %}{{ SITENAME }} :: {{ SITETITLE }}{% endblock %}</title>
     <link href="http://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/main.css"/>
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css"/>
@@ -11,7 +11,7 @@
     {% if not DEBUG %}{% include "_google_analytics.html" %}{% endif %}
     <div class="container">
       <div class="header">
-        <h1><a href="/">vineet@naik:~/$ cat mind &gt;&gt; web</a></h1>
+        <h1><a href="/" title="{{ SITETITLE }}">{{ SITENAME }}</a></h1>
         <ul>
           {% for title, link in MENUITEMS %}
             <li><a href="{{ link }}">{{ title }}</a></li>

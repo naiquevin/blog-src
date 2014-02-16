@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*- #
 
 AUTHOR = u'Vineet Naik'
-SITENAME = u'Vineet\'s blog'
+SITENAME = u'/home/vineet'
+SITETITLE = u'Vineet\'s mind space on the internet'
 SITEURL = ''
 
 TIMEZONE = 'Asia/Kolkata'
@@ -24,8 +25,10 @@ DEFAULT_PAGINATION = False
 THEME = 'naiq'
 
 MENUITEMS = (('feed', '/feeds/all.atom.xml'),
-             ('projects', 'http://github.com/naiquevin'),
-             ('about', '/pages/about.html'))
+             ('music', '/pages/music.html'),
+             ('talks', '/pages/talks.html'),
+             ('code', 'http://github.com/naiquevin'),
+             ('about', '/pages/about-me.html'),)
 
 
 DEBUG = True
