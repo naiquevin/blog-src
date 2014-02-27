@@ -132,7 +132,9 @@ for applying common mutations to data. Read more about it in the
 ```clojure
     (defn transform-for-impact
       [{impact :impact :as act}]
-      (assoc act :impact (.getValue impact)))
+      (if impact
+        (assoc act :impact (.getValue impact))
+        act))
 
     (defn prepare-for-impact
       [{impact :impact :as act}]
@@ -159,3 +161,7 @@ Hope this post was helpful.
 PS: If you are a Clojure veteran and think the above code could be
 better or more idiomatic, please point it out. I am only getting
 started :-)
+
+
+**Edit (27-02-2014):** Fixed `transform-for-impact` to handle the case
+where the `impact` field is not included in the result.
