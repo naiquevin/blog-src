@@ -138,7 +138,9 @@ for applying common mutations to data. Read more about it in the
 
     (defn prepare-for-impact
       [{impact :impact :as act}]
-      (assoc act :impact (str->pgobject "impact_types" impact)))
+      (if impact
+        (assoc act :impact (pgobject "impact_types" impact))
+        act))
 
     ;; modified entity definition
     (defentity activities
@@ -163,5 +165,5 @@ better or more idiomatic, please point it out. I am only getting
 started :-)
 
 
-**Edit (27-02-2014):** Fixed `transform-for-impact` to handle the case
-where the `impact` field is not included in the result.
+**Edit (2nd March 2014):** Fixed `*-for-impact` functions to handle
+the case where the `impact` field is not included in the map.
