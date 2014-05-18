@@ -2,8 +2,8 @@ Title: About Me
 
 I am Vineet Naik, a passionate computer programmer from Mumbai. I am
 an enthusiastic [emacs](http://www.gnu.org/software/emacs/) user and a
-fan of open source software. Some of my code can be found on
-[github](http://github.com/naiquevin). I work at
+fan of open source software. Some of [my code](/pages/code.html) can
+be found on [github](http://github.com/naiquevin). I work at
 [Kodeplay](http://kodeplay.com) where we build web based software
 products.
 

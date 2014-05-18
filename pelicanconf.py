@@ -27,7 +27,7 @@ THEME = 'naiq'
 MENUITEMS = (('feed', '/feeds/all.atom.xml'),
              ('music', '/pages/music.html'),
              ('talks', '/pages/talks.html'),
-             ('code', 'http://github.com/naiquevin'),
+             ('code', '/pages/code.html'),
              ('about', '/pages/about-me.html'),)
 
 
