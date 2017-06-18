@@ -1,7 +1,6 @@
 Title: Talks
 
-I haven't spoken at any big conferences (yet!) but here are the talks
-I have presented at local meetup groups:
+Here are the talks I have presented at programming/tech meetups:
 
 * [Generators & Itertools](http://naiquevin.github.io/talks/generators-itertools) - Mumpy (Mumbai Python Users group) `[June 2014]`
 

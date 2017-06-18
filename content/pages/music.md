@@ -1,24 +1,29 @@
 Title: Music
 
-I am not sure if the title of this page is appropriate. Calling myself
-a musician is like calling HTML a programming language! Anyway, I have
-been playing guitar since past 12 years. Although terribly out of
-touch at the moment, it's still significantly more than a hobby to
-me. These days since programming has taken a front seat, I only get
-time to practice at home and don't play with any bands or (home)
-record original stuff as I used to do when I was in college. I have a
-few videos uploaded to
-[youtube](http://www.youtube.com/user/naikvin/videos) though. Let me
-know if you like them :-)
+Music is a significantly important part of my life and more than just
+a hobby. I have been playing guitar since 2001. During college, I
+played with bands but have been pretty much a bedroom musician since
+then. Somehow the hobby has struck!
 
-My gear consists of an Ibanez RG350EX electric guitar, a Marshall
-30dfx Combo Amplifier, MXR ZW-44 Distortion pedal, Jim Dunlop Crybaby
-and a Walden D350CE acoustic guitar. I also own a "Hobner" acoustic
-guitar (cheap imitation of Höfner with a hard `b`) that some how,
-mysteriously sounds beautiful inspite of it's broken body.
+An earlier version of this page talked in detail about the guitars and
+other gear that I own and use. At present though, I am experimenting
+heavily with various pedals to find my own tone. Hence such a page is
+pointless as it would quickly become obsolete. If you want to discuss
+gear/tone/recording etc, get in touch!
 
-As a listener, I enjoy classic rock, blues and metal while being open
-to other types of good and honest music, irrespective of genre and
-language. Some of my favourite guitar players are Joe Satriani, Paul
-Gilbert, Andy Timmons and Warren Mendonsa (Blackstratblues/Zero).
+Recently I have also started composing and (home) recording stuff,
+which can be found on
+[soundcloud](https://soundcloud.com/vineet-naik).
 
+<iframe width="100%" height="150" scrolling="no" frameborder="no"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/321257461&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+
+<iframe width="100%" height="150" scrolling="no" frameborder="no"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/310452844&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+
+As a listener, I enjoy classic/progressive rock, blues and progressive
+metal while being open to other types of good and honest music,
+irrespective of genre and language.
+
+I am also enthusiatic about live music and regularly attend
+gigs/concerts/festivals of all shape and sizes.

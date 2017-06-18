@@ -1,22 +1,22 @@
 Title: Code
 
-I like working on side projects in my free time after work and on
-weekends. The code is mostly open source and can be found on
-[Github](https://github.com/naiquevin) under the
-[MIT](http://opensource.org/licenses/MIT) license, which means you can
-do whatever you want with it. Here is list of the more serious
-projects:
+I have been writing computer programs professionally since 2009. I
+consider myself lucky to be doing what I am passionate about. I am
+pretty much a polyglot having worked with multiple languages such as
+Python, Clojure, Javascript, Java, PHP. Currently it's primarily
+Clojure and Python at Helpshift.
 
-<small>_Roughly in the order of latest to oldest._</small>
-
-* [nozzle](https://github.com/naiquevin/nozzle) `[Python]`: An even
-  more quick and simple way to write unit tests using nose.
+Besides work, I like working on side projects in my free time. The
+code is open source and can be found on
+[Github](https://github.com/naiquevin). Here is list of the more
+serious projects:
 
 * [pipdeptree](https://github.com/naiquevin/pipdeptree) `[Python]`: A
   command line utility to display the dependency tree of packages
   installed in a virtualenv using pip. To some extent, it's inspired
   by the `lein deps :tree` command of Clojure's
-  [Leiningen](http://leiningen.org/).
+  [Leiningen](http://leiningen.org/) and is my most popular project so
+  far with >500 stars on github.
 
 * [sphinx-doc.el](https://github.com/naiquevin/sphinx-doc.el)
   `[Emacs Lisp]`
@@ -24,6 +24,10 @@ projects:
   An emacs minor mode for Python to generate
   [sphinx](http://sphinx-doc.org/) style docstrings for functions and
   methods from the formal parameters in their definitions.
+
+* [Attercop](https://github.com/naiquevin/attercop)`[Clojure]`: Is a
+  webcrawler written in Clojure as a learning exercise to understand
+  the core.async library.
 
 * [The Game of life](https://github.com/naiquevin/game-of-life)
   `[Python,Clojure]`
@@ -34,6 +38,10 @@ projects:
 
 * [lookupy](https://github.com/naiquevin/lookupy) `[Python]`: Django
   QuerySet like interface to query simple Python collections.
+
+* [nozzle](https://github.com/naiquevin/nozzle) `[Python]`: An even
+  more quick and simple way to write unit tests using nose (highly
+  experimental).
 
 * [jquery-sticky-buttons](https://github.com/naiquevin/jquery-sticky-buttons)
   `[Javascript]`
