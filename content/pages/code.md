@@ -2,9 +2,8 @@ Title: Code
 
 I have been writing computer programs professionally since 2009. I
 consider myself lucky to be doing what I am passionate about. I am
-pretty much a polyglot having worked with multiple languages such as
-Python, Clojure, Javascript, Java, PHP. Currently it's primarily
-Clojure and Python at Helpshift.
+pretty much a polyglot having worked with multiple
+languages. Currently it's primarily Clojure and Python at Helpshift.
 
 Besides work, I like working on side projects in my free time. The
 code is open source and can be found on
