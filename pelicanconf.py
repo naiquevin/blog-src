@@ -1,5 +1,5 @@
 AUTHOR = 'Vineet Naik'
-SITENAME = "/home/vineet"
+SITENAME = "~/naiquevin"
 SITETITLE = "Vineet's mind space on the internet"
 SITEURL = ''
 
