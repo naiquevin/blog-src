@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="article">
+    <h1 class="articleTitle archiveListTitle">Archives for {{ period[0] }}</h1>
+    <ul class="articleList">
+      {% for article in dates %}
+        {% include "_article.html" %}
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

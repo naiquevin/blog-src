@@ -23,6 +23,8 @@ ul.articleList li h1 { font-size: 20px; padding: 0; margin: 0; }
 .article .postInfo { font-size: 0.9em; color: #666; }
 .article h1.articleTitle { color: #cb4b16; margin-bottom: 5px; }
 
+.article h1.archiveListTitle { color: #333 }
+
 .codehilite pre { font-size: 14px; padding: 10px 0px; font-family: Courier, Arial; border: 1px solid #fefefe; }
 
 code { font-size: 14px; background: #f8f8f8; color: #204A87; padding: 1px; }

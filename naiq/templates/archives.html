@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <ul class="articleList">
-    {% for article in dates %}
-      {% include "_article.html" %}
-    {% endfor %}
-  </ul>
+  <section class="article">
+    <h1 class="articleTitle">Blog Archive</h1>
+    <ul>
+      {% for year, articles_year in dates|groupby('date.year')|sort(reverse=True) %}
+        <li><a href="{{ SITEURL }}/posts/{{ year }}/index.html">{{ year }}</a> ({{ articles_year|length }})</li>
+      {% endfor %}
+    </ul>
+  </section>
 {% endblock %}

@@ -30,7 +30,7 @@ DEFAULT_PAGINATION = 10
 
 THEME = 'naiq'
 
-MENUITEMS = (('feed', '/feeds/all.atom.xml'),
+MENUITEMS = (('archive', '/archives.html'),
              ('music', '/pages/music.html'),
              ('talks', '/pages/talks.html'),
              ('code', '/pages/code.html'),
@@ -55,3 +55,7 @@ ARTICLE_EXCLUDES = ['pages', 'talks']
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
+# Added for future reference (not being used currently)
+MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
