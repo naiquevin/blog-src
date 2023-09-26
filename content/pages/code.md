@@ -65,7 +65,7 @@ time. The code is open source and can be found on
   ten-pin bowling. Give it a try!
 
 * [GuitarJs](https://github.com/naiquevin/GuitarJs) `[Javascript]`
-  ([demo](http://naiquevin.github.com/GuitarJs/))  
+  ([demo](http://naiquevin.github.io/GuitarJs/))  
   A small javascript library for guitar notes, scales, chords. The
   above game of Ten-Chord-Workout is written using it.
 
@@ -80,10 +80,10 @@ time. The code is open source and can be found on
 <b id="footnote-1">1.</b> As of `Sep 2022`, I am no longer maintaining
 pipdeptree. [Bernát Gábor](https://github.com/gaborbernat) and the
 [tox-dev](https://github.com/tox-dev) org have been kind enough to
-adopt and maintain it.
+adopt and maintain it. [&#8617;](#footnote-1-ref)
 
 <b id="footnote-2">2.</b> This site is not created using jinger. It's
-using pelican instead.
+using pelican instead. [&#8617;](#footnote-2-ref)
 
 
 
