@@ -25,6 +25,8 @@ ul.articleList li h1 { font-size: 20px; padding: 0; margin: 0; }
 
 .article h1.archiveListTitle { color: #333 }
 
+hr { margin-top: 40px; border: 1px dashed #ddd; }
+
 .codehilite pre { font-size: 14px; padding: 10px 0px; font-family: Courier, Arial; border: 1px solid #fefefe; }
 
 code { font-size: 14px; background: #f8f8f8; color: #204A87; padding: 1px; }
