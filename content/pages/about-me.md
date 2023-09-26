@@ -1,17 +1,25 @@
 Title: About Me
 
-Hi, I am Vineet Naik, a software engineer working at Helpshift Inc. in
-Pune.
+Hi, my name is Vineet Naik. I am software engineer by profession and a
+hobbyist guitar player.
 
-Once upon a time this blog was mostly about programming and software
-develoment. Since 2015, it was pretty much inactive. As I am updating
-this "About me" section, I am hoping to bring it back to life with
-posts not just about programming but some of my other interests too,
-such as [music](/pages/music.html) (both making and listening),
-guitars/gear,
-[books](https://www.goodreads.com/review/list/24556139-vineet-naik?shelf=%23ALL%23),
-podcasts, [emacs](https://github.com/naiquevin/emacs-config) (the text
-editor of my choice) etc.
+To me, developing software is significantly more than a profession and
+playing guitar is significantly more than a hobby! So this blog would
+mainly be about these two topics.
 
-I can be reached at <email>anvxiva ng tznvy.pbz</email> or
-[@naiquevin](http://twitter.com/naiquevin) on twitter.
+I am currently on a
+[sabbatical](https://www.youtube.com/watch?v=MNuOmTQdFjA) (career
+break). Previously I have worked at Helpshift (2014-2023) and Kodeplay
+(2009-2014).
+
+I stay in Bengaluru, India.
+
+You can get in touch with me at <email>anvxiva ng tznvy.pbz</email> or
+find me by my usual handle, `@naiquevin` on the Internet.
+
+### About this site
+
+This site is created using
+[pelican](https://getpelican.com/). Comments are powered by
+[disqus](https://disqus.com/).
+
