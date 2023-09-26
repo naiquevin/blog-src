@@ -4,6 +4,7 @@ Date: 2011-07-15
 Tags: emacs, editing
 Category: emacs
 Summary:
+Status: published
 
 
 Okay. So here goes the first one. Very often I find myself searching

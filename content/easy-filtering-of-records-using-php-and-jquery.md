@@ -3,6 +3,7 @@ Author: Vineet Naik
 Date: 2010-01-05 18:11:05
 Category: javascript
 Summary: 
+Status: published
 
 I came upon a method for filtering records using jquery and php. I am
 sure there must be plugins available to do this but this one is super

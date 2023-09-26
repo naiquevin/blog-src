@@ -4,6 +4,7 @@ Date: 2011-07-22
 Tags: emacs, editing
 Category: emacs
 Summary:
+Status: published
 
 Emacs allows bookmarking inside buffers so that you can quicky visit
 those at a later time. And by later time I mean any time later, even

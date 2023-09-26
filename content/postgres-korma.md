@@ -4,6 +4,7 @@ Date: 2014-02-24
 Tags: clojure, postgresql
 Category: clojure
 Summary: 
+Status: published
 
 
 I have been playing with Clojure on the side for a few months and

@@ -4,6 +4,7 @@ Date: 2010-02-08 22:16:50
 Tags: social networking, facebook, boredom
 Category: humour
 Summary: 
+Status: published
 
 Following is an excerpt from a conversation between two developers -
 

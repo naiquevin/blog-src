@@ -3,6 +3,7 @@ Author: Vineet Naik
 Date: 2010-12-14 17:48:28
 Category: testing
 Summary: Using Poor man's TDD techniques
+Status: published
 
 Recently, I have been reading a lot about Unit Testing and other stuff
 related to Test Driven Development. What generates an interest is that

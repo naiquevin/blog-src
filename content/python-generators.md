@@ -4,6 +4,7 @@ Date: 2013-03-01 12:00:00
 Tags: python, generators
 Category: python
 Summary: A post/tutorial on Python generators with examples
+Status: published
 
 
 This is going to be a rather long post (call it a tutorial if you

@@ -4,6 +4,7 @@ Date: 2010-10-23 15:35:39
 Tags: guitar, shred this, guitar idol competition, music, youtube
 Category: music
 Summary: 
+Status: published
 
 And if you thought I would mention the channels of master guitar players then you got it wrong. We all know they are brilliant and it is very easy to find their videos by typing in the search box. But here is a list of players you might not be knowing of but definitely can't afford to miss if you are a guitar player or a music lover. These are guitar players from around the world whose channels I stumbled across and whose videos have always been source of inspiration for me since then.
 

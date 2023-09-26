@@ -3,6 +3,7 @@ Author: Vineet Naik
 Date: 2010-07-07 00:12:02
 Category: random
 Summary: 
+Status: published
 
 Last week was one of those few weeks in which a lot of learning happens. Not very uncommon if you are in a profession that needs you to constantly keep pace with something as dynamic as the world wide web. But this time it made me understand what makes useful learning more enjoyable than compulsive learning. And the answer is simple - Because the we actually end up using the former.
 

@@ -4,6 +4,7 @@ Date: 2010-06-12 23:29:03
 Tags: Ubuntu, disk, partition, wubi, Linux
 Category: ubuntu
 Summary: Step by step guide to setting up Windows7-Ubuntu dual boot
+Status: published
 
 
 Last week I finally managed to set up a windows 7 - Ubuntu dual boot

@@ -3,6 +3,7 @@ Author: Vineet Naik
 Date: 2009-08-04 23:32:45
 Category: jquery
 Summary: 
+Status: published
 
 It happens so many times that I need to code something to make the UI
 fool proof. While I have the logic clear in my mind, i often find that

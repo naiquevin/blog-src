@@ -4,6 +4,7 @@ Date: 2010-08-24 12:07:11
 Tags: jquery, HTML, web 2.0, javascript, web development
 Category: javascript
 Summary: 
+Status: published
 
 I remember when the first time I tried to learn some Javascript for
 accomplishing basic form validation, it wasn't as simple as HTML and

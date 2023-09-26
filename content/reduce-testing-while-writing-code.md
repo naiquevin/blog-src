@@ -4,6 +4,7 @@ Date: 2009-09-13 23:38:17
 Tags: ajax, php, web development
 Category: javascript
 Summary: 
+Status: published
 
 Very often it happens that more time goes into testing than writing code. Particularly when ajax is involved.
 

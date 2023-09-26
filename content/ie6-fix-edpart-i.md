@@ -4,6 +4,7 @@ Date: 2009-05-06 03:44:44
 Tags: IE6 fix, web development languages, CSS
 Category: ie6
 Summary: 
+Status: published
 
 Imagine a scenario,
 

@@ -4,6 +4,7 @@ Date: 2013-02-17
 Tags: pelican
 Category: pelican
 Summary: Moved the blog to Pelican from Octopress
+Status: published
 
 
 Just moved my blog from Octopress to

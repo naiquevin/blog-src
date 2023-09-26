@@ -4,6 +4,7 @@ Date: 2013-05-23
 Tags: python
 Category: python
 Summary: .. with examples and use cases
+Status: published
 
 
 Couple of months back I enrolled for the

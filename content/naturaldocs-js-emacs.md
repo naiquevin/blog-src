@@ -4,6 +4,7 @@ Date: 2013-04-01
 Tags: emacs, NaturalDocs, Javascript
 Category: emacs
 Summary: Adding NaturalDocs support for JS in emacs
+Status: published
 
 Last week we decided to use [NaturalDocs](http://www.naturaldocs.org/)
 for Javascript documentation at work. I noticed that a few of my

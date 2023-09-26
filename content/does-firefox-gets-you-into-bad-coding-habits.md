@@ -3,6 +3,7 @@ Author: Vineet Naik
 Date: 2009-11-22 11:16:46
 Category: firefox
 Summary: 
+Status: published
 
 We all know how good Firefox is and if something works in FF and
 doesn't work in other browsers, we generally blame the others for not

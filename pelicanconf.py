@@ -59,3 +59,9 @@ ARTICLE_EXCLUDES = ['pages', 'talks']
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 # Added for future reference (not being used currently)
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
+
+# By default all posts are drafts. To publish them, `Status:
+# published` has to be explicitly added in the metadata
+DEFAULT_METADATA = {
+    'status': 'draft'
+}

@@ -3,6 +3,7 @@ Author: Vineet Naik
 Date: 2010-07-28 23:37:34
 Category: javascript
 Summary: 
+Status: published
 
 Last month I spent some hours coding the popular game
 [minesweeper](https://github.com/naiquevin/mines) in javascript. It

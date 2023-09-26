@@ -3,6 +3,7 @@ Author: Vineet Naik
 Date: 2012-02-18 22:50
 Category: octopress
 Summary: Switching from Wordpress to Octopress
+Status: published
 
 _Note: I no longer use Octopress. The blog is currently powered by
 Pelican, another fine static site generator._

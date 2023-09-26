@@ -4,6 +4,7 @@ Date: 2014-03-19
 Tags: python, toolbox, histogram
 Category: python
 Summary: A command line tool to quickly plot histograms based on matplotlib
+Status: published
 
 
 (This is the first post of the series I plan to write on some tools I

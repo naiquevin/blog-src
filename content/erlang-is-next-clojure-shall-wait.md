@@ -3,6 +3,7 @@ Author: Vineet Naik
 Date: 2012-07-21 18:14
 Category: erlang
 Summary: On why I decided to learn Erlang instead of Clojure
+Status: published
 
 
 A few weeks back, when I was close to completing chapter 1 exercises

@@ -4,6 +4,7 @@ Date: 2009-08-23 23:47:23
 Tags: javascript, jquery, slider, web development, image slider
 Category: javascript
 Summary: 
+Status: published
 
 Now this post has been in the drafts section for quite some
 time.. infact some posts which I started to write later made their way

@@ -4,6 +4,7 @@ Date: 2011-08-04
 Tags: emacs, editing
 Category: emacs
 Summary:
+Status: published
 
 Ok. Finally a new emacs trick. Actually I had come across this a while
 back but then I went on a short vacation and later picked up a John

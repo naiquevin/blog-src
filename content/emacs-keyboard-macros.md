@@ -4,6 +4,7 @@ Date: 2011-07-16
 Tags: emacs, editing, macros
 Category: emacs
 Summary:
+Status: published
 
 Just learnt how to set and use Keyboard Macros in emacs. This looks
 pretty useful and something I feel will come in handy while

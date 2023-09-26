@@ -4,6 +4,7 @@ Date: 2011-07-19
 Tags: emacs, editing
 Category: emacs
 Summary:
+Status: published
 
 In emacs, as we open files, a lot of dired buffers get accumulated. I
 personally find them a nuisance after a while specially during longer
