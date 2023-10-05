@@ -1,4 +1,5 @@
 Title: Code
+Status: published
 
 I have been writing computer programs professionally since 2009. I
 consider myself lucky to be doing what I am passionate about.

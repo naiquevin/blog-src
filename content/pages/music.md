@@ -1,4 +1,5 @@
 Title: Music
+Status: published
 
 Music is a significantly important part of my life and more than just
 a hobby. I have been playing guitar since 2001. During college, I

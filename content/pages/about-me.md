@@ -1,4 +1,5 @@
 Title: About Me
+Status: published
 
 Hi, my name is Vineet Naik. I am software engineer by profession and a
 hobbyist guitar player.

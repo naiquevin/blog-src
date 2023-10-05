@@ -1,4 +1,5 @@
 Title: Talks
+Status: published
 
 Here are the talks I have presented at conferences/meetups:
 
