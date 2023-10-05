@@ -5,6 +5,7 @@
     {% else %}
       <li class="previous disabled">&larr; Newer</li>
     {% endif %}
+    <li>{{ articles_page.number }}/{{ articles_paginator.num_pages }}</li>
     {% if articles_page.has_next() %}
       <li class="next"><a href="{{ SITEURL }}/{{ articles_next_page.url }}">Older &rarr;</a></li>
     {% else %}
