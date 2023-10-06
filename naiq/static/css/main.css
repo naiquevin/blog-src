@@ -31,9 +31,8 @@ ul.pager { margin-top: 20px; list-style: none; text-align: center; }
 ul.pager li { display: inline-block; padding: 0 0.5rem; }
 ul.pager li.disabled { color: #ddd; }
 
-.footer { text-align: center; font-size: 14px; padding-bottom: 10px; }
-.footer .copyright { float: left; }
-.footer .courtesy { float: right; }
+.footer { text-align: right; font-size: 14px; padding-bottom: 10px; line-height: 1.4em; color: #839496; }
+.footer li { list-style: none; }
 
 .clear { clear: both; }
 
