@@ -85,15 +85,3 @@ adopt and maintain it. [&#8617;](#footnote-1-ref)
 
 <b id="footnote-2">2.</b> This site is not created using jinger. It's
 using pelican instead. [&#8617;](#footnote-2-ref)
-
-
-
-
-
-
-
-
-
-
-
-

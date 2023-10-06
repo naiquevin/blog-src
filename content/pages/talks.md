@@ -18,5 +18,3 @@ Here are the talks I have presented at conferences/meetups:
 * [Writing elegant command line scripts in
   Python](https://speakerdeck.com/naiquevin/writing-elegant-command-line-scripts-in-python) -
   At Mumpy (Mumbai Python Users group) `[July 2013]`
-
-

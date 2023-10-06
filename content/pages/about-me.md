@@ -23,4 +23,3 @@ find me by my usual handle, `@naiquevin` on the Internet.
 This site is created using
 [pelican](https://getpelican.com/). Comments are powered by
 [disqus](https://disqus.com/).
-
