@@ -41,7 +41,7 @@ time. The code is open source and can be found on
 
 * [jquery-sticky-buttons](https://github.com/naiquevin/jquery-sticky-buttons)
   `[Javascript]`
-  ([demo](http://naiquevin.github.com/jquery-sticky-buttons/))  
+  ([demo](http://naiquevin.github.io/jquery-sticky-buttons/))  
   A jQuery plugin to make buttons stick to the top of the page as
   user scrolls down.
 

@@ -1,8 +1,6 @@
 Title: Talks
 Status: published
 
-Here are the talks I have presented at conferences/meetups:
-
 * [Job scheduling at Helpshift with
   Jenkins](https://www.youtube.com/watch?v=Gk0GLQFe4po&t=173s) -
   Rootconf `[May 2018]`

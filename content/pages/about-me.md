@@ -18,6 +18,12 @@ I stay in Bengaluru, India.
 You can get in touch with me at <email>anvxiva ng tznvy.pbz</email> or
 find me by my usual handle, `@naiquevin` on the Internet.
 
+### Articles published elsewhere
+
+I also have some [articles](https://medium.com/@naikvin_34014)
+published on medium, as part of the [Helpshift Engineering
+blog](https://medium.com/helpshift-engineering).
+
 ### About this site
 
 This site is created using
