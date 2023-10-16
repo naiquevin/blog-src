@@ -5,7 +5,7 @@ PELICANOPTS=
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
-LIVEOUTPUTDIR=$(BASEDIR)/../naiquevin.github.com
+LIVEOUTPUTDIR=$(BASEDIR)/../www.naiquev.in
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
