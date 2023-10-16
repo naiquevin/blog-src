@@ -15,7 +15,7 @@ break). Previously I have worked at Helpshift (2014-2023) and Kodeplay
 
 I stay in Bengaluru, India.
 
-You can get in touch with me at <email>anvxiva ng tznvy.pbz</email> or
+You can get in touch with me at <email>anvxiva@tznvy.pbz</email> or
 find me by my usual handle, `@naiquevin` on the Internet.
 
 ### Articles published elsewhere
