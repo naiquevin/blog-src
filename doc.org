@@ -1,0 +1,49 @@
+* Local environment
+** Requirements
+   - Python >= 3.11
+** Create the virtualenv
+   #+begin_src bash
+     python -m venv .venv
+     . .venv/bin/activate
+     pyton -m pip install --upgrade pip
+     python -m pip install -r requirements.txt
+   #+end_src
+* Previewing changes locally
+  1. Activate the virtualenv
+     #+begin_src bash
+       . .venv/bin/activate
+     #+end_src
+  2. Generate content
+     #+begin_src bash
+       pelican content
+     #+end_src
+  3. In another terminal, start a simple HTTP server inside the
+     ~output~ directory
+     #+begin_src bash
+       cd output
+       python -m http.server
+     #+end_src
+* Publishing to production
+** Requirements
+   - Make sure that a directory ~../www.naiquev.in~ relative to this
+     repository exists
+** Generating content
+   Make sure the virtualenv is activated
+   #+begin_src bash
+     make publish
+   #+end_src
+** Uploading files to s3 bucket
+   #+begin_src bash
+     # First switch to the directory
+     cd ../www.naiquev.in
+
+     # Get rid of any tmp files to prevent them from getting uploaded
+     find . -name '*~' -delete
+
+     # Set credentials in environment variables
+     export AWS_ACCESS_KEY_ID=************
+     export AWS_SECRET_ACCESS_KEY=*********************
+
+     # Run the sync command
+     aws s3 sync . s3://naiquevin-blog --exclude '.git/*'
+   #+end_src
