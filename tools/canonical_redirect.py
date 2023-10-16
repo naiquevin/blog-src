@@ -15,7 +15,7 @@ Usage:
   # Find all html files and run the script for each
   find . -type f -name "*.html" \
        | sed 's/\.\///g' \
-       | xargs -n 1 -P 8 python ../blog-src/canonical_redirect.py . 0
+       | xargs -n 1 -P 8 python ../blog-src/tools/canonical_redirect.py . 0
 
 """
 
