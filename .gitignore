@@ -7,3 +7,4 @@ pelican.pid
 srv.pid
 
 .venv/
+.DS_STORE
