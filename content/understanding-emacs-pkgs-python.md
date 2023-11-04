@@ -1,23 +1,23 @@
 Title: Understanding Emacs packages for Python
 Author: Vineet Naik
-Date: 2023-11-02
-Tags: emacs, python, yakshaving
+Date: 2023-11-04
+Tags: emacs, python
 Category: programming
-Summary: An overview of emacs packages for Python. Also, a mild rant about confusing package names.
+Summary: An overview of emacs packages for Python, including a mild rant about confusing package names.
 Status: published
 
 Revisiting emacs config after a long gap can be challenging. There
 might be some packages deprecated or no longer actively maintained
 and/or replaced by newer ones. There are also chances that you don't
 remember much about your own config, which is not uncommon. Often
-config gets copy-pasted from some where without complete understanding
-of the packages.
+elisp code gets copy-pasted from some where without complete
+understanding of the packages.
 
 Revisiting Python related setup can be even more unpleasant,
-particularly due to the multitude of emacs+python tooling with
-similar, confusing names and overlapping functionalities. Well, that
-was my recent experience while getting my existing config to work on a
-personal laptop.
+particularly due to a multitude of options with similar, confusing
+names and overlapping functionalities. Well, that was my recent
+experience while getting my existing config to work on a personal
+laptop.
 
 It's worth noting that my existing config, while functional on my
 office laptop, had fallen behind by a few years. Meanwhile, the emacs
@@ -148,12 +148,11 @@ are two popular LSP clients for emacs:
 1. [eglot](https://github.com/joaotavora/eglot)
 2. [lsp-mode](https://github.com/emacs-lsp/lsp-mode)
 
-I have tried both with multiple languages (python, rust and
-javascript)<a id="footnote-3-ref" href="#footnote-3"><sup>3</sup></a>
-and decided to settle with eglot, which covers most of my use cases
-and to me felt faster and actually light weight as
-advertised. Additionally, the latest version of emacs 29.1 comes with
-eglot built-in.
+I have tried both with python and rust so far<a id="footnote-3-ref"
+href="#footnote-3"><sup>3</sup></a> and decided to settle with eglot.
+It covers most of my use cases and to me felt faster and actually
+light weight as advertised. Additionally, the latest version of emacs
+29.1 comes with eglot built-in.
 
 eglot's documentation lists 4 server implementations for python
 (there could be more). Following the _confusing-names_ tradition, they
@@ -246,9 +245,9 @@ moving. So like me, if you update your config only after a few years,
 there is a lot to catch up with. Many alternatives providing
 overlapping functionality and confusing package names don't help.
 
-But in the end, you can't complain much. It's incredible that all this
-is free and open source and it works if you put some efforts from time
-to time. Also, yak-shaving is extremely satisfying!
+But in the end, there's not much to complain. It's incredible that all
+this software is free and open source and it works if you put some
+efforts from time to time. Also, yak-shaving is extremely satisfying!
 
 ---
 
@@ -279,17 +278,10 @@ description. With `jedi.el` definitely not installed, where was the
 source for `jedi-core.el` coming from?
 
 The answer is hidden in its [melpa recipe
-file](https://github.com/melpa/melpa/blob/master/recipes/jedi-core). 
-
-```elisp
-    (jedi-core :fetcher github
-        :repo "tkf/emacs-jedi"
-        :files ("jedi-core.el" "jediepcserver.py" "Makefile" "setup.py"))
-```
-
-So `jedi-core` is a package built from selected files of the
-`emacs-jedi` (same as `jedi.el`) repo. That still doesn't answer the
-original question - how did `company-jedi` work without `epc`.
+file](https://github.com/melpa/melpa/blob/master/recipes/jedi-core). `jedi-core`
+is built using selected files from the `jedi.el` repo. That still
+doesn't answer the original question - how did `company-jedi` work
+without `epc`.
 
 So I uninstalled `company-jedi` but while still initializing
 `company-mode` in the `after-init-hook` of `python-mode`. Auto
