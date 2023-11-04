@@ -6,10 +6,15 @@
   <section class="article">
     <h1 class="articleTitle">{{ article.title }}</h1>
     <div class="postInfo">
-      Written on <span class="published" title="{{ article.date.isoformat() }}">{{ article.locale_date }}</span>
+      Published on <span class="published" title="{{ article.date.isoformat() }}">{{ article.locale_date }}</span>
     </div>
     <div class="articleContent">
       {{ article.content }}
+    </div>
+    <div class="postInfoBottom">
+      <ul>Tagged
+        {% for tag in article.tags %}<li><a href="{{ SITEURL }}/tag/{{ tag }}.html">{{ tag }}</a></li>{% endfor %}
+      </ul>
     </div>
   </section>
   {% if not DEBUG %}{% include "_disqus.html" %}{% endif %}
