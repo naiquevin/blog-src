@@ -1,18 +1,28 @@
 Title: Code
 Status: published
 
-I have been writing computer programs professionally since 2009. I
-consider myself lucky to be doing what I am passionate about.
+I have been writing computer programs professionally
+since 2009. Besides work, I have some side projects that I work on in
+my free time. Most of them are available on
+[Github](https://github.com/naiquevin) under open source licenses.
 
-Besides work, I have some side projects that I work on in my free
-time. The code is open source and can be found on
-[Github](https://github.com/naiquevin). Here are a few notable ones:
+### Currently active side projects
 
-* [pipdeptree](https://github.com/naiquevin/pipdeptree) `[Python]` <a id="footnote-1-ref" href="#footnote-1"><sup>1</sup></a>  
-  A command line utility to display the dependency tree of packages
-  installed in a virtualenv using pip. To some extent, it's inspired
-  by the `lein deps :tree` command of Clojure's
-  [Leiningen](http://leiningen.org/).
+* [dupenukem](https://github.com/naiquevin/dupenukem) `[Rust]` A
+  command line file deduplication tool.
+
+* [rissois](https://github.com/naiquevin/rissois) `[Rust]` Utilities
+  for personal knowledge management.
+
+### Older, unmaintained projects
+
+* [pipdeptree](https://github.com/naiquevin/pipdeptree) `[Python]` I
+  am the original author of `pipdeptree` but not maintaining it
+  anymore <a id="footnote-1-ref"
+  href="#footnote-1"><sup>1</sup></a>. It's a command line utility to
+  display the dependency tree of packages installed in a virtualenv
+  using pip. To some extent, it's inspired by the `lein deps :tree`
+  command of Clojure's [Leiningen](http://leiningen.org/).
 
 * [sphinx-doc.el](https://github.com/naiquevin/sphinx-doc.el) `[Emacs
   Lisp]`
@@ -55,8 +65,8 @@ time. The code is open source and can be found on
   South (Django) like, but minimalist db migrations for PHP and MySQL
   applications. Even though the repo shows me as the sole contributer,
   it involves a lot of work by my then co-worker [Jimit
-  Modi](https://github.com/jimymodi) when we were working together on
-  Kodeplay's product Kodemall.
+  Modi](https://github.com/jimymodi) when we were working together at
+  Kodeplay.
 
 * [Ten-Chord-Workout](https://github.com/naiquevin/ten-chord-workout)
   `[Javascript]`

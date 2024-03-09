@@ -4,14 +4,14 @@ Status: published
 Hi, my name is Vineet Naik. I am software engineer by profession and a
 hobbyist guitar player.
 
-To me, developing software is significantly more than a profession and
+To me, writing code is significantly more than a profession and
 playing guitar is significantly more than a hobby! So this blog would
 mainly be about these two topics.
 
 I am currently on a
 [sabbatical](https://www.youtube.com/watch?v=MNuOmTQdFjA) (career
-break). Previously I have worked at Helpshift (2014-2023) and Kodeplay
-(2009-2014).
+break) since Oct 2023. Previously I have worked at Helpshift
+(2014-2023) and Kodeplay (2009-2014).
 
 I stay in Bengaluru, India.
 
