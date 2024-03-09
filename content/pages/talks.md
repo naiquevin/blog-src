@@ -6,11 +6,11 @@ Status: published
   Rootconf `[May 2018]`
 
 * [Generators &
-  Itertools](http://naiquevin.github.io/talks/generators-itertools) -
+  Itertools](/presentations/generators-itertools) -
   Mumpy (Mumbai Python Users group) `[June 2014]`
 
 * [Introduction to Emacs
-  Lisp](http://naiquevin.github.io/talks/elisp-intro) - Mumbai Emacs
+  Lisp](/presentations/elisp-intro) - Mumbai Emacs
   group `[December 2013]`
 
 * [Writing elegant command line scripts in

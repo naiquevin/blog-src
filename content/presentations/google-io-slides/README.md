@@ -12,25 +12,25 @@ I write the slides using markdown and then use the markdown generator
 script (packaged with the Google IO Slides code) to build the html
 presentation. Currently this setup doesn't support generating output
 html file directly under the dir of pelican instance so it needs to be
-generated separately and copied under the `content/talks/<talk-name>`
+generated separately and copied under the `content/presentations/<talk-name>`
 dir manually.
 
 Steps to copy files:
 
 * Copy files as follows,
 
-  - `cp <src>/presentation_output.html <pelican>/content/talks/<talkname>/index.html`
-  - `cp <src>/slide_config.js <pelican>/content/talks/<talkname>/slide_config.js`
-  - `cp <src>/scripts/md/slides.md <pelican>/content/talks/<talkname>/slides.md`
+  - `cp <src>/presentation_output.html <pelican>/content/presentations/<talkname>/index.html`
+  - `cp <src>/slide_config.js <pelican>/content/presentations/<talkname>/slide_config.js`
+  - `cp <src>/scripts/md/slides.md <pelican>/content/presentations/<talkname>/slides.md`
   - Copy any other dirs for static assets such as `images` or `theme`
     if you have added or edited CSS/SCSS.
 
-* Edit `<pelican>/content/talks/<talkname>/index.html` as follows,
+* Edit `<pelican>/content/presentations/<talkname>/index.html` as follows,
 
   - Prefix `href` attr of link tags for CSS stylesheets with
-    `/talks/google-io-slides/`.
+    `/presentations/google-io-slides/`.
   - Prefix `src` and `data-main` for the require.js script tag with
-    `/talks/google-io-slides/`.
+    `/presentations/google-io-slides/`.
   - Before the require.js script tag, add the line to manually include
     the slide_config.js `<script src="slide_config.js"></script>`.
 
