@@ -3,12 +3,12 @@ body { background: #fff; color: #222; font-family: 'Merriweather', serif; font-s
 a { color: #073642; }
 a:hover { color: #268bd2; }
 
-.container { width: 810px; margin: 0 auto; }
+.container { max-width: 810px; margin: 0 auto; }
 
 div.header { height: auto; overflow: hidden; }
-div.header h1 { width: 50%; float: left; margin-right: 1%; font-size: 29px; }
+div.header h1 { max-width: 300px; float: left; margin-right: 8px; font-size: 1.6em; }
 div.header h1 a { color: #859900; text-decoration: none; }
-div.header ul { list-style: none; width: 45%; float: right; padding-left: 0px; }
+div.header ul { list-style: none; max-width: 470px; float: right; padding-left: 0px; }
 div.header ul li { float: right; }
 div.header ul li a { padding: 8px; }
 
@@ -18,7 +18,7 @@ ul.articleList { list-style: none; padding: 0; }
 ul.articleList li { height: auto; overflow: hidden; border-bottom: 1px dashed #ddd; }
 ul.articleList li div.date { width: 24%; float: left; text-align: right; padding: 14px 1%; color: #839496; }
 ul.articleList li div.details { width: 72%; float: left; text-align: left; padding: 14px 1%; height: auto; }
-ul.articleList li h1 { font-size: 20px; padding: 0; margin: 0; }
+ul.articleList li h1 { font-size: 1.11em; padding: 0; margin: 0; }
 
 .article .postInfo { font-size: 0.9em; color: #839496; }
 .article h1.articleTitle { color: #073642; margin-bottom: 5px; }
@@ -39,7 +39,7 @@ dl dt { padding-top: 10px; }
 dl dt:not(:first-child) { border-top: 1px solid #ddd;  }
 dl dd { margin-bottom: 10px; }
 
-.footer { text-align: right; font-size: 14px; padding-bottom: 10px; line-height: 1.4em; color: #839496; }
+.footer { text-align: right; font-size: 0.8em; padding-bottom: 10px; line-height: 1.4em; color: #839496; }
 .footer li { list-style: none; }
 
 .clear { clear: both; }
@@ -50,9 +50,9 @@ dl dd { margin-bottom: 10px; }
 .genTitle { color: #073642; margin-bottom: 5px; }
 
 /** Overrides for Code highlight style */
-code { font-size: 14px; padding: 1px; }
+code { font-size: 0.9em; padding: 1px; }
 code:not(.highlight code) { color: #cb4b16; background: #f8f8f8; }
 .highlight { border-left: 5px solid #268bd2; }
-.highlight pre { font-size: 14px; padding: 10px 0px; font-family: Courier, Arial; border: 1px solid #fefefe; }
+.highlight pre { font-size: 0.9em; padding: 10px 0px; font-family: Courier, Arial; border: 1px solid #fefefe; }
 
 blockquote { margin-left: 0; padding-left: 20px; color: #333; font-style: italic; border-left: 5px solid #666; }
