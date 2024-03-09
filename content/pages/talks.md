@@ -13,7 +13,7 @@ Generators & Itertools `[June 2014]`
 Introduction to Emacs Lisp `[December 2013]`
 : Mumbai emacs users' group | [Slides](/presentations/elisp-intro)
 
-Writing elegant command line scripts in Python
+Writing elegant command line scripts in Python `[July 2013]`
 : Mumpy <a id="footnote-1-ref" href="#footnote-1"><sup>1</sup></a> | [Slides](/presentations/PyCLI-Mumpy.pdf)
 
 ---
