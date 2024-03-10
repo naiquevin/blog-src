@@ -45,5 +45,5 @@
      export AWS_SECRET_ACCESS_KEY=*********************
 
      # Run the sync command
-     aws s3 sync . s3://naiquevin-blog --exclude '.git/*'
+     aws s3 sync . s3://naiquevin-blog --exclude '.git/*' --delete
    #+end_src
