@@ -3,8 +3,8 @@ Status: published
 
 Music is a significantly important part of my life and more than just
 a hobby. I picked up the guitar in 2001 and somehow the hobby has
-stuck. During college, I played and performed with a few amateur bands
-Since then I have pretty much been a bedroom musician.
+stuck. During college, I played and performed with a few amateur
+bands. Since then I have pretty much been a bedroom musician.
 
 A few years ago, I got interested in home recording music. Here are
 some of my compositions/recordings uploaded on

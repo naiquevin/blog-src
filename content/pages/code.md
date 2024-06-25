@@ -8,11 +8,15 @@ my free time. Most of them are available on
 
 ### Currently active side projects
 
+* [tapestry](https://github.com/naiquevin/tapestry) `[Rust]` A CLI
+  tool/framework for writing (postgre)SQL queries and (pgTAP) tests
+  using Jinja templates.
+
+* [axy](https://github.com/naiquevin/axy) `[Emacs Lisp]` Emacs utility for
+  adhoc expansion of yasnippets.
+
 * [dupenukem](https://github.com/naiquevin/dupenukem) `[Rust]` A
   command line file deduplication tool.
-
-* [rissois](https://github.com/naiquevin/rissois) `[Rust]` Utilities
-  for personal knowledge management.
 
 ### Older, unmaintained projects
 
