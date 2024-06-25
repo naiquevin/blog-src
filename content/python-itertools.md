@@ -45,12 +45,12 @@ behaviour. Let's see an example to understand this.
 
 ```python
 
-    def is_even(x):
-        print 'is_even called for %d' % (x,)
-        return x % 2 == 0
-        
-    def even():
-        return filter(is_even, xrange(20))
+def is_even(x):
+    print 'is_even called for %d' % (x,)
+    return x % 2 == 0
+
+def even():
+    return filter(is_even, xrange(20))
 ```
 
 _**Edit**: Thanks to many comments, I replaced the redundant generator
@@ -64,28 +64,28 @@ such integers, we can use the slice operator.
 
 ```pycon
 
-    >>> even()[:4]
-    is_even called for 0
-    is_even called for 1
-    is_even called for 2
-    is_even called for 3
-    is_even called for 4
-    is_even called for 5
-    is_even called for 6
-    is_even called for 7
-    is_even called for 8
-    is_even called for 9
-    is_even called for 10
-    is_even called for 11
-    is_even called for 12
-    is_even called for 13
-    is_even called for 14
-    is_even called for 15
-    is_even called for 16
-    is_even called for 17
-    is_even called for 18
-    is_even called for 19
-    >>> [0, 2, 4, 6]
+>>> even()[:4]
+is_even called for 0
+is_even called for 1
+is_even called for 2
+is_even called for 3
+is_even called for 4
+is_even called for 5
+is_even called for 6
+is_even called for 7
+is_even called for 8
+is_even called for 9
+is_even called for 10
+is_even called for 11
+is_even called for 12
+is_even called for 13
+is_even called for 14
+is_even called for 15
+is_even called for 16
+is_even called for 17
+is_even called for 18
+is_even called for 19
+>>> [0, 2, 4, 6]
 ```
 
 While the result that we obtained is correct, our code is doing a lot
@@ -99,8 +99,8 @@ we get a list from which we slice out the first 4 items.
 
 ```pycon
 
-    >>> type(even())
-    <type 'list'>
+>>> type(even())
+<type 'list'>
 ```
 
 How can we do better? The idea is, we need a way to delay the
@@ -111,17 +111,17 @@ them. Lets define another function ``lazy_even``,
 
 ```python
 
-    import itertools
-    
-    def lazy_even():
-        return itertools.ifilter(is_even, xrange(20))
+import itertools
+
+def lazy_even():
+    return itertools.ifilter(is_even, xrange(20))
 ```
 
 ```pycon
    
-    >>> nums = lazy_even()
-    >>> type(nums)
-    <type 'itertools.ifilter'>
+>>> nums = lazy_even()
+>>> type(nums)
+<type 'itertools.ifilter'>
 ```
 
 Ok, this gives us a lazy object. But the problem now is, we still need
@@ -131,23 +131,23 @@ the iterator, a start index and a stop index.
 
 ```pycon
    
-    >>> first_four = itertools.islice(nums, 0, 4)
-    >>> type(first_four)
-    <type 'itertools.islice'>
-    for i in first_four:
-    ...     print i
-    ... 
-    is_even called for 0
-    0
-    is_even called for 1
-    is_even called for 2
-    2
-    is_even called for 3
-    is_even called for 4
-    4
-    is_even called for 5
-    is_even called for 6
-    6
+>>> first_four = itertools.islice(nums, 0, 4)
+>>> type(first_four)
+<type 'itertools.islice'>
+for i in first_four:
+...     print i
+...
+is_even called for 0
+0
+is_even called for 1
+is_even called for 2
+2
+is_even called for 3
+is_even called for 4
+4
+is_even called for 5
+is_even called for 6
+6
 ```
 
 As you can see, now ``is_even`` is called only while it's required.
@@ -169,15 +169,15 @@ comes with a ``count`` function so we don't need to write our own.
 
 ```pycon
 
-    >>> import math
-    >>> from itertools import count, islice, ifilter
-    
-    >>> def is_pow_two(x):
-    ...     ln = math.log(x, 2)
-    ...     return math.floor(ln) == ln
-    
-    >>> list(islice(ifilter(is_pow_two, count(1000)), 0, 3))
-    [1024, 2048, 4096]
+>>> import math
+>>> from itertools import count, islice, ifilter
+
+>>> def is_pow_two(x):
+...     ln = math.log(x, 2)
+...     return math.floor(ln) == ln
+
+>>> list(islice(ifilter(is_pow_two, count(1000)), 0, 3))
+[1024, 2048, 4096]
 ```
 
 ``is_pow_two`` will be called no more than 4096 times = win!
@@ -200,13 +200,13 @@ and "odd" groups.
 
 ```python
 
-    from itertools import groupby
-    
-    def groupby_even_odd(items):
-        f = lambda x: 'even' if x % 2 == 0 else 'odd'
-        gb = groupby(items, f)
-        for k, items in gb:
-            print '%s: %s' % (k, ','.join(map(str, items)))
+from itertools import groupby
+
+def groupby_even_odd(items):
+    f = lambda x: 'even' if x % 2 == 0 else 'odd'
+    gb = groupby(items, f)
+    for k, items in gb:
+        print '%s: %s' % (k, ','.join(map(str, items)))
 ```
 
 ```pycon
@@ -225,18 +225,18 @@ can simply provide it a sorted iterable.
 
 ```python
 
-    def groupby_even_odd(items):
-        f = lambda x: 'even' if x % 2 == 0 else 'odd'
-        gb = groupby(sorted(items, key=f), f)
-        for k, items in gb:
-            print '%s: %s' % (k, ','.join(map(str, items)))
+def groupby_even_odd(items):
+    f = lambda x: 'even' if x % 2 == 0 else 'odd'
+    gb = groupby(sorted(items, key=f), f)
+    for k, items in gb:
+        print '%s: %s' % (k, ','.join(map(str, items)))
 ```
 
 ```pycon
 
-    >>> groupby_even_odd([1, 3, 4, 5, 6, 8, 9, 11])
-    even: 4,6,8
-    odd: 1,3,5,9,11
+>>> groupby_even_odd([1, 3, 4, 5, 6, 8, 9, 11])
+even: 4,6,8
+odd: 1,3,5,9,11
 ```
 
 And now the grouping happens the way we want it. An important thing to
@@ -252,13 +252,13 @@ needs to be flattened. For eg. given a list of directories, we want to
 get the names of all their first level children as a list.
 
 ```pycon
-    
-    >>> import os
-    >>> dirs = ['project1/', 'project2/', 'project3/']
-    >>> map(os.listdir, dirs)
-    >>> [['settings.py', 'wsgi.py', 'templates'],
-         ['app.py', 'templates'], 
-         ['index.html, 'config.json']]
+
+>>> import os
+>>> dirs = ['project1/', 'project2/', 'project3/']
+>>> map(os.listdir, dirs)
+>>> [['settings.py', 'wsgi.py', 'templates'],
+     ['app.py', 'templates'],
+     ['index.html, 'config.json']]
 ```
 
 This gives us a list of lists and we still need to flatten it. There
@@ -278,19 +278,19 @@ of items and flatten the resulting list of lists.
 
 ```python
 
-    from itertools import chain, imap
+from itertools import chain, imap
 
-    def flatmap(f, items):
-        return chain.from_iterable(imap(f, items))
+def flatmap(f, items):
+    return chain.from_iterable(imap(f, items))
 ```
 
 And now we replace the call to ``map`` with ``flatmap``,
 
 ```pycon
 
-    >>> list(flatmap(os.listdir, dirs))
-    >>> ['settings.py', 'wsgi.py', 'templates', 'app.py', 
-         'templates', 'index.html, 'config.json']
+>>> list(flatmap(os.listdir, dirs))
+>>> ['settings.py', 'wsgi.py', 'templates', 'app.py',
+     'templates', 'index.html, 'config.json']
 ```
 
 ### Itertools for everything (for fun and learning!)
@@ -303,16 +303,16 @@ factors of a list of integers.
 
 ```python
 
-    from itertools import ifilter, takewhile, count
+from itertools import ifilter, takewhile, count
 
-    def factors(n):
-        return ifilter(lambda x: n % x == 0, takewhile(lambda y: y <= n, count(1)))        
-```        
+def factors(n):
+    return ifilter(lambda x: n % x == 0, takewhile(lambda y: y <= n, count(1)))
+```
 
 ```pycon
 
-    >>> set(flatmap(factors, [9, 15, 16, 23, 76, 101]))
-    set([1, 2, 3, 4, 5, 38, 8, 9, 76, 15, 16, 19, 23, 101])
+>>> set(flatmap(factors, [9, 15, 16, 23, 76, 101]))
+set([1, 2, 3, 4, 5, 38, 8, 9, 76, 15, 16, 19, 23, 101])
 ```
 
 That's all for now. If you reached this far, thanks for reading and

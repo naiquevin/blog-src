@@ -19,14 +19,14 @@ check boxes was driven by the database and it was not possible to have
 a common className for them.
 
 ```javascript
-    function validateCheckbox() {
-        var n = $("input:checked").length;    
-        if(n == 0) {
-            return false;
-        } else {
-            return true;
-        }
+function validateCheckbox() {
+    var n = $("input:checked").length;
+    if(n == 0) {
+        return false;
+    } else {
+        return true;
     }
+}
 ```
 
 ``input:checked`` matches all the check boxes which are checked.

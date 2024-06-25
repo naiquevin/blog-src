@@ -42,13 +42,13 @@ response. Say for example, I need to post a form by making an ajax
 request.
 
 ```javascript
-    $("#submit").click(function (resp) {
-        if(1 == resp.status) {
-            alert('done!');                 
-        } else {          
-            alert('failed!');
-        }
-    });
+$("#submit").click(function (resp) {
+    if(1 == resp.status) {
+        alert('done!');
+    } else {
+        alert('failed!');
+    }
+});
 ```
 
 Once this thing passes, my only concern is that the server response
@@ -66,22 +66,22 @@ with a lot of test cases while it is still in the dummy action. To
 relate this example with the previous one,
 
 ```php
-    <?php
-    public function dummyAction () {
-        $post = array(
-            'name' => 'vineet', 
-            'password' => 'helloworld'
-        );    
-        $resp = array();    
-        if (doSomething($post)) {
-            $resp['status'] = 1;
-        } else {
-            $resp['status'] = 0;
-        }    
-        echo Json::encode($resp);    
-        //stop zf from looking for a view for this action and show result in browser for now    
-        exit; 
+<?php
+public function dummyAction () {
+    $post = array(
+        'name' => 'vineet',
+        'password' => 'helloworld'
+    );
+    $resp = array();
+    if (doSomething($post)) {
+        $resp['status'] = 1;
+    } else {
+        $resp['status'] = 0;
     }
+    echo Json::encode($resp);
+    //stop zf from looking for a view for this action and show result in browser for now
+    exit;
+}
 ```
 
 So now just navigate to this dummy action and see if its working. Then
@@ -102,34 +102,34 @@ writing duplicate code for setting global variables, I created a
 simple class that acts as a Helper to the TestController
 
 ```php
-    <?php
-    class MyTestHelper {
-        public function mergePost ($data) {
-            $_POST = array_merge($_POST,$data);
-        }
-        public function mergeGet ($data) {
-    
-        }
+<?php
+class MyTestHelper {
+    public function mergePost ($data) {
+        $_POST = array_merge($_POST,$data);
     }
+    public function mergeGet ($data) {
+
+    }
+}
 ```
 
 Then create our TestController that will hold all the tests.
 
 ```php
-    <?php    
-    class TestController extends Zend_Controller_Action {
-        public function preDispatch () {
-            $this->testHelper = new MyTestHelper();
-        }
-        public function testcontactformAction () {
-            $this->testHelper->mergePost(array(
-                'email'=>'fake@email.com',
-                'comment'=>'test comment'
-            ));
-            //forward it to where the actual action happens (pun intended!)
-            $this->_forward('contactform','index');
-        }
-    }    
+<?php
+class TestController extends Zend_Controller_Action {
+    public function preDispatch () {
+        $this->testHelper = new MyTestHelper();
+    }
+    public function testcontactformAction () {
+        $this->testHelper->mergePost(array(
+            'email'=>'fake@email.com',
+            'comment'=>'test comment'
+        ));
+        //forward it to where the actual action happens (pun intended!)
+        $this->_forward('contactform','index');
+    }
+}
 ```
 
 Whenever something needs to be tested, I just look up this controller
@@ -140,9 +140,9 @@ An important point to note is that error reporting must be turned on
 for this to work.
 
 ```php
-    <?php    
-    error_reporting(E_ALL | E_STRICT);
-    ini_set("display_errors","on");
+<?php
+error_reporting(E_ALL | E_STRICT);
+ini_set("display_errors","on");
 ```
 
 Although these methods have many limitations and are very raw as

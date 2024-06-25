@@ -54,26 +54,26 @@ different ways depending upon the element.
 **Selecting by id**
 
 ```html
-    <div id="myid"></div>
+<div id="myid"></div>
 ```
 
 ```javascript
-    
-    //select the first div by its id
-    $("#myid") //jquery
-    document.getElementById("myid"); //plain js
 
-    // note that plain js selector properties and methods cannot be
-    // applied in the first case as the plain js way returns an object
-    // while jquery returns an array of js objects. in this case the
-    // length will be 1 as we are getting it by id. To use it any way
-    $("#myid")[0].style;
+//select the first div by its id
+$("#myid") //jquery
+document.getElementById("myid"); //plain js
+
+// note that plain js selector properties and methods cannot be
+// applied in the first case as the plain js way returns an object
+// while jquery returns an array of js objects. in this case the
+// length will be 1 as we are getting it by id. To use it any way
+$("#myid")[0].style;
 ```
 
 **Accessing by Tag Name**
 
 ```javascript
-    document.getElementsByTagName("ul");
+document.getElementsByTagName("ul");
 ```
 
 Notice the getElement**s** This will return an array of size equal to
@@ -84,11 +84,11 @@ number of ul elements in the document
 In js all elements are referred to as nodes of the DOM tree.
 
 ```html
-    <div id="childtest">Hello world. Now check this <a href="">link</a></div>
+<div id="childtest">Hello world. Now check this <a href="">link</a></div>
 ```
 
 ```javascript
-    var arr = document.getElementById("childtest").childNodes;
+var arr = document.getElementById("childtest").childNodes;
 ```
 
 The output if logged in firebug console will show an array of all
@@ -105,7 +105,7 @@ that particular child and get the property 'nodeValue'. This is how
 the jquery ``.text`` method does the job.
 
 ```javascript
-    document.getElementById("childtest").childNodes[0].nodeValue;
+document.getElementById("childtest").childNodes[0].nodeValue;
 ```
 
 **Accessing the siblings**
@@ -114,8 +114,8 @@ Jquery lets us get all siblings of an element as an array. Javascript
 gives us only the next and the previous sibling Something like this
 
 ```javascript
-    document.getElementById("childtest").childNodes[0].nextSibling; 
-    // or  ...childNodes[1].previousSibling
+document.getElementById("childtest").childNodes[0].nextSibling;
+// or  ...childNodes[1].previousSibling
 ```
 
 So how to get all siblings of an element? Well, to do this, first we
@@ -126,7 +126,7 @@ can traverse to an elements parent and then get all its childNodes.
 As simple as it can get
 
 ```javascript
-    document.getElementById("childtest").childNodes[0].parentNode;
+document.getElementById("childtest").childNodes[0].parentNode;
 ```
 
 So, this was pretty much about selecting the elements. In the next

@@ -57,7 +57,7 @@ effort as compared to the github pages workflow. Instead of `git
 push`, I now need to run,
 
 ```bash
-    aws s3 sync . s3://$BUCKET
+aws s3 sync . s3://$BUCKET
 ```
 
 I also had to implement redirections from old urls to the new ones. I

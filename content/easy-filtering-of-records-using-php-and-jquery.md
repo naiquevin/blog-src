@@ -31,12 +31,12 @@ The above data can be actually fetched into a single associative array
 for ease of looping
 
 ```php
-    <?php
-    $products[] = array(
-        'product_id' => 1,
-        'name'=> 'ipod',
-        'in_categories' => array(2,3,5,6)
-    );
+<?php
+$products[] = array(
+    'product_id' => 1,
+    'name'=> 'ipod',
+    'in_categories' => array(2,3,5,6)
+);
 ```
 
 Then loop through the above array to show the products in a table and
@@ -44,16 +44,16 @@ add multiple classes to the tr that represents each product depending
 upon the categories under which the product falls.
 
 ```php
-    <table border="0" cellspacing="0" cellpadding="0">
-        <?php  foreach($products as $product){  ?>
-            <tr class="c_all <?php foreach($product['in_categories'] as $cat){ echo 'c_' . $cat . ' '; } ?>"> 
-            <!-- don't forget that space after each class -->
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        <?php } ?>
-    </table>
+<table border="0" cellspacing="0" cellpadding="0">
+    <?php  foreach($products as $product){  ?>
+        <tr class="c_all <?php foreach($product['in_categories'] as $cat){ echo 'c_' . $cat . ' '; } ?>"> 
+        <!-- don't forget that space after each class -->
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    <?php } ?>
+</table>
 ```
 
 Once this is done, filtering is just a matter of writing a javascript
@@ -61,20 +61,20 @@ function and calling it on the onChange event of the category drop
 down box.
 
 ```javascript
-    function filterProducts(byCat){
-        $("c_"+all).hide(); // first hide all records
-        $("c_"+byCat).show(); // show records of the category
-    }
-    //calling the function to show products under category 2
-    $("#filter").click(function(){
-        filterProducts(2);
-    });
-    // to show all the products back again
-    filterProducts('all');    
-    // if your application allows adding adding ,removing or moving
-    // products from one category to another using ajax    
-    $("#product_"+productId).addClass("c_"+catId);
-    $("#product_"+productId).removeClass("c_"+catId);
+function filterProducts(byCat){
+    $("c_"+all).hide(); // first hide all records
+    $("c_"+byCat).show(); // show records of the category
+}
+//calling the function to show products under category 2
+$("#filter").click(function(){
+    filterProducts(2);
+});
+// to show all the products back again
+filterProducts('all');    
+// if your application allows adding adding ,removing or moving
+// products from one category to another using ajax    
+$("#product_"+productId).addClass("c_"+catId);
+$("#product_"+productId).removeClass("c_"+catId);
 ```
 
 Advantages of the above method:

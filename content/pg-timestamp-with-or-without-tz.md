@@ -59,11 +59,11 @@ timestamp. I'm using the `now` function to do this. At the time of
 running the query, the local time here in India is 6:36PM
 
 ```sql
-    postgres=# select now();
-              now
-    -------------------------------
-     2023-11-28 13:06:48.961341+00
-    (1 row)
+postgres=# select now();
+      now
+-------------------------------
+ 2023-11-28 13:06:48.961341+00
+(1 row)
 ```
 
 As you can see, the result is displayed in UTC (notice the `+00`
@@ -75,13 +75,13 @@ It's possible to override the `timezone` setting per session so let's
 confirm the above by setting it to another time zone.
 
 ```sql
-    postgres=# set timezone = 'US/Pacific';
-    SET
-    postgres=# select now();
-              now
-    -------------------------------
-    2023-11-28 05:17:43.352201-08
-    (1 row)
+postgres=# set timezone = 'US/Pacific';
+SET
+postgres=# select now();
+      now
+-------------------------------
+2023-11-28 05:17:43.352201-08
+(1 row)
 ```
 
 And now the result is displayed as per 'US/Pacific' time.
@@ -98,8 +98,8 @@ Before proceeding further, I'll just reset the client time zone back
 to UTC.
 
 ```sql
-    postgres=# set timezone = 'UTC';
-    SET
+postgres=# set timezone = 'UTC';
+SET
 ```
 
 For the the next set of examples, we'll create a test table with 3
@@ -113,23 +113,23 @@ And then we'll insert a row with the current timestamp in both the
 timestamp columns.
 
 ```sql
-    CREATE TABLE test (
-        id int,
-        tsz timestamp with time zone,
-        ts timestamp without time zone
-    );
+CREATE TABLE test (
+id int,
+tsz timestamp with time zone,
+ts timestamp without time zone
+);
 
-    INSERT INTO test VALUES (1, now(), now());
+INSERT INTO test VALUES (1, now(), now());
 ```
 
 And now let's run a query.
 
 ```sql
-    postgres=# select * from test;
-     id |              tsz              |            ts
-    ----+-------------------------------+----------------------------
-     1  | 2023-11-28 13:28:35.944451+00 | 2023-11-28 13:28:35.944451
-    (1 row)
+postgres=# select * from test;
+ id |          tsz              |            ts
+----+-------------------------------+----------------------------
+ 1  | 2023-11-28 13:28:35.944451+00 | 2023-11-28 13:28:35.944451
+(1 row)
 ```
 
 As expected, `tsz` has an extra time zone component in the output
@@ -143,14 +143,14 @@ in the table but this time I'll explicitly specify a timestamp along
 with a time zone.
 
 ```sql
-    postgres=# insert into test values (2, '2023-11-28 21:00+530', '2023-11-28 21:00+530');
-    INSERT 0 1
+postgres=# insert into test values (2, '2023-11-28 21:00+530', '2023-11-28 21:00+530');
+INSERT 0 1
 
-    postgres=# select * from test where id = 2;
-     id |           tsz          |         ts
-    ----+------------------------+---------------------
-      2 | 2023-11-28 15:30:00+00 | 2023-11-28 21:00:00
-    (1 row)
+postgres=# select * from test where id = 2;
+ id |       tsz          |         ts
+----+------------------------+---------------------
+  2 | 2023-11-28 15:30:00+00 | 2023-11-28 21:00:00
+(1 row)
 ```
 
 Note that the exact same value `2023-11-28 21:00+530` was inserted
@@ -177,17 +177,17 @@ client time zone. What if we do the conversion explicitly?
 
 
 ```sql
-    postgres=# SELECT
-    postgres-#     tsz AT TIME ZONE 'Asia/Kolkata' as tsz,
-    postgres-#     ts AT TIME ZONE 'Asia/Kolkata' as ts
-    postgres-# FROM
-    postgres-#     test
-    postgres-# WHERE
-    postgres-#     id = 2;
-             tsz         |           ts
-    ---------------------+------------------------
-     2023-11-28 21:00:00 | 2023-11-28 15:30:00+00
-    (1 row)
+postgres=# SELECT
+postgres-# tsz AT TIME ZONE 'Asia/Kolkata' as tsz,
+postgres-# ts AT TIME ZONE 'Asia/Kolkata' as ts
+postgres-# FROM
+postgres-# test
+postgres-# WHERE
+postgres-# id = 2;
+     tsz         |           ts
+---------------------+------------------------
+ 2023-11-28 21:00:00 | 2023-11-28 15:30:00+00
+(1 row)
 ```
 
 Wow! What's going on here?
@@ -204,17 +204,17 @@ Before drawing any conclusions, let's try converting to some other
 time zone, say 'US/Pacific':
 
 ```sql
-    postgres=# SELECT
-    postgres-#     tsz at time zone 'US/Pacific' as tsz,
-    postgres-#     ts at time zone 'US/Pacific' as ts
-    postgres-# FROM
-    postgres-#     test
-    postgres-# WHERE
-    postgres-#     id = 2;
-             tsz         |           ts
-    ---------------------+------------------------
-     2023-11-28 07:30:00 | 2023-11-29 05:00:00+00
-    (1 row)
+postgres=# SELECT
+postgres-# tsz at time zone 'US/Pacific' as tsz,
+postgres-# ts at time zone 'US/Pacific' as ts
+postgres-# FROM
+postgres-# test
+postgres-# WHERE
+postgres-# id = 2;
+     tsz         |           ts
+---------------------+------------------------
+ 2023-11-28 07:30:00 | 2023-11-29 05:00:00+00
+(1 row)
 ```
 
 The above observations still check out. This is what's going on:
@@ -242,17 +242,17 @@ queries.
 Let's see what happens if we apply the `AT TIME ZONE` operator twice.
 
 ```sql
-    postgres=# SELECT
-    postgres-#     tsz AS tsz_orig,
-    postgres-#     tsz AT TIME ZONE 'US/Pacific' AS tsz_once,
-    postgres-#     (tsz AT TIME ZONE 'US/Pacific') AT TIME ZONE 'US/Pacific' AS tsz_twice
-    postgres-# FROM
-    postgres-#     test
-    postgres-# WHERE
-    postgres-#     id = 2;
-            tsz_orig        |      tsz_once       |        tsz_twice
-    ------------------------+---------------------+------------------------
-     2023-11-28 15:30:00+00 | 2023-11-28 07:30:00 | 2023-11-28 15:30:00+00
+postgres=# SELECT
+postgres-# tsz AS tsz_orig,
+postgres-# tsz AT TIME ZONE 'US/Pacific' AS tsz_once,
+postgres-# (tsz AT TIME ZONE 'US/Pacific') AT TIME ZONE 'US/Pacific' AS tsz_twice
+postgres-# FROM
+postgres-# test
+postgres-# WHERE
+postgres-# id = 2;
+    tsz_orig        |      tsz_once       |        tsz_twice
+------------------------+---------------------+------------------------
+ 2023-11-28 15:30:00+00 | 2023-11-28 07:30:00 | 2023-11-28 15:30:00+00
 ```
 
 As you can see, `tsz_twice` is exactly equal to `tsz_orig`. This means
@@ -341,22 +341,22 @@ simplicity <a id="footnote-2-ref" href="#footnote-2"><sup>2</sup></a>)
 considering the local time zone of 'Asia/Singapore'.
 
 ```sql
-    CREATE TABLE reminders (
-        user_id int,
-        topic text,
-        remind_at timestamp without time zone
-    );
+CREATE TABLE reminders (
+user_id int,
+topic text,
+remind_at timestamp without time zone
+);
 
-    INSERT INTO reminders
-        VALUES (1, 'pre-book cab', '2023-12-05 08:20:00');
+INSERT INTO reminders
+VALUES (1, 'pre-book cab', '2023-12-05 08:20:00');
 
-    SELECT
-        topic
-    FROM
-        reminders
-    WHERE
-        user_id = 1
-        AND now() >= remind_at AT TIME ZONE 'Asia/Singapore';
+SELECT
+topic
+FROM
+reminders
+WHERE
+user_id = 1
+AND now() >= remind_at AT TIME ZONE 'Asia/Singapore';
 ```
 
 In the where clause above, both the L.H.S and R.H.S will be

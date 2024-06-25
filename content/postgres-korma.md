@@ -23,23 +23,23 @@ simplicity, I have skipped primary keys, foreign key relations and
 other irrelevant details.
 
 ```sql
-    CREATE TYPE impact_types AS ENUM ('positive', 'negative');
-    CREATE TABLE activities (
-        title varchar(140) NOT NULL,
-        impact impact_types
-    );
+CREATE TYPE impact_types AS ENUM ('positive', 'negative');
+CREATE TABLE activities (
+    title varchar(140) NOT NULL,
+    impact impact_types
+);
 ```
 
 Let's insert a row using the terminal client and then execute a query
 to get it. This works perfectly fine.
 
 ```sql
-    INSERT INTO activities VALUES ('some activity', 'positive');
-    SELECT * FROM activities WHERE impact = 'positive';
-         title     |  impact
-    ---------------+----------
-     some activity | positive
-    (1 row)
+INSERT INTO activities VALUES ('some activity', 'positive');
+SELECT * FROM activities WHERE impact = 'positive';
+     title     |  impact
+---------------+----------
+ some activity | positive
+(1 row)
 ```
 
 To do this in Clojure using korma, we first need to define a
@@ -47,29 +47,29 @@ connection (that I'll skip) and then an entity representing the
 `activities` table.
 
 ```clojure
-    (use 'korma.core)
-    (defentity activities)
+(use 'korma.core)
+(defentity activities)
 ```
 
 But now if we try to insert a row using korma by specifying the
 `impact` value as a string, it fails as follows,
 
 ```clojure
-    (insert activities (values {:title "another activity" :impact "negative"}))
+(insert activities (values {:title "another activity" :impact "negative"}))
 ```
 
 ```text
-    Failure to execute query with SQL:
-    INSERT INTO "activities" ("impact", "title") VALUES (?, ?)  ::  [negative another activity]
-    PSQLException:
-     Message: ERROR: column "impact" is of type impact_types but expression is of type character varying
-      Hint: You will need to rewrite or cast the expression.
-      Position: 54
-     SQLState: 42804
-     Error Code: 0
-    PSQLException ERROR: column "impact" is of type impact_types but expression is of type character varying
-      Hint: You will need to rewrite or cast the expression.
-      Position: 54  org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse (QueryExecutorImpl.java:2157)
+Failure to execute query with SQL:
+INSERT INTO "activities" ("impact", "title") VALUES (?, ?)  ::  [negative another activity]
+PSQLException:
+ Message: ERROR: column "impact" is of type impact_types but expression is of type character varying
+  Hint: You will need to rewrite or cast the expression.
+  Position: 54
+ SQLState: 42804
+ Error Code: 0
+PSQLException ERROR: column "impact" is of type impact_types but expression is of type character varying
+  Hint: You will need to rewrite or cast the expression.
+  Position: 54  org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse (QueryExecutorImpl.java:2157)
 ```
 
 Same thing happens when executing a query with `impact` as a string in
@@ -84,10 +84,10 @@ fact, we can find this by looking at the results of the select query
 closely.
 
 ```clojure
-    (select activities)
-    ;; [{:impact #<PGobject positive>, :title "some activity"}]
-    (class (:impact (first (select activities))))
-    ;; org.postgresql.util.PGobject
+(select activities)
+;; [{:impact #<PGobject positive>, :title "some activity"}]
+(class (:impact (first (select activities))))
+;; org.postgresql.util.PGobject
 ```
 
 As per the
@@ -96,21 +96,21 @@ it's used to describe any type that is unknown by JDBC
 standards. Let's write a helper function to do this conversion..
 
 ```clojure
-    (import '(org.postgresql.util PGobject))
+(import '(org.postgresql.util PGobject))
 
-    (defn str->pgobject
-      [type value]
-      (doto (PGobject.)
-        (.setType type)
-        (.setValue value)))
+(defn str->pgobject
+  [type value]
+  (doto (PGobject.)
+    (.setType type)
+    (.setValue value)))
 ```
 
 .. and try our earlier insert query again,
 
 ```clojure
-    (insert activities
-      (values {:title "another activity"
-               :impact (str->pgobject "impact_types" "negative")}))
+(insert activities
+  (values {:title "another activity"
+           :impact (str->pgobject "impact_types" "negative")}))
 ```
 
 And now it works!
@@ -119,8 +119,8 @@ From the docs, it's also quite trivial to convert a `pgobject` to a
 string at the time of post-processing the results.
 
 ```clojure
-    (.getValue (:impact (first (select activities))))
-    ;; "positive"
+(.getValue (:impact (first (select activities))))
+;; "positive"
 ```
 
 The only annoyance is that we will need to remember to do these
@@ -131,27 +131,27 @@ for applying common mutations to data. Read more about it in the
 [docs](http://sqlkorma.com/docs#entities).
 
 ```clojure
-    (defn transform-for-impact
-      [{impact :impact :as act}]
-      (if impact
-        (assoc act :impact (.getValue impact))
-        act))
+(defn transform-for-impact
+  [{impact :impact :as act}]
+  (if impact
+    (assoc act :impact (.getValue impact))
+    act))
 
-    (defn prepare-for-impact
-      [{impact :impact :as act}]
-      (if impact
-        (assoc act :impact (pgobject "impact_types" impact))
-        act))
+(defn prepare-for-impact
+  [{impact :impact :as act}]
+  (if impact
+    (assoc act :impact (pgobject "impact_types" impact))
+    act))
 
-    ;; modified entity definition
-    (defentity activities
-      (transform transform-for-impact)
-      (prepare prepare-for-impact))
+;; modified entity definition
+(defentity activities
+  (transform transform-for-impact)
+  (prepare prepare-for-impact))
 ```
 
 ```clojure
-    (select activities)
-    ;; ({:impact "positive", :title "some activity"} {:impact "negative", :title "another activity"})
+(select activities)
+;; ({:impact "positive", :title "some activity"} {:impact "negative", :title "another activity"})
 ```
 
 Note however that we would still need to explicitly pass a `pgobject`

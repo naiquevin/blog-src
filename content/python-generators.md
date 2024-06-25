@@ -26,15 +26,15 @@ require us to learn much additional syntax. Here is a simple
 generator.
 
 ```python
-    def gen():
-        for i in range(1, 6):
-            yield i
+def gen():
+    for i in range(1, 6):
+        yield i
 ```
 
 ```pycon            
-    >>> g = gen()
-    >>> type(g)
-    <type 'generator'>
+>>> g = gen()
+>>> type(g)
+<type 'generator'>
 ```
 
 `g` is a generator here. What's happening is that the function `gen`
@@ -49,14 +49,14 @@ The call to the function will not execute any code inside it yet. For
 that we need to call the generator object's `next` method,
 
 ```pycon
-    >>> g.next()
-    1
-    >>> print 'Hello'
-    Hello
-    >>> g.next()
-    2
-    >>> g.next()
-    3
+>>> g.next()
+1
+>>> print 'Hello'
+Hello
+>>> g.next()
+2
+>>> g.next()
+3
 ```
 
 At the time of the first call to the `next`, the yield statement will
@@ -78,8 +78,8 @@ calling the next method manually. ``for`` will implicitly handle
 ``StopIteration`` and when that happens, will end the loop.
 
 ```python
-    for i in g:
-        print i
+for i in g:
+    print i
 ```
 
 In fact there also exist list comprehensions equivalent for generators
@@ -89,14 +89,14 @@ square ``[]``. The difference is that it will give us an iterator (a
 generator object) instead of an iterable (a list in memory).
 
 ```pycon
-    >>> squares = [i*i for i in range(1, 11)] # list    
-    >>> type(squares)
-    <type 'list'>
-    >>> gen_squares = (i*i for i in range(1, 11)) # generator object
-    >>> type(gen_squares)
-    <type 'generator'>
-    >>> iter(gen_squares) is gen_squares
-    True    
+>>> squares = [i*i for i in range(1, 11)] # list
+>>> type(squares)
+<type 'list'>
+>>> gen_squares = (i*i for i in range(1, 11)) # generator object
+>>> type(gen_squares)
+<type 'generator'>
+>>> iter(gen_squares) is gen_squares
+True
 ```
 
 
@@ -111,21 +111,21 @@ upfront. As a practical example, let's define a function to give us
 incremental values infinitely.
 
 ```python
-    def infinitely_incr(start=0):
-        n = start
-        while True:
-            n += 1
-            yield n
+def infinitely_incr(start=0):
+    n = start
+    while True:
+        n += 1
+        yield n
 ```
 
 ```pycon            
-    >>> iinf = infinitely_incr()
-    >>> iinf.next()
-    1
-    >>> iinf.next()
-    2
-    >>> iinf.next()
-    3
+>>> iinf = infinitely_incr()
+>>> iinf.next()
+1
+>>> iinf.next()
+2
+>>> iinf.next()
+3
 ```
 
 We can call ``iinf.next()`` as many times as we want to get an
@@ -137,14 +137,14 @@ and need to process each of it's lines by calling one or many
 functions on them,
 
 ```python
-    def gen1():
-        with open('hugedata.txt') as f:
-            for line in f:
-                yield line    
-    g = gen1()    
-    g2 = (process(x) for x in g)
-    for x in g2:
-        print x
+def gen1():
+    with open('hugedata.txt') as f:
+        for line in f:
+            yield line
+g = gen1()
+g2 = (process(x) for x in g)
+for x in g2:
+    print x
 ```
 
 In python, a file object can be iterated over to obtain one line at a
@@ -163,13 +163,13 @@ not a good choice if the sequence of items need to be reused in which
 case a normal list would be suitable.
 
 ```pycon
-    >>> g = gen()
-    >>> squares = (i*i for i in g)
-    >>> list(squares)
-    [1, 4, 9, 16, 25]
-    >>> cubes = (i*i*i for i in g)
-    >>> list(cubes)
-    []
+>>> g = gen()
+>>> squares = (i*i for i in g)
+>>> list(squares)
+[1, 4, 9, 16, 25]
+>>> cubes = (i*i*i for i in g)
+>>> list(cubes)
+[]
 ```
 
 But if you have a series of functions, that need to be executed one
@@ -190,30 +190,30 @@ assume that our hugedata.txt is actually a tiny file of just 5 lines
 containing the first 5 positive integers :-)
 
 ```python
-    def square(x):
-        print 'Square of %d ->' % x,
-        return x*x        
-    def digit_sum(x):
-        print 'Digit Sum of %d ->' % x,
-        return sum(map(int, str(x)))
-    numbers = gen()
-    squares = [square(n) for n in numbers]
-    dsums = [digit_sum(n) for n in squares]
-    for n in dsums:
-        print n
+def square(x):
+    print 'Square of %d ->' % x,
+    return x*x
+def digit_sum(x):
+    print 'Digit Sum of %d ->' % x,
+    return sum(map(int, str(x)))
+numbers = gen()
+squares = [square(n) for n in numbers]
+dsums = [digit_sum(n) for n in squares]
+for n in dsums:
+    print n
 ```
 
 Running the above snippet of code will produce an output as follows,
 
 ```
-    Square of 1 -> Square of 2 -> Square of 3 -> Square of 4 -> Square
-    of 5 -> Digit Sum of 1 -> Digit Sum of 4 -> Digit Sum of 9 -> Digit
-    Sum of 16 -> Digit Sum of 25 -> 
-    1
-    4
-    9
-    7
-    7
+Square of 1 -> Square of 2 -> Square of 3 -> Square of 4 -> Square
+of 5 -> Digit Sum of 1 -> Digit Sum of 4 -> Digit Sum of 9 -> Digit
+Sum of 16 -> Digit Sum of 25 ->
+1
+4
+9
+7
+7
 ```
 
 First all squares will be calculated, then their digit sums and then
@@ -222,21 +222,21 @@ the results will be printed one by one.
 Now with generator expressions just see what we get,
 
 ```
-    numbers = gen1()
-    squares = (square(n) for n in numbers)
-    dsums = (digit_sum(n) for n in squares)
-    for n in dsums:
-        print n
+numbers = gen1()
+squares = (square(n) for n in numbers)
+dsums = (digit_sum(n) for n in squares)
+for n in dsums:
+    print n
 ```
 
 Output:
 
 ```
-    Square of 1 ->  Digit Sum of 1 ->  1
-    Square of 2 ->  Digit Sum of 4 ->  4
-    Square of 3 ->  Digit Sum of 9 ->  9
-    Square of 4 ->  Digit Sum of 16 ->  7
-    Square of 5 ->  Digit Sum of 25 ->  7
+Square of 1 ->  Digit Sum of 1 ->  1
+Square of 2 ->  Digit Sum of 4 ->  4
+Square of 3 ->  Digit Sum of 9 ->  9
+Square of 4 ->  Digit Sum of 16 ->  7
+Square of 5 ->  Digit Sum of 25 ->  7
 ```
 
 Every item is processed by each function sequencially similar to how
@@ -279,16 +279,16 @@ makes it `axy`. We need to do this with multiple alphabets and we
 choose to use a generator object to yield each alphabet.
 
 ```python
-    def add_suffix(s, suffix):
-        return '%s%s' % (s, suffix)        
-    def gen():
-        for i in ['a', 'b', 'c', 'd']:
-            yield i            
-    ns = gen()
-    suffixes = ['x', 'y']
-    for s in suffixes:
-        ns = (add_suffix(i, s) for i in ns)
-    print list(ns)
+def add_suffix(s, suffix):
+    return '%s%s' % (s, suffix)
+def gen():
+    for i in ['a', 'b', 'c', 'd']:
+        yield i
+ns = gen()
+suffixes = ['x', 'y']
+for s in suffixes:
+    ns = (add_suffix(i, s) for i in ns)
+print list(ns)
 ```
 
 What do you think will be output of the above program? If your mind
@@ -306,16 +306,16 @@ To fix this, we just define another function wrapping over the call to
 the `add_suffix` function that will return a generator object
 
 ```python
-    def gen1(s, sfx):
-        for x in s:
-            yield add_suffix(x, sfx)            
-    for s in suffixes:
-        ns = gen1(ns, s)
+def gen1(s, sfx):
+    for x in s:
+        yield add_suffix(x, sfx)
+for s in suffixes:
+    ns = gen1(ns, s)
 ```
 
 ```pycon
-    >>> list(ns)
-    ['axy', 'bxy', 'cxy', 'dxy']
+>>> list(ns)
+['axy', 'bxy', 'cxy', 'dxy']
 ```
 
 

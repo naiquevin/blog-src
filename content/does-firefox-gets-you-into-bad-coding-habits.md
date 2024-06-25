@@ -30,9 +30,9 @@ the the hidden field by using one of [jquery's](http://jquery.com/)
 like,
 
 ```javascript
-    $("#buttonInsideTD").click(function(){
-        $(this).parent().parent().siblings().filter(':input').val();
-    });
+$("#buttonInsideTD").click(function(){
+    $(this).parent().parent().siblings().filter(':input').val();
+});
 ```
 
 Please correct me if I am wrong, but logically its not valid
@@ -58,7 +58,7 @@ for another blog post)
 3) Firefox doesnt have any problem with the following mark up
 
 ```html
-    <a href=""><li></li></a>
+<a href=""><li></li></a>
 ```
 
 But again, its wrong as per the standards.

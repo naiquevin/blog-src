@@ -15,22 +15,22 @@ Status: published
 1. Dont use a:link ie. instead of
 
 ```css
-    .menu a:link {...}
+.menu a:link {...}
 ```
 
 just use,
 
 ```
-    .menu a {...}
+.menu a {...}
 ```
 
 And the other way is declare the colors for all the states of the link
 
 ```
-    .menu a:link {...}
-    .menu a:visited {...}
-    .menu a:hover {...}
-    .menu a:active {...}
+.menu a:link {...}
+.menu a:visited {...}
+.menu a:hover {...}
+.menu a:active {...}
 ```
 
 Remember the order. Its very important .. (Mnemonic - LoVe HAte)

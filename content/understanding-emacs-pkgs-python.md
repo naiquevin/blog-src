@@ -119,7 +119,7 @@ backends, will be invoked by `company-mode` at the right time and
 place.
 
 ```elisp
-    (add-to-list 'company-backends 'my-company-backend)
+(add-to-list 'company-backends 'my-company-backend)
 ```
 
 Most importantly, company mode is actively maintained, has good
@@ -186,7 +186,7 @@ it's possible to opt out of these. For e.g. I prefer `flycheck` to
 `flymake`, so I can opt out of `flymake` as follows,
 
 ```elisp
-    (add-to-list 'eglot-stay-out-of 'flymake)
+(add-to-list 'eglot-stay-out-of 'flymake)
 ```
 
 ### virtualenvwrapper

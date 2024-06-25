@@ -28,33 +28,33 @@ out. Here is the code and a
 JAVASCRIPT
 
 ```javascript
-    var leftCount = 1;
-    var rightCount = 1;
-    var itemCount = 0;
-    var stripCount= 5;
-    var itemWid = 100;
-    var itemPad = 10;
-    var lastScr = itemWid + itemPad;
-    $(function(){
-        $('.item').each(function(){
-            itemCount++;
-        });
+var leftCount = 1;
+var rightCount = 1;
+var itemCount = 0;
+var stripCount= 5;
+var itemWid = 100;
+var itemPad = 10;
+var lastScr = itemWid + itemPad;
+$(function(){
+    $('.item').each(function(){
+        itemCount++;
     });
-    function moveRight() {
-        if(rightCount <= (itemCount - stripCount) && rightCount <= 0) {
-            $('#switcher').animate({left:120 * rightCount}, 'slow');        
-            rightCount++;
-            leftCount--;
-        }
+});
+function moveRight() {
+    if(rightCount <= (itemCount - stripCount) && rightCount <= 0) {
+        $('#switcher').animate({left:120 * rightCount}, 'slow');
+        rightCount++;
+        leftCount--;
     }
+}
 
-    function moveLeft() {
-        if(leftCount <= (itemCount - stripCount)) {
-            $('#switcher').animate({left:-120*leftCount}, 'slow');
-            leftCount++;
-            rightCount--;
-        }
+function moveLeft() {
+    if(leftCount <= (itemCount - stripCount)) {
+        $('#switcher').animate({left:-120*leftCount}, 'slow');
+        leftCount++;
+        rightCount--;
     }
+}
 ```
 
 ``moveLeft`` and ``moveRight`` are the functions that do the trick.
@@ -62,67 +62,67 @@ JAVASCRIPT
 HTML
 
 ```html
-    <body>
-        <div id="container">
-            <div id="switcher">
-                <div class="item"></div>
-    	    <div class="item"></div>
-    	    <div class="item"></div>
-    	    <div class="item"></div>
-    	    <div class="item"></div>
-    	    <div class="item"></div>
-    	    <div class="item"></div>
-    	    <div class="item"></div>
-    	    <div class="item"></div>
-    	    <div class="item"></div>
-            </div>
+<body>
+    <div id="container">
+        <div id="switcher">
+            <div class="item"></div>
+	    <div class="item"></div>
+	    <div class="item"></div>
+	    <div class="item"></div>
+	    <div class="item"></div>
+	    <div class="item"></div>
+	    <div class="item"></div>
+	    <div class="item"></div>
+	    <div class="item"></div>
+	    <div class="item"></div>
         </div>
-        <div id="button">
-            <a onclick="moveRight();">&laquo;Prev</a>
-            &nbsp;
-            <a onclick="moveLeft();">Next&raquo;</a>
-        </div>
-        <div id="dummy" style="display:none;"></div> 
-    </body>
+    </div>
+    <div id="button">
+        <a onclick="moveRight();">&laquo;Prev</a>
+        &nbsp;
+        <a onclick="moveLeft();">Next&raquo;</a>
+    </div>
+    <div id="dummy" style="display:none;"></div> 
+</body>
 ```
 
 Finally, CSS
 
 ```css
-    body {
-        margin:0 auto;
-        padding:0;
-    }
-    #container {
-        margin:50px auto;
-        width:590px;
-        overflow:hidden;
-        border:1px solid black;
-        height:145px;
-        -moz-border-radius:10px;
-    }
-    #switcher {
-        position:relative;
-        width:20000em;
-        height:120px;
-        padding:20px 10px;
-        overflow:hidden;
-        padding-left:10px;
-    }
-    .item {
-        position:relative;
-        width:100px;
-        height:100px;
-        float:left;
-        margin-right:10px;
-        border:1px solid black;
-        background-color:#fad144;
-    }
-    #button {
-        clear:both;
-        margin:30px 340px;
-        cursor:pointer;
-    }
+body {
+    margin:0 auto;
+    padding:0;
+}
+#container {
+    margin:50px auto;
+    width:590px;
+    overflow:hidden;
+    border:1px solid black;
+    height:145px;
+    -moz-border-radius:10px;
+}
+#switcher {
+    position:relative;
+    width:20000em;
+    height:120px;
+    padding:20px 10px;
+    overflow:hidden;
+    padding-left:10px;
+}
+.item {
+    position:relative;
+    width:100px;
+    height:100px;
+    float:left;
+    margin-right:10px;
+    border:1px solid black;
+    background-color:#fad144;
+}
+#button {
+    clear:both;
+    margin:30px 340px;
+    cursor:pointer;
+}
 ```
 
 There are two important things to be noted in the CSS:

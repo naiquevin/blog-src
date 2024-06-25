@@ -24,7 +24,7 @@ You can download the script from
 [here](https://raw.github.com/naiquevin/toolbox/master/histit.py)
 
 ```bash
-    $ wget https://raw.github.com/naiquevin/toolbox/master/histit.py
+$ wget https://raw.github.com/naiquevin/toolbox/master/histit.py
 ```
 
 `hisit.py` depends upon [numpy](http://www.numpy.org/) and matplotlib
@@ -36,16 +36,16 @@ random normal distribution into a text file. The `numpy.random.normal`
 function can be used for this.
 
 ```python
-    In [1]: import numpy as np
-    In [2]: with open('data.txt', 'w') as f:
-       ...:     f.write('\n'.join(str(float(x)) for x in np.random.normal(0, 0.1, 1000)))
-       ...:
+In [1]: import numpy as np
+In [2]: with open('data.txt', 'w') as f:
+   ...:     f.write('\n'.join(str(float(x)) for x in np.random.normal(0, 0.1, 1000)))
+   ...:
 ```
 
 Now we can use `histit.py` to plot the histogram as follows:
 
 ```bash
-    $ python histit.py "Test histogram" "Test values" -d data.txt -a show -t float -b 100
+$ python histit.py "Test histogram" "Test values" -d data.txt -a show -t float -b 100
 ```
 
 If all goes well, a window <a id="footnote-3-ref"
@@ -71,7 +71,7 @@ on the standard input stream in which case, the `-d` option must be
 skipped.
 
 ```bash
-    $ cat data.txt | python histit.py "Test histogram" "Test values" -a show -t float -b 100
+$ cat data.txt | python histit.py "Test histogram" "Test values" -a show -t float -b 100
 ```
 
 I have been using this on a regular basis for some time but I am not

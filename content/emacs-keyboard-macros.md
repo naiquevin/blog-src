@@ -31,16 +31,16 @@ expression is written a number of times to get a particular request
 param and assign it to a variable
 
 ```php
-    <?php
-    $id = $this->request->param('id') .............. $user_id = $this->request->param('user_id');    
+<?php
+$id = $this->request->param('id') .............. $user_id = $this->request->param('user_id');    
 ```
 
 Suppose I want to pass a second optional parameter of value ``0`` to 
 all of the function calls ie change them such as,
 
 ```php
-    <?php
-    $this->request->param('id', 0);
+<?php
+$this->request->param('id', 0);
 ```
 
 To do this using a macro, 

@@ -31,9 +31,9 @@ object being passed to the callback functions of the mouse events
 by-default.
 
 ```javascript
-    $(".cell").bind('mouseup',function(e){
-        var button = e.button; //this will return the mouse button as int</p>
-    });
+$(".cell").bind('mouseup',function(e){
+    var button = e.button; //this will return the mouse button as int</p>
+});
 ```
 
 When I checked, the problem was with mouse button detection. As I
@@ -54,7 +54,7 @@ IE-detection (courtesy:
 )
 
 ```javascript
-    var IE = /*@cc_on!@*/false;
+var IE = /*@cc_on!@*/false;
 ```
 
 In all IE versions, the ``/*@cc_on!@*/`` part will evaluate to ``!``

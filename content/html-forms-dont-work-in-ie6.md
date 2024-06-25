@@ -29,10 +29,10 @@ if we want to check if submit button is clicked and run a specific
 code, then this serves the purpose
 
 ```php
-    <?php
-    if(isset($_POST['submit'])) {
-        // code to be executed
-    }
+<?php
+if(isset($_POST['submit'])) {
+    // code to be executed
+}
 ```
 
 But IE passes the co-ordinates of click as ``submit_x`` and ``submit_y``
@@ -42,10 +42,10 @@ so to make sure that the form functions in IE, change the above code
 to
 
 ```php
-    <?php
-    if(isset($_POST['submit_y']) || isset($_POST['submit_x'])) {
-        // code to be executed
-    }
+<?php
+if(isset($_POST['submit_y']) || isset($_POST['submit_x'])) {
+    // code to be executed
+}
 ```
 
 This solved the problem in my case

@@ -104,7 +104,7 @@ different. The drives C,D,E in windows will be called something like
 sda1, sda2, sda3 etc. To check this, open up the terminal and type,
 
 ```bash
-    $ sudo fdisk -l
+$ sudo fdisk -l
 ```
 
 With some knowledge about the space in each drive and a little guess
