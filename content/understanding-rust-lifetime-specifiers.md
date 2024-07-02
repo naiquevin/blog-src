@@ -3,25 +3,28 @@ Author: Vineet Naik
 Date: 2024-06-21
 Tags: rust
 Category: programming
-Summary: A tutorial to understand the concept of lifetimes in Rust using practical examples. 
+Summary: A practical example to understand the concept of lifetimes and lifetime specifiers/parameters in Rust
 Status: published
 
-This post is a tutorial on Rust lifetimes. It's meant for those who
-have some familiarity with the language. I don't claim to be an expert
-on this topic. I am new to rust, but at this point I feel comfortable
-reading and writing code with lifetimes and it doesn't hinder my
-productivity.
+This post is meant for those who have some familiarity with Rust but
+are still trying to wrap their head around lifetimes. I don't claim to
+be an expert on this topic. I am also new to rust in the sense that
+there are many things about the language that I still haven't
+internalized. But at this point I feel comfortable reading and writing
+code with lifetimes and it doesn't hinder my productivity.
 
-The idea for this post came to me while working on
+I got the idea for this post while working on
 [tapestry](https://github.com/naiquevin/tapestry). I encountered a
-situation where I wanted to make a small change to a function and that
-necessitated the use of explicit lifetimes. It seemed like a perfect
-example to demonstrate the concept of lifetimes. In this post, I'll be
-using an example similar to the one in the project.
+situation where a small change to a function necessitated the use of
+explicit lifetimes. It seemed like a perfect example to demonstrate
+the concept of lifetimes. In this post, I'll be using a simpler
+example similar to the one in the project.
 
-Let's say we are implementing a static site generator of sorts, in
+Let's say we are implementing some kind of a static site generator in
 which the user can write different kind of posts using different
-predefined templates. There are two main entities in our code:
+predefined templates <a id="footnote-1-ref"
+href="#footnote-1"><sup>1</sup></a>. There are two main entities in
+our code:
 
 1. Templates: Each template has two fields &mdash; `id` and
    `supported_tags`. Consider that templates are "static data"
@@ -32,14 +35,16 @@ predefined templates. There are two main entities in our code:
    `tags`. Think of posts as user input. The `template` field refers
    to one of the templates in the static list.
 
-In a real static site generator, templates and posts will likely have
-more fields such as `body`, `date` etc. but I'll skip them for
+In a real static site generator, templates and posts will likely
+have more fields such as `body`, `date` etc. but I'll skip them for
 conciseness.
 
 Let's start by implementing structs to represent the above two
 entities.
 
 ```rust
+use std::collections::HashSet;
+
 struct Template {
     id: String,
     supported_tags: HashSet<String>,
@@ -73,13 +78,13 @@ impl Post {
 ```
 
 We've defined `new` methods for both structs which will come handy
-while instantiating them.
+when instantiating them.
 
 Since posts represent user input, they need to be validated. We'll
 verify two simple constraints:
 
 1. the `template` field of a post must match the `id` of one of the
-   predefined templates.
+   predefined templates
 
 2. `tags` field of a post must be a subset of the `supported_tags`
    field of the associated template
@@ -131,7 +136,7 @@ impl Post {
 }
 ```
 
-We can now try out a few examples in the main function. We'll also
+We can now try out a few examples in the main function. Let's also
 define a helper function to validate a post and print the "mistakes"
 i.e. validation errors to `stdout`.
 
@@ -177,8 +182,10 @@ $ cargo run
   UnsupportedTags { title: "A day at the beach", tags: {"personal", "song"} }
 ```
 
-Here is [Rust playground link]() if you wish to try it. I'll refer to
-this version as the first iteration.
+Here is a [Rust playground
+link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=9ebf25bb62571492fe524d9033076e71)
+if you wish to try it. I'll refer to this version as the first
+iteration.
 
 ### Using references instead of cloning
 
@@ -191,6 +198,8 @@ data in memory by using references.
 What if we define the `Mistake` enum in terms of reference type `&str`
 instead of owned type `String`?
 
+<div class="code-container">
+<div class="rs-compile-error"><img src="theme/images/does_not_compile.png" alt="Does not compile" title="Does not compile"/></div>
 ```rust
 #[derive(Debug)]
 enum Mistake {
@@ -204,6 +213,7 @@ enum Mistake {
     }
 }
 ```
+</div>
 
 It fails with a compilation error.
 
@@ -271,22 +281,24 @@ gets dropped only after `Mistake` instance is dropped. This is to
 prevent dangling references.
 
 The specifier `'a` used in the enum definition is to say that an
-instance of the enum will live only as long as lifetime `'a`. The
-value of lifetime `'a` is not something that you, the author of the
-code is supposed to know. It depends on the code that calls the
-`Post.validate` method and will be figured out by the borrow checker
-during compilation.
+instance of the enum will live only as long as lifetime `'a`. Note
+that lifetime `'a` is an abstract value. During compilation, the
+borrow checker will figure it out from the code that calls the
+function.
 
 ### Generics
 
 This post is about lifetimes and not generics, so I won't spend much
 time on this topic. However lifetimes are similar to generics and the
 syntax is also the same. Unlike lifetimes, the concept of generics is
-not unique to Rust[FN]. Hence comparing the two concepts may help those
-who are experienced in other languages that have generics.
+not unique to Rust <a id="footnote-2-ref"
+href="#footnote-2"><sup>2</sup></a>. Hence comparing the two concepts
+may help those who are experienced in other languages that have
+generics.
 
-Generics help us avoid code duplication e.g. to define a single
-function that works for multiple concrete data types. But how does it
+Generics allow us to define a single function in terms of abstract
+data types such that it can be compiled to work for multiple concrete
+data types. Thus code duplication can be avoided. But how does it
 actually work?
 
 Consider following function that's generic over type `T`.
@@ -302,29 +314,29 @@ function and substitute the value `T` with the actual data types that
 it's called with. Think of it like how a function argument gets
 substituted by the actual value at runtime.
 
-Coming back to lifetimes, it kinda works the same way. The syntax is
-also similar. Before using a generic type, it's name is declared using
-the `<T>` syntax. Similarly, before we can use a lifetime parameter,
-it's name is declared as `<'a>`. At compile time, `'a` will be
-substituted by the actual lifetime of the object from where the `&'a`
-references are borrowed. Based on that the borrow checker will check
-whether the owner outlives the borrower. I am simplifying a lot here
-so all this may not accurately represent the actual implementation of
-the borrow checker.
+Coming back to lifetimes, it almost works the same way. Before we can
+use a generic type, it's name has to be declared using the `<T>`
+syntax. Similarly, before we can use a lifetime parameter, it's name
+is declared as `<'a>`. At compile time, `'a` will be substituted by
+the actual lifetime of the object from where the `&'a` references are
+borrowed. Based on that the borrow checker will check whether the
+owner outlives the borrower. If that condition is not satisfied,
+compilation will fail. I am simplifying a lot here so all this may not
+accurately represent the actual implementation of the borrow checker.
 
 Let's try to call `validate` such that the lifetime check is not
-satisfied. Add the following lines to the `main` function.
+satisfied. Add the following lines inside the `main` function.
 
+<div class="code-container">
+<div class="rs-compile-error"><img src="theme/images/does_not_compile.png" alt="Does not compile" title="Does not compile"/></div>
 ```rust
-let post = Post::new("A day at the beach", "blog", vec!["personal", "song"]);
-validate_post(&post, &templates);
-
 let mistakes = {
     let post = Post::new("A day at the beach", "blog", vec!["personal", "song"]);
     post.validate(&templates)
 };
 println!("{} mistakes found for {post:?}", mistakes.len());
 ```
+</div>
 
 It doesn't compile. The error is:
 
@@ -364,17 +376,22 @@ elison](https://doc.rust-lang.org/reference/lifetime-elision.html). Just
 like rust's compiler can infer types, it can also infer lifetimes in
 certain situations.
 
-Here is [Rust playground link]() for the second iteration.
+Here is the [Rust playground
+link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=237dab26bc09bfb5b6d484de63e28011)
+for second iteration.
 
 ### Borrowing from multiple owners
 
 Now let's try to make a trivial improvement to the validation code. We
 can make the `Mistake::UnsupportedTags` validation error/mistake more
-helpful to the user by mentioning which tags are supported. For this,
-we'll need to define one more field for the `UnsupportedTags` variant
-and modify the `validate` method to populate it with a reference to
-the `supported_tags` field of the corresponding template.
+helpful to the user by additionally mentioning which tags are indeed
+supported. For this, we'll need to define one more field for the
+`UnsupportedTags` enum variant and modify the `validate` method to
+populate it with a reference to the `supported_tags` field of the
+corresponding template.
 
+<div class="code-container">
+<div class="rs-compile-error"><img src="theme/images/does_not_compile.png" alt="Does not compile" title="Does not compile"/></div>
 ```rust
 #[derive(Debug)]
 #[allow(unused)]
@@ -418,6 +435,7 @@ impl Post {
     }
 }
 ```
+</div>
 
 Our code doesn't compile any more.
 
@@ -453,7 +471,7 @@ impl Post {
 The `where 'b: 'a` is called `lifetime bound` which is similar to a
 [trait
 bound](https://doc.rust-lang.org/reference/trait-bounds.html). It
-means that lifetime `'b` lasts at least as long as `'a`. We need to
+means that lifetime `'b` lives at least as long as `'a`. We need to
 tell this to the borrow checker because the lifetime associated with
 the return type of the method is `'a` (notice the `<'a>` in the return
 type). Hence the borrow checker will allow it only if the condition
@@ -483,59 +501,101 @@ references are borrowed by the returned value. If the actual lifetimes
 of the function arguments happen to be different, the borrow checker
 is smart enough to use the shorter of the two lifetimes as `'a`.
 
-We can try out the error case again and it won't compile.
+In our case, both the arguments are initialized inside the `main`
+function so their actual lifetimes are the same. Let's see what
+happens if they are not the same.
 
 ```rust
-let templates = vec![
-    Template::new("blog", vec!["opinion", "report", "personal"]),
-    Template::new(
-        "announcement",
-        vec!["new project", "update", "security", "urgent"],
-    ),
-];
+fn main() {
+    let templates = vec![
+        Template::new("blog", vec!["opinion", "report", "personal"]),
+        Template::new(
+            "announcement",
+            vec!["new project", "update", "security", "urgent"],
+        ),
+    ];
 
-// ...
+    {
+        let post = Post::new("A day at the beach", "blog", vec!["personal", "song"]);
+        let mistakes = post.validate(&templates);
+        println!("{} mistakes found for {post:?}", mistakes.len());
+    };
+}
+```
 
+Here `post` gets dropped before `templates`. The borrow checker will
+substitute `'a` with the lifetime of `post` because it's shorter. But
+during the lifetime of `mistakes`, both `post` and `templates` are
+alive, so references borrowed from them are valid. Hence it works.
+
+Finally, let's try the error case again.
+
+<div class="code-container">
+<div class="rs-compile-error"><img src="theme/images/does_not_compile.png" alt="Does not compile" title="Does not compile"/></div>
+```rust
 let mistakes = {
     let post = Post::new("A day at the beach", "blog", vec!["personal", "song"]);
     post.validate(&templates)
+    mistakes
 };
 println!("{} mistakes found for {post:?}", mistakes.len());
 ```
+</div>
 
-The borrow checker will substitute `'a` with the lifetime of `post`
-because it's shorter than the lifetime of `templates`. When we try to
-use the returned value (`mistakes`) in the `println!` macro, `post` is
-already dropped. That's why the code doesn't compile.
+This won't compile as the borrow checker cannot substitute `'a` with
+the shorter lifetime. The return value of the `validation` function
+cannot be returned outside the block because when the block ends,
+`post` is dropped.
+
+Here is the [Rust playground
+link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=d2d51932f26a49143600ac5d2847aa4b)
+for third iteration.
 
 ### That's all
 
 Here's a recap of what we did:
 
-- We started with an inefficient implementation by cloning Strings
+- We started with an easy but memory-inefficient implementation that
+  resorts to cloning Strings
+  ([code](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=9ebf25bb62571492fe524d9033076e71))
 - In the second iteration, we used references by defining lifetime
   specifiers in the enum. We also found out that specifiers were not
-  needed in this case due to lifetime elison.
-- In the third iteration, we made the validation error message user
-  friendly. In doing so, we had to bring back the lifetime specifiers
-  in the function definition. We also found out that it was not
-  necessary to use two lifetime parameters even though the data being
-  returned was borrowed from two different args. The borrow checker is
-  smart enough to "plug-in" the shorter of the two lifetimes.
+  needed in this case due to lifetime
+  elison. ([code](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=237dab26bc09bfb5b6d484de63e28011))
+- The third iteration was a result of making the validation error
+  message user friendly. In doing so, we had to bring back the
+  lifetime specifiers in the function definition. We also found out
+  that it was not necessary to use two lifetime parameters even though
+  the data being returned was borrowed from two different args. The
+  borrow checker is smart enough consider the shorter of the two
+  lifetimes. ([code](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=d2d51932f26a49143600ac5d2847aa4b))
 
 ### Summary
 
-- Whenever a data structure holds a reference, it's borrowing a value
-  from some owner.
+- In Rust a variable "owns" its value.
+- Whenever a data structure holds a reference, it borrows the value
+  from some owner
 - When a function returns a reference, it borrows from one or more of
-  the args (also references).
+  the args (also references)
 - As rust is a _gc-less_ language, a value gets automatically dropped
   when it goes out of scope. So the compiler has to ensure that the
-  owner of a value lives at least as long as the borrower.
+  owner of a value lives at least as long as the borrower
 - When the compiler can't infer where a value is being borrowed from,
   it also can't infer it's lifetime. In such cases, we need to use
-  explicit lifetime specifiers.
+  explicit lifetime specifiers
 
-Note that the above summary is grossly oversimplified but I believe it
-helps understand and remember the concept of lifetimes. You should
-refer to the the Rust book for accurate information.
+The above summary is grossly oversimplified but I find it easy to
+understand and remember. You should refer to the Rust book for
+accurate information.
+
+### Footnotes
+
+<b id="footnote-1">1</b>. I doubt that a real static site generator
+would be modeled this way. I am using it as an example that's close
+enough to the code of tapestry. I wanted to avoid using tapestry's
+code in this post as I'd have had to explain it's workings first to
+set the context.<a href="#footnote-1-ref">&#8617;</a>
+
+<b id="footnote-2">2</b>. At least the popular languages of today and
+the ones that I know of don't have lifetimes. <a
+href="#footnote-2-ref">&#8617;</a>
