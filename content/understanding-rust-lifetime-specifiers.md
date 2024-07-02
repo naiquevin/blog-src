@@ -542,16 +542,16 @@ println!("{} mistakes found for {post:?}", mistakes.len());
 ```
 </div>
 
-This won't compile as the borrow checker cannot substitute `'a` with
-the shorter lifetime. The return value of the `validation` function
+This won't compile. The return value of the `validation` function
 cannot be returned outside the block because when the block ends,
-`post` is dropped.
+`post` will be dropped. So the borrow checker cannot substitute `'a`
+with `post`'s lifetime (shorter of the two).
 
 Here is the [Rust playground
 link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=d2d51932f26a49143600ac5d2847aa4b)
 for third iteration.
 
-### That's all
+### That's all!
 
 Here's a recap of what we did:
 
@@ -572,14 +572,15 @@ Here's a recap of what we did:
 
 ### Summary
 
-- In Rust a variable "owns" its value.
+- In Rust, a variable "owns" its value.
 - Whenever a data structure holds a reference, it borrows the value
   from some owner
 - When a function returns a reference, it borrows from one or more of
   the args (also references)
-- As rust is a _gc-less_ language, a value gets automatically dropped
-  when it goes out of scope. So the compiler has to ensure that the
-  owner of a value lives at least as long as the borrower
+- Rust doesn't have a garbage collector. To ensure that memory is
+  freed promptly, a value gets automatically dropped when it goes out
+  of scope. So the compiler has to ensure that the owner of a value
+  lives at least as long as the borrower
 - When the compiler can't infer where a value is being borrowed from,
   it also can't infer it's lifetime. In such cases, we need to use
   explicit lifetime specifiers
@@ -590,11 +591,11 @@ accurate information.
 
 ### Footnotes
 
-<b id="footnote-1">1</b>. I doubt that a real static site generator
-would be modeled this way. I am using it as an example that's close
-enough to the code of tapestry. I wanted to avoid using tapestry's
-code in this post as I'd have had to explain it's workings first to
-set the context.<a href="#footnote-1-ref">&#8617;</a>
+<b id="footnote-1">1</b>. In reality, I doubt that any one would model
+a static site generator this way. I am using it just as an example
+that's close enough to the code of tapestry. I wanted to avoid using
+tapestry's code in this post as I'd have had to explain it's workings
+first to set the context.<a href="#footnote-1-ref">&#8617;</a>
 
 <b id="footnote-2">2</b>. At least the popular languages of today and
 the ones that I know of don't have lifetimes. <a
