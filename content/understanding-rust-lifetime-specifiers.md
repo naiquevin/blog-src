@@ -17,8 +17,8 @@ I got the idea for this post while working on
 [tapestry](https://github.com/naiquevin/tapestry). I encountered a
 situation where a small change to a function necessitated the use of
 explicit lifetimes. It seemed like a perfect example to demonstrate
-the concept of lifetimes. In this post, I'll be using a simpler
-example similar to the one in the project.
+the concept of lifetimes. I'll be using a similar but much simpler
+problem statement for this post.
 
 Let's say we are implementing some kind of a static site generator in
 which the user can write different kind of posts using different
@@ -26,12 +26,12 @@ predefined templates <a id="footnote-1-ref"
 href="#footnote-1"><sup>1</sup></a>. There are two main entities in
 our code:
 
-1. Templates: Each template has two fields &mdash; `id` and
+1. <u>Templates</u>: Each template has two fields &mdash; `id` and
    `supported_tags`. Consider that templates are "static data"
    i.e. list of templates are hard coded. We'll assume that for all
    templates in the list the `id` fields are unique.
 
-2. Posts: Each post has three fields &mdash; `title`, `template`,
+2. <u>Posts</u>: Each post has three fields &mdash; `title`, `template`,
    `tags`. Think of posts as user input. The `template` field refers
    to one of the templates in the static list.
 
@@ -91,11 +91,11 @@ verify two simple constraints:
 
 Let's represent the above validation errors using an enum. Because the
 term "error" is conventionally used to name `Error` types in rust, I
-am using "mistake" to avoid confusion.
+am using "violation" instead to avoid confusion.
 
 ```
 #[derive(Debug)]
-enum Mistake {
+enum Violation {
     TemplateRefNotFound {
         title: String,
         template_id: String,
@@ -111,42 +111,42 @@ Now let's define a `validate` method in the `Post` struct.
 
 ```rust
 impl Post {
-    fn validate(&self, templates: &Vec<Template>) -> Vec<Mistake> {
-        let mut mistakes = vec![];
+    fn validate(&self, templates: &Vec<Template>) -> Vec<Violation> {
+        let mut violations = vec![];
         match templates.iter().find(|x| x.id == self.template) {
             Some(tmpl) => {
                 if !self.tags.is_subset(&tmpl.supported_tags) {
-                    let m = Mistake::UnsupportedTags {
+                    let m = Violation::UnsupportedTags {
                         title: self.title.clone(),
                         tags: self.tags.clone(),
                     };
-                    mistakes.push(m);
+                    violations.push(m);
                 }
             }
             None => {
-                let m = Mistake::TemplateRefNotFound {
+                let m = Violation::TemplateRefNotFound {
                     title: self.title.clone(),
                     template_id: self.template.clone(),
                 };
-                mistakes.push(m);
+                violations.push(m);
             }
         }
-        mistakes
+        violations
     }
 }
 ```
 
 We can now try out a few examples in the main function. Let's also
-define a helper function to validate a post and print the "mistakes"
+define a helper function to validate a post and print the "violations"
 i.e. validation errors to `stdout`.
 
 ```rust
 fn validate_post(post: &Post, templates: &Vec<Template>) {
-    let mistakes = post.validate(&templates);
-    println!("{} mistakes found for {post:?}", mistakes.len());
-    if mistakes.len() > 0 {
-        for mistake in mistakes {
-            println!("  {mistake:?}");
+    let violations = post.validate(&templates);
+    println!("{} violations found for {post:?}", violations.len());
+    if violations.len() > 0 {
+        for violation in violations {
+            println!("  {violation:?}");
         }
     }
 }
@@ -177,13 +177,13 @@ Running it prints the following to `stdout`.
 
 ```shell
 $ cargo run
-0 mistakes found for Post { title: "Major security update", template: "announcement", tags: {"urgent", "update", "security"} }
-1 mistakes found for Post { title: "A day at the beach", template: "blog", tags: {"personal", "song"} }
+0 violations found for Post { title: "Major security update", template: "announcement", tags: {"urgent", "update", "security"} }
+1 violations found for Post { title: "A day at the beach", template: "blog", tags: {"personal", "song"} }
   UnsupportedTags { title: "A day at the beach", tags: {"personal", "song"} }
 ```
 
 Here is a [Rust playground
-link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=9ebf25bb62571492fe524d9033076e71)
+link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=32e1d69bfb4d0855f28d02a5116cf1e9)
 if you wish to try it. I'll refer to this version as the first
 iteration.
 
@@ -195,14 +195,14 @@ low level language that's designed for writing memory efficient
 code. Instead of cloning data, it's possible to refer to the existing
 data in memory by using references.
 
-What if we define the `Mistake` enum in terms of reference type `&str`
+What if we define the `Violation` enum in terms of reference type `&str`
 instead of owned type `String`?
 
 <div class="code-container">
 <div class="rs-compile-error"><img src="theme/images/does_not_compile.png" alt="Does not compile" title="Does not compile"/></div>
 ```rust
 #[derive(Debug)]
-enum Mistake {
+enum Violation {
     TemplateRefNotFound {
         title: &str,
         template_id: &str,
@@ -215,7 +215,7 @@ enum Mistake {
 ```
 </div>
 
-It fails with a compilation error.
+It fails to compile.
 
 ```rust
 error[E0106]: missing lifetime specifier
@@ -228,12 +228,12 @@ error[E0106]: missing lifetime specifier
 The error says `missing lifetime specifier`. Great! So we've finally
 encountered the term `lifetime`.
 
-The fix is to specify lifetime parameter when defining the `Mistake`
+The fix is to specify lifetime parameter when defining the `Violation`
 enum as follows,
 
 ```rust
 #[derive(Debug)]
-enum Mistake<'a> {
+enum Violation<'a> {
     TemplateRefNotFound {
         title: &'a str,
         template_id: &'a str,
@@ -250,7 +250,7 @@ specify the lifetime.
 
 ```rust
 impl Post {
-    fn validate<'a>(&'a self, templates: &Vec<Template>) -> Vec<Mistake<'a>> {
+    fn validate<'a>(&'a self, templates: &Vec<Template>) -> Vec<Violation<'a>> {
        // Body of the fn remains the same
     }
 }
@@ -260,24 +260,24 @@ Now it compiles. All we've done is redefine the enum and the method
 with weird looking syntax `<'a>` and `&'a`. What do these tokens mean
 and how does it work?
 
-First, let's step back a bit and understand why references make the
-code memory efficient. If you're familiar with low level languages
-such as C, C++, you may skip the next paragraph.
+First, let's step back a bit and understand why the use of references
+make the code memory-efficient. If you're familiar with low level
+languages such as C, C++, you may skip the next paragraph.
 
 A reference is nothing but a pointer to a memory location. Since the
 data that we want to store in `title`, `template_id` and `tags` fields
-of a `Mistake` instance already exists in memory (as fields of a
+of a `Violation` instance already exists in memory (as fields of a
 `Post` instance), we can just store the reference to those same memory
-locations in a `Mistake` instance instead of cloning the data. That
-way, an instance of `Mistake` enum returned by `Post.validate` method
+locations in a `Violation` instance instead of cloning the data. That
+way, an instance of `Violation` enum returned by `Post.validate` method
 will not require additional memory.
 
 But rust has a concept of ownership. The data that we want to "reuse"
-in `Mistake` is owned by a `Post` instance. In creating references to
+in `Violation` is owned by a `Post` instance. In creating references to
 that data, we are "borrowing" from that `Post` instance. The compiler
 will allow this only if it can statically check that the owner
 outlives (or lives as long as) the borrower i.e. the `Post` instance
-gets dropped only after `Mistake` instance is dropped. This is to
+gets dropped only after `Violation` instance is dropped. This is to
 prevent dangling references.
 
 The specifier `'a` used in the enum definition is to say that an
@@ -330,11 +330,11 @@ satisfied. Add the following lines inside the `main` function.
 <div class="code-container">
 <div class="rs-compile-error"><img src="theme/images/does_not_compile.png" alt="Does not compile" title="Does not compile"/></div>
 ```rust
-let mistakes = {
+let violations = {
     let post = Post::new("A day at the beach", "blog", vec!["personal", "song"]);
     post.validate(&templates)
 };
-println!("{} mistakes found for {post:?}", mistakes.len());
+println!("{} violations found for {post:?}", violations.len());
 ```
 </div>
 
@@ -344,7 +344,7 @@ It doesn't compile. The error is:
 error[E0597]: `post` does not live long enough
    --> examples/itr2.rs:147:9
 |
-145 | let mistakes = {
+145 | let violations = {
 |         -------- borrow later stored here
 146 |     let post = Post::new("A day at the beach", "blog", vec!["personal", "song"]);
 |             ---- binding `post` declared here
@@ -365,7 +365,7 @@ and try compiling.
 
 ```rust
 impl Post {
-    fn validate(&self, templates: &Vec<Template>) -> Vec<Mistake> {
+    fn validate(&self, templates: &Vec<Template>) -> Vec<Violation> {
        // Body of the fn remains the same
     }
 }
@@ -377,13 +377,13 @@ like rust's compiler can infer types, it can also infer lifetimes in
 certain situations.
 
 Here is the [Rust playground
-link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=237dab26bc09bfb5b6d484de63e28011)
+link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=c12d9ae2f903ca7846d87154efa60665)
 for second iteration.
 
 ### Borrowing from multiple owners
 
 Now let's try to make a trivial improvement to the validation code. We
-can make the `Mistake::UnsupportedTags` validation error/mistake more
+can make the `Violation::UnsupportedTags` validation error/violation more
 helpful to the user by additionally mentioning which tags are indeed
 supported. For this, we'll need to define one more field for the
 `UnsupportedTags` enum variant and modify the `validate` method to
@@ -395,7 +395,7 @@ corresponding template.
 ```rust
 #[derive(Debug)]
 #[allow(unused)]
-enum Mistake<'a> {
+enum Violation<'a> {
     TemplateRefNotFound {
         title: &'a str,
         template_id: &'a str,
@@ -410,28 +410,28 @@ enum Mistake<'a> {
 // ...
 
 impl Post {
-    fn validate(&self, templates: &Vec<Template>) -> Vec<Mistake> {
-        let mut mistakes = vec![];
+    fn validate(&self, templates: &Vec<Template>) -> Vec<Violation> {
+        let mut violations = vec![];
         match templates.iter().find(|x| x.id == self.template) {
             Some(tmpl) => {
                 if !self.tags.is_subset(&tmpl.supported_tags) {
-                    let m = Mistake::UnsupportedTags {
+                    let m = Violation::UnsupportedTags {
                         title: &self.title,
                         tags: &self.tags,
                         supported_tags: &tmpl.supported_tags,
                     };
-                    mistakes.push(m);
+                    violations.push(m);
                 }
             }
             None => {
-                let m = Mistake::TemplateRefNotFound {
+                let m = Violation::TemplateRefNotFound {
                     title: &self.title,
                     template_id: &self.template,
                 };
-                mistakes.push(m);
+                violations.push(m);
             }
         }
-        mistakes
+        violations
     }
 }
 ```
@@ -443,16 +443,16 @@ Our code doesn't compile any more.
 error: lifetime may not live long enough
    --> examples/itr3.rs:110:9
 |
-89  | fn validate(&self, templates: &Vec<Template>) -> Vec<Mistake> {
+89  | fn validate(&self, templates: &Vec<Template>) -> Vec<Violation> {
 |                 -                 - let's call the lifetime of this reference `'1`
 |                 |
 |                 let's call the lifetime of this reference `'2`
 ...
-110 |     mistakes
+110 |     violations
 |         ^^^^^^^^ method was supposed to return data with lifetime `'2` but it is returning data with lifetime `'1`
 ```
 
-The `Mistake::UnsupportedTags` instance now borrows from two owners
+The `Violation::UnsupportedTags` instance now borrows from two owners
 &mdash; the two arguments `self` and `templates` of the
 `Post.validate` method. The borrow checker cannot infer the lifetimes
 any more. The compilation error indicates the presence of two
@@ -461,7 +461,7 @@ specifiers and establish a relationship between them.
 
 ```rust
 impl Post {
-    fn validate<'a, 'b>(&'a self, templates: &'b Vec<Template>) -> Vec<Mistake<'a>>
+    fn validate<'a, 'b>(&'a self, templates: &'b Vec<Template>) -> Vec<Violation<'a>>
     where 'b: 'a {
         // Body of the fn remains the same
     }
@@ -478,17 +478,28 @@ type). Hence the borrow checker will allow it only if the condition
 that `'a` is the shorter of the two lifetimes is satisfied. Using
 lifetime bounds we're making that explicit.
 
+After making the above changes, the code does compile. On running it,
+we can see that the output is much more user-friendly.
+
+```bash
+$ cargo run
+0 violations found for Post { title: "Major security update", template: "announcement", tags: {"urgent", "security", "update"} }
+1 violations found for Post { title: "A day at the beach", template: "blog", tags: {"song", "personal"} }
+  UnsupportedTags { title: "A day at the beach", tags: {"song", "personal"}, supported_tags: {"personal", "opinion", "report"} }
+
+```
+
 Actually, I lied again! It's possible to define the `validate` method
 using just one lifetime specifier. In fact, the compiler error we saw
 earlier exactly shows how to do it but I intentionally omitted that
-part because I wanted to show a verbose version, which I believe is
-explicit and hence easier to understand.
+part because I wanted to show a verbose version first, which I believe
+    is explicit and hence easier to reason about.
 
 The following definition of `validate` also compiles.
 
 ```rust
 impl Post {
-    fn validate<'a>(&'a self, templates: &'a Vec<Template>) -> Vec<Mistake<'a>> {
+    fn validate<'a>(&'a self, templates: &'a Vec<Template>) -> Vec<Violation<'a>> {
         // Body of the fn remains the same
     }
 }
@@ -517,15 +528,15 @@ fn main() {
 
     {
         let post = Post::new("A day at the beach", "blog", vec!["personal", "song"]);
-        let mistakes = post.validate(&templates);
-        println!("{} mistakes found for {post:?}", mistakes.len());
+        let violations = post.validate(&templates);
+        println!("{} violations found for {post:?}", violations.len());
     };
 }
 ```
 
 Here `post` gets dropped before `templates`. The borrow checker will
 substitute `'a` with the lifetime of `post` because it's shorter. But
-during the lifetime of `mistakes`, both `post` and `templates` are
+during the lifetime of `violations`, both `post` and `templates` are
 alive, so references borrowed from them are valid. Hence it works.
 
 Finally, let's try the error case again.
@@ -533,12 +544,12 @@ Finally, let's try the error case again.
 <div class="code-container">
 <div class="rs-compile-error"><img src="theme/images/does_not_compile.png" alt="Does not compile" title="Does not compile"/></div>
 ```rust
-let mistakes = {
+let violations = {
     let post = Post::new("A day at the beach", "blog", vec!["personal", "song"]);
     post.validate(&templates)
-    mistakes
+    violations
 };
-println!("{} mistakes found for {post:?}", mistakes.len());
+println!("{} violations found for {post:?}", violations.len());
 ```
 </div>
 
@@ -548,7 +559,7 @@ cannot be returned outside the block because when the block ends,
 with `post`'s lifetime (shorter of the two).
 
 Here is the [Rust playground
-link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=d2d51932f26a49143600ac5d2847aa4b)
+link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=0158e56e8fcd79f635e3ab2b53aee39d)
 for third iteration.
 
 ### That's all!
@@ -557,18 +568,18 @@ Here's a recap of what we did:
 
 - We started with an easy but memory-inefficient implementation that
   resorts to cloning Strings
-  ([code](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=9ebf25bb62571492fe524d9033076e71))
+  ([code](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=32e1d69bfb4d0855f28d02a5116cf1e9))
 - In the second iteration, we used references by defining lifetime
   specifiers in the enum. We also found out that specifiers were not
   needed in this case due to lifetime
-  elison. ([code](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=237dab26bc09bfb5b6d484de63e28011))
+  elison. ([code](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=c12d9ae2f903ca7846d87154efa60665))
 - The third iteration was a result of making the validation error
   message user friendly. In doing so, we had to bring back the
   lifetime specifiers in the function definition. We also found out
   that it was not necessary to use two lifetime parameters even though
   the data being returned was borrowed from two different args. The
   borrow checker is smart enough consider the shorter of the two
-  lifetimes. ([code](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=d2d51932f26a49143600ac5d2847aa4b))
+  lifetimes. ([code](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=0158e56e8fcd79f635e3ab2b53aee39d))
 
 ### Summary
 
@@ -585,7 +596,7 @@ Here's a recap of what we did:
   it also can't infer it's lifetime. In such cases, we need to use
   explicit lifetime specifiers
 
-The above summary is grossly oversimplified but I find it easy to
+The above summary although oversimplified makes it easy for me to
 understand and remember. You should refer to the Rust book for
 accurate information.
 
@@ -598,5 +609,6 @@ tapestry's code in this post as I'd have had to explain it's workings
 first to set the context.<a href="#footnote-1-ref">&#8617;</a>
 
 <b id="footnote-2">2</b>. At least the popular languages of today and
-the ones that I know of don't have lifetimes. <a
+the ones that I know of don't have a concept of lifetimes. <a
 href="#footnote-2-ref">&#8617;</a>
+
