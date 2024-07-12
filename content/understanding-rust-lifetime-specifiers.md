@@ -600,6 +600,12 @@ The above summary although oversimplified makes it easy for me to
 understand and remember. You should refer to the Rust book for
 accurate information.
 
+---
+
+_Thanks to [Samuel Chase](https://www.samebchase.com/) and [Pardeep
+Singh](https://www.linkedin.com/in/pardeepsingh2/) for reviewing this
+article._
+
 ### Footnotes
 
 <b id="footnote-1">1</b>. In reality, I doubt that any one would model
