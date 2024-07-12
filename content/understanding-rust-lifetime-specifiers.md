@@ -6,19 +6,19 @@ Category: programming
 Summary: A practical example to understand the concept of lifetimes and lifetime specifiers/parameters in Rust
 Status: published
 
-This post is meant for those who have some familiarity with Rust but
-are still trying to wrap their head around lifetimes. I don't claim to
-be an expert on this topic. I am also new to rust in the sense that
-there are many things about the language that I still haven't
-internalized. But at this point I feel comfortable reading and writing
-code with lifetimes and it doesn't hinder my productivity.
+This article is meant for those who have some familiarity with Rust
+but are still trying to wrap their head around lifetimes. I don't
+claim to be an expert on this topic. I am also new to rust in the
+sense that there are many things about the language that I still
+haven't internalized. But at this point I feel comfortable reading and
+writing code with lifetimes and it doesn't hinder my productivity.
 
-I got the idea for this post while working on
+I got the idea for this article while working on
 [tapestry](https://github.com/naiquevin/tapestry). I encountered a
 situation where a small change to a function necessitated the use of
 explicit lifetimes. It seemed like a perfect example to demonstrate
 the concept of lifetimes. I'll be using a similar but much simpler
-problem statement for this post.
+problem statement for this article.
 
 Let's say we are implementing some kind of a static site generator in
 which the user can write different kind of posts using different
@@ -288,10 +288,10 @@ function.
 
 ### Generics
 
-This post is about lifetimes and not generics, so I won't spend much
-time on this topic. However lifetimes are similar to generics and the
-syntax is also the same. Unlike lifetimes, the concept of generics is
-not unique to Rust <a id="footnote-2-ref"
+This article is about lifetimes and not generics, so I won't spend
+much time on this topic. However lifetimes are similar to generics and
+the syntax is also the same. Unlike lifetimes, the concept of generics
+is not unique to Rust <a id="footnote-2-ref"
 href="#footnote-2"><sup>2</sup></a>. Hence comparing the two concepts
 may help those who are experienced in other languages that have
 generics.
@@ -605,8 +605,9 @@ accurate information.
 <b id="footnote-1">1</b>. In reality, I doubt that any one would model
 a static site generator this way. I am using it just as an example
 that's close enough to the code of tapestry. I wanted to avoid using
-tapestry's code in this post as I'd have had to explain it's workings
-first to set the context.<a href="#footnote-1-ref">&#8617;</a>
+tapestry's code in this article so that I wouldn't need to explain
+it's workings first to set the context.<a
+href="#footnote-1-ref">&#8617;</a>
 
 <b id="footnote-2">2</b>. At least the popular languages of today and
 the ones that I know of don't have a concept of lifetimes. <a
