@@ -1,24 +1,24 @@
 Title: Understanding lifetimes in Rust
 Author: Vineet Naik
-Date: 2024-06-21
+Date: 2024-07-14
 Tags: rust
 Category: programming
 Summary: A practical example to understand the concept of lifetimes and lifetime specifiers/parameters in Rust
 Status: published
 
-This article is meant for those who have some familiarity with Rust
-but are still trying to wrap their head around lifetimes. I don't
-claim to be an expert on this topic. I am also new to rust in the
-sense that there are many things about the language that I still
-haven't internalized. But at this point I feel comfortable reading and
-writing code with lifetimes and it doesn't hinder my productivity.
+This article is meant for Rust beginners who are trying to wrap their
+head around lifetimes. I don't claim to be an expert on this topic. I
+am also new to the language in the sense that there are many things
+about rust that I still haven't internalized. But at this point, I
+feel comfortable reading and writing code with lifetimes and it
+doesn't hinder my productivity.
 
 I got the idea for this article while working on
 [tapestry](https://github.com/naiquevin/tapestry). I encountered a
 situation where a small change to a function necessitated the use of
 explicit lifetimes. It seemed like a perfect example to demonstrate
-the concept of lifetimes. I'll be using a similar but much simpler
-problem statement for this article.
+the concept. I'll be using a similar but much simpler problem
+statement in this article.
 
 Let's say we are implementing some kind of a static site generator in
 which the user can write different kind of posts using different
@@ -28,19 +28,18 @@ our code:
 
 1. <u>Templates</u>: Each template has two fields &mdash; `id` and
    `supported_tags`. Consider that templates are "static data"
-   i.e. list of templates are hard coded. We'll assume that for all
-   templates in the list the `id` fields are unique.
+   i.e. list of templates are hard coded. We'll assume that the
+   predefined templates will have unique ids
 
 2. <u>Posts</u>: Each post has three fields &mdash; `title`, `template`,
    `tags`. Think of posts as user input. The `template` field refers
-   to one of the templates in the static list.
+   to one of the templates in the static list
 
 In a real static site generator, templates and posts will likely
 have more fields such as `body`, `date` etc. but I'll skip them for
 conciseness.
 
-Let's start by implementing structs to represent the above two
-entities.
+Let's start by implementing structs to represent these two entities.
 
 ```rust
 use std::collections::HashSet;
@@ -90,7 +89,7 @@ verify two simple constraints:
    field of the associated template
 
 Let's represent the above validation errors using an enum. Because the
-term "error" is conventionally used to name `Error` types in rust, I
+term "error" is conventionally used to name `error` types in rust, I
 am using "violation" instead to avoid confusion.
 
 ```
@@ -137,7 +136,7 @@ impl Post {
 ```
 
 We can now try out a few examples in the main function. Let's also
-define a helper function to validate a post and print the "violations"
+define a helper function to validate a post and print the violations
 i.e. validation errors to `stdout`.
 
 ```rust
@@ -189,8 +188,8 @@ iteration.
 
 ### Using references instead of cloning
 
-The above code works but is not memory efficient. Notice that in the
-`Post.validate` method, we're cloning the `String` objects. Rust is a
+The above code works but is not memory efficient. Notice that we're
+cloning the `String` objects in the `Post.validate` method. Rust is a
 low level language that's designed for writing memory efficient
 code. Instead of cloning data, it's possible to refer to the existing
 data in memory by using references.
@@ -225,10 +224,11 @@ error[E0106]: missing lifetime specifier
    |              ^ expected named lifetime parameter
 ```
 
-The error says `missing lifetime specifier`. Great! So we've finally
-encountered the term `lifetime`.
+The error says `missing lifetime specifier`. Great! For the first time
+we've encountered the term `lifetime`.
 
-The fix is to specify lifetime parameter when defining the `Violation`
+Let me show you the fix first, and then we will see why it works. The
+fix is to specify lifetime parameter when defining the `Violation`
 enum as follows,
 
 ```rust
@@ -261,24 +261,24 @@ with weird looking syntax `<'a>` and `&'a`. What do these tokens mean
 and how does it work?
 
 First, let's step back a bit and understand why the use of references
-make the code memory-efficient. If you're familiar with low level
+make the code memory efficient. If you're familiar with low level
 languages such as C, C++, you may skip the next paragraph.
 
 A reference is nothing but a pointer to a memory location. Since the
 data that we want to store in `title`, `template_id` and `tags` fields
 of a `Violation` instance already exists in memory (as fields of a
-`Post` instance), we can just store the reference to those same memory
+`Post` instance), we can just store references to those same memory
 locations in a `Violation` instance instead of cloning the data. That
-way, an instance of `Violation` enum returned by `Post.validate` method
-will not require additional memory.
+way, an instance of `Violation` enum returned by `Post.validate`
+method will not require additional memory.
 
 But rust has a concept of ownership. The data that we want to "reuse"
-in `Violation` is owned by a `Post` instance. In creating references to
-that data, we are "borrowing" from that `Post` instance. The compiler
-will allow this only if it can statically check that the owner
-outlives (or lives as long as) the borrower i.e. the `Post` instance
-gets dropped only after `Violation` instance is dropped. This is to
-prevent dangling references.
+in `Violation` is owned by a `Post`. In creating references to that
+data, we are "borrowing" from it. The compiler will allow this only if
+it can statically check that the owner outlives (or lives as long as)
+the borrower i.e. the `Post` instance gets dropped only after
+`Violation` instance is dropped. This is to prevent dangling
+references.
 
 The specifier `'a` used in the enum definition is to say that an
 instance of the enum will live only as long as lifetime `'a`. Note
@@ -293,15 +293,14 @@ much time on this topic. However lifetimes are similar to generics and
 the syntax is also the same. Unlike lifetimes, the concept of generics
 is not unique to Rust <a id="footnote-2-ref"
 href="#footnote-2"><sup>2</sup></a>. Hence comparing the two concepts
-may help those who are experienced in other languages that have
+may help those who are familiar <a id="footnote-3-ref"
+href="#footnote-3"><sup>3</sup></a> with other languages that have
 generics.
 
-Generics allow us to define a single function in terms of abstract
-data types such that it can be compiled to work for multiple concrete
-data types. Thus code duplication can be avoided. But how does it
-actually work?
-
-Consider following function that's generic over type `T`.
+Generic types allow us to define a single function in terms of
+abstract data types such that it can be compiled to work for multiple
+concrete data types. Thus, it helps in avoiding code
+duplication. Consider following function that's generic over type `T`.
 
 ```rust
 fn max<T>(xs: &[T]) -> &T {
@@ -310,12 +309,12 @@ fn max<T>(xs: &[T]) -> &T {
 ```
 
 At compile time, the compiler will look at code that calls this
-function and substitute the value `T` with the actual data types that
+function and substitute the value `T` with the actual data type that
 it's called with. Think of it like how a function argument gets
 substituted by the actual value at runtime.
 
-Coming back to lifetimes, it almost works the same way. Before we can
-use a generic type, it's name has to be declared using the `<T>`
+Coming back to lifetimes, it's almost similar. Before we can use a
+generic type, it's name has to be declared using the `<T>`
 syntax. Similarly, before we can use a lifetime parameter, it's name
 is declared as `<'a>`. At compile time, `'a` will be substituted by
 the actual lifetime of the object from where the `&'a` references are
@@ -359,9 +358,9 @@ happening. But the point is, the compiler can enforce this because of
 the lifetime parameter specified in the enum definition.
 
 Before proceeding with the next example, what if I told you that the
-change we did to the `Post.validate` method definition was not
-required? Remove the lifetime specifiers from the method definition
-and try compiling.
+change we did to the `Post.validate` method definition was
+unnecessary?  Try removing the lifetime specifiers from the method
+definition.
 
 ```rust
 impl Post {
@@ -453,11 +452,11 @@ error: lifetime may not live long enough
 ```
 
 The `Violation::UnsupportedTags` instance now borrows from two owners
-&mdash; the two arguments `self` and `templates` of the
-`Post.validate` method. The borrow checker cannot infer the lifetimes
-any more. The compilation error indicates the presence of two
-lifetimes. To fix this, we can explicitly specify two lifetime
-specifiers and establish a relationship between them.
+&mdash; the objects that the two arguments `self` and `templates`
+point to. The borrow checker cannot infer the lifetimes any more. The
+compilation error indicates the presence of two lifetimes. To fix
+this, we can explicitly specify two lifetime specifiers, but we have
+to establish a relationship between them.
 
 ```rust
 impl Post {
@@ -472,7 +471,7 @@ The `where 'b: 'a` is called `lifetime bound` which is similar to a
 [trait
 bound](https://doc.rust-lang.org/reference/trait-bounds.html). It
 means that lifetime `'b` lives at least as long as `'a`. We need to
-tell this to the borrow checker because the lifetime associated with
+tell that to the borrow checker because the lifetime associated with
 the return type of the method is `'a` (notice the `<'a>` in the return
 type). Hence the borrow checker will allow it only if the condition
 that `'a` is the shorter of the two lifetimes is satisfied. Using
@@ -490,10 +489,10 @@ $ cargo run
 ```
 
 Actually, I lied again! It's possible to define the `validate` method
-using just one lifetime specifier. In fact, the compiler error we saw
-earlier exactly shows how to do it but I intentionally omitted that
-part because I wanted to show a verbose version first, which I believe
-    is explicit and hence easier to reason about.
+using just one lifetime parameter. In fact, the compiler error we saw
+earlier hints at how to do it but I intentionally omitted that part. I
+wanted to show an explicit version first, which I believe is easier to
+reason about.
 
 The following definition of `validate` also compiles.
 
@@ -507,14 +506,16 @@ impl Post {
 
 Why does it work? Remember that the lifetime specifier in function
 definition `'a` is abstract and the borrow checker will substitute it
-with the actual lifetimes of the function arguments from where the
-references are borrowed by the returned value. If the actual lifetimes
-of the function arguments happen to be different, the borrow checker
-is smart enough to use the shorter of the two lifetimes as `'a`.
+with the actual lifetimes of the objects whose references are passed
+as function arguments. The return value is constructed using these
+references and hence, also borrows from the same objects. If the
+actual lifetimes of these two objects happen to be different, the
+borrow checker is smart enough to substitute `'a` with the shorter
+one.
 
-In our case, both the arguments are initialized inside the `main`
-function so their actual lifetimes are the same. Let's see what
-happens if they are not the same.
+In our case, both arguments are references to objects that are
+initialized inside the `main` function so their actual lifetimes are
+the same. Let's see what happens if they are not the same.
 
 ```rust
 fn main() {
@@ -537,9 +538,10 @@ fn main() {
 Here `post` gets dropped before `templates`. The borrow checker will
 substitute `'a` with the lifetime of `post` because it's shorter. But
 during the lifetime of `violations`, both `post` and `templates` are
-alive, so references borrowed from them are valid. Hence it works.
+alive, so references borrowed from them are valid. Hence it is
+allowed.
 
-Finally, let's try the error case again.
+But the following won't compile.
 
 <div class="code-container">
 <div class="rs-compile-error"><img src="theme/images/does_not_compile.png" alt="Does not compile" title="Does not compile"/></div>
@@ -547,16 +549,16 @@ Finally, let's try the error case again.
 let violations = {
     let post = Post::new("A day at the beach", "blog", vec!["personal", "song"]);
     post.validate(&templates)
-    violations
 };
 println!("{} violations found for {post:?}", violations.len());
 ```
 </div>
 
-This won't compile. The return value of the `validation` function
-cannot be returned outside the block because when the block ends,
-`post` will be dropped. So the borrow checker cannot substitute `'a`
-with `post`'s lifetime (shorter of the two).
+Here, the return value of the `validation` function cannot be returned
+outside the block because when the block ends, `post` will be
+dropped. So there's no lifetime that can be substituted in place of
+`'a` such that the "owner outlives the borrower" condition is
+satisfied.
 
 Here is the [Rust playground
 link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=0158e56e8fcd79f635e3ab2b53aee39d)
@@ -584,21 +586,18 @@ Here's a recap of what we did:
 ### Summary
 
 - In Rust, a variable "owns" its value.
-- Whenever a data structure holds a reference, it borrows the value
-  from some owner
-- When a function returns a reference, it borrows from one or more of
-  the args (also references)
+- Whenever a data structure holds a reference, it "borrows" from some
+  owner
+- When a function returns a reference, the returned value borrows from
+  one or more args (more accurately, it borrows from the objects that
+  the args point to; args are references too in such cases)
 - Rust doesn't have a garbage collector. To ensure that memory is
   freed promptly, a value gets automatically dropped when it goes out
   of scope. So the compiler has to ensure that the owner of a value
   lives at least as long as the borrower
 - When the compiler can't infer where a value is being borrowed from,
-  it also can't infer it's lifetime. In such cases, we need to use
-  explicit lifetime specifiers
-
-The above summary although oversimplified makes it easy for me to
-understand and remember. You should refer to the Rust book for
-accurate information.
+  it also can't infer it's lifetime. In such cases, we need to
+  explicitly specify lifetime parameters in our code.
 
 ---
 
@@ -608,14 +607,16 @@ article._
 
 ### Footnotes
 
-<b id="footnote-1">1</b>. In reality, I doubt that any one would model
-a static site generator this way. I am using it just as an example
+<b id="footnote-1">1</b>. I doubt that any one would model an actual
+static site generator this way. I am using it just as an example
 that's close enough to the code of tapestry. I wanted to avoid using
-tapestry's code in this article so that I wouldn't need to explain
-it's workings first to set the context.<a
-href="#footnote-1-ref">&#8617;</a>
+tapestry's code directly in this article so that I wouldn't need to
+explain the project first <a href="#footnote-1-ref">&#8617;</a>
 
 <b id="footnote-2">2</b>. At least the popular languages of today and
-the ones that I know of don't have a concept of lifetimes. <a
+the ones that I know of don't have the concept of lifetimes <a
 href="#footnote-2-ref">&#8617;</a>
 
+<b id="footnote-3">3</b>. If you're not familiar with generic types,
+the [rust book](https://doc.rust-lang.org/book/ch10-01-syntax.html)
+explains it very nicely <a href="#footnote-3-ref">&#8617;</a>
