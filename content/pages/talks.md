@@ -1,6 +1,9 @@
 Title: Talks
 Status: published
 
+Using Rust + Webassembly to build a browser based metronome `[July 2024]`
+: [Rust Bangalore meetup](https://hasgeek.com/rustbangalore/july-2024-rustacean-meetup-c4gt/) | [Slides](/presentations/Metronome-in-rust-wasm.pdf)
+
 Enums - Rust's killer feature `[March 2024]`
 : [Rust Bangalore meetup](https://hasgeek.com/rustbangalore/march-2024-rustacean-meetup/) | [Slides](/presentations/Rust-enums-killer-feature.pdf)
 
