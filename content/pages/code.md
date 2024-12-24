@@ -12,6 +12,9 @@ my free time. Most of them are available on
   tool/framework for writing (postgre)SQL queries and (pgTAP) tests
   using Jinja templates.
 
+* [plectrum](https://github.com/naiquevin/plectrum) `[Rust]` A library
+  to map lookup tables in an RDBMS db to Rust enums.
+
 * [axy](https://github.com/naiquevin/axy) `[Emacs Lisp]` Emacs utility for
   adhoc expansion of yasnippets.
 
