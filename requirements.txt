@@ -1,4 +1,5 @@
 pelican==4.8.0
 Markdown==3.7
+awscli==1.36.28
 flake8==6.1.0
 pipdeptree
