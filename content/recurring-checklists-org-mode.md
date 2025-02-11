@@ -7,7 +7,7 @@ Summary: How I manage recurring checklists in org mode using a hidden gem from t
 Status: published
 
 Based on my experience of building and maintaining professional and
-personal hobby projects, I've come to realize that I often tend to
+personal/hobby projects, I've come to realize that I often tend to
 prefer well documented checklists over automated scripts for recurring
 workflows.
 
