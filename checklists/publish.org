@@ -1,0 +1,35 @@
+* TODO Publish to www.naiquev.in
+  SCHEDULED: <2025-02-23 Sun .+1d>
+  :PROPERTIES:
+  :RESET_CHECK_BOXES: t
+  :END:
+  - [ ] Make sure that a directory ~../www.naiquev.in~ relative to
+    this repository exists
+    #+begin_src bash
+      test -d ../www.naiquev.in
+    #+end_src
+  - [ ] Activate the virtual env \\
+    Virtualenv is also assumed to be created inside the parent
+    directory
+    #+begin_src bash
+      . ../.venv/bin/activate
+    #+end_src
+  - [ ] Generate files
+    #+begin_src bash
+      make publish
+    #+end_src
+  - [ ] Upload files to s3 bucket
+    #+begin_src bash
+      # First switch to the directory
+      cd ../www.naiquev.in
+
+      # Get rid of any tmp files to prevent them from getting uploaded
+      find . -name '*~' -delete
+
+      # Set credentials in environment variables
+      export AWS_ACCESS_KEY_ID=******7Y
+      export AWS_SECRET_ACCESS_KEY=******vN
+
+      # Run the sync command
+      aws s3 sync . s3://naiquevin-blog --exclude '.git/*' --delete
+    #+end_src
