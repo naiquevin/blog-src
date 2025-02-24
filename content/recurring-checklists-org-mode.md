@@ -1,7 +1,7 @@
 Title: Recurring checklists using org mode in emacs
 Author: Vineet Naik
 Date: 2025-02-11
-Tags: emacs, org mode
+Tags: emacs, org mode, checklists
 Category: emacs
 Summary: How I manage recurring checklists in org mode using a hidden gem from the org-contrib package
 Status: published
@@ -26,9 +26,10 @@ deploy the app, I am happy that it's a checklist and not a script.
 As I began writing this article, I thought about the reasons behind
 such a preference, but that part itself got so big that I felt it
 deserves to be a separate post. It's sitting in my drafts folder now
-and I hope to publish it soon. Today, I'll stick to how I manage such
-recurring checklists in emacs using org mode thanks to a hidden gem
-from the org-contrib package.
+and I hope to publish<a id="footnote-2-ref"
+href="#footnote-2"><sup>2</sup></a> it soon. Today, I'll stick to how
+I manage such recurring checklists in emacs using org mode thanks to a
+hidden gem from the org-contrib package.
 
 Now org mode supports checklists out of the box. You just have to
 create a [plain list](https://orgmode.org/manual/Plain-Lists.html)
@@ -161,3 +162,7 @@ natural and native to org mode.
    cookies are explained with better examples in org mode
    [docs](https://orgmode.org/manual/Repeated-tasks.html). <a
    href="#footnote-1-ref">&#8617;</a>
+
+<b id="footnote-2">2</b>. [Premature
+automation]({filename}/premature-automation.md) is now published. <a
+href="#footnote-2-ref">&#8617;</a>
