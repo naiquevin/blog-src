@@ -20,8 +20,6 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 
-DISQUS_SITENAME = "naiquevinsblog"
-
 DEBUG = False
 
 OUTPUT_RETENTION = ('.git', '.gitignore', 'README.md')

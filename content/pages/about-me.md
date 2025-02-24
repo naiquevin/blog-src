@@ -32,5 +32,3 @@ This site is created using [pelican](https://getpelican.com/). I am
 using [my own
 theme](https://github.com/naiquevin/blog-src/tree/master/naiq) which
 is inspired by [Armin Ronacher's blog](https://lucumr.pocoo.org/).
-
-Comments are powered by [disqus](https://disqus.com/).
