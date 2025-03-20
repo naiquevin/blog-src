@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{{ SITENAME }} :: {{ SITETITLE }}{% endblock %}</title>
@@ -22,9 +22,11 @@
         {% block content %}{% endblock %}
       </div>
       <div class="footer">
-        <li class="copyright">Copyright &copy; 2009-2025 Vineet Naik</li>
-        <li>Subscribe to <a href="/feeds/all.atom.xml">Atom feed</a></li>
-        <li class="courtesy">Site generated using <a href="https://getpelican.com/">Pelican</a></li>
+        <ul>
+          <li class="copyright">Copyright &copy; 2009-2025 Vineet Naik</li>
+          <li>Subscribe to <a href="/feeds/all.atom.xml">Atom feed</a></li>
+          <li class="courtesy">Site generated using <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
       </div>
     </div>
     <script type="text/javascript" src="{{ SITEURL }}/theme/javascript/main.js"></script>
