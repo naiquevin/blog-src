@@ -8,6 +8,15 @@ my free time. Most of them are available on
 
 ### Currently active side projects
 
+* [captrice](https://www.captrice.io): Captrice is a deliberate
+  practice app for guitar players. It's built using Rust (compiled to
+  webassembly), Vue.js, PostgreSQL and follows the local-first paradigm.
+
+* [HINT](https://hint.naiquev.in): A home-inventory tracking app that
+  can generate grocery checklists. It’s an invite-only app I built for
+  myself + family & friends. Written using Axum (Rust), Vue.js and
+  PostgreSQL.
+
 * [tapestry](https://github.com/naiquevin/tapestry) `[Rust]` A CLI
   tool/framework for writing (postgre)SQL queries and (pgTAP) tests
   using Jinja templates.

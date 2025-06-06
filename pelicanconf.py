@@ -1,5 +1,5 @@
 AUTHOR = 'Vineet Naik'
-SITENAME = "~/naiquevin"
+SITENAME = "/home/naiquevin"
 SITETITLE = "Vineet's mind space on the internet"
 SITEURL = ''
 
@@ -33,7 +33,7 @@ THEME = 'naiq'
 MENUITEMS = (('archive', '/archives.html'),
              ('music', '/pages/music.html'),
              ('talks', '/pages/talks.html'),
-             ('code', '/pages/code.html'),
+             ('projects', '/pages/code.html'),
              ('about', '/pages/about-me.html'),)
 
 DEBUG = True
