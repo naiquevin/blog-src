@@ -5,17 +5,18 @@ Hi, my name is Vineet Naik. I am software engineer by profession and a
 hobbyist guitar player. I stay in Bengaluru, India.
 
 To me, writing code is significantly more than a profession and
-playing guitar is significantly more than a hobby! You'll find that I
-tend to post mainly on these two topics.
+playing guitar is significantly more than a hobby! So I end up writing
+about these two topics.
 
-I am currently on a break (from employment but not from
-programming! ;-)). Previously I have worked at Helpshift (2014-2023) and
+These days, I am building [captrice.io](https://www.captrice.io)
+alongside freelancing/consulting as well as contributing to some open
+source projects. Previously I worked at Helpshift (2014-2023) and
 Kodeplay (2009-2014).
 
-These days I am working on a few open source projects as well as a
-couple of personal ones that I hope to launch some day.
-
-I am presently available for short term freelance/contract work.
+I am presently available for short-to-medium term freelance/contract
+work, preferably with organizations that are leveraging Rust,
+PostgreSQL, and/or local-first technologies. Here is my updated
+[resume](/files/VineetNaikResume.pdf).
 
 You can get in touch with me at <email>anvxiva@tznvy.pbz</email> or
 find me by my usual handle, `@naiquevin` on the Internet.
