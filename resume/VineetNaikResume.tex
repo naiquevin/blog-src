@@ -1,0 +1,298 @@
+%-----------------------------------------------------
+% Resume in Latex
+% Author: Vineet Naik
+% License : MIT
+% Adapted from: https://github.com/aschlesener/resume
+%-----------------------------------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[default]{lato}
+\usepackage[T1]{fontenc}
+\usepackage{multicol}
+\usepackage{geometry}
+
+\geometry{paper=letterpaper, top=15mm, left=18mm, right=18mm, bottom=20mm}
+
+% set header text and sizing
+\fancyhf{}
+\fancyhead[L]{Vineet Naik}\fancyhead[R]{Page 2}
+\pagestyle{fancy}
+\thispagestyle{empty}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = red %Colour of citations
+}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \centering
+  \vspace{-4pt}\large
+}{}{0em}\textbf{}
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+\item{
+  {#1}
+}
+}
+
+% Subheading with one title
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item[] % bullet points are escaped using [] after item
+  \begin{tabular*}{1\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} #2 & \textbf{#3} \\
+    \textbf{#4} \\
+  \end{tabular*}\vspace{-5pt}
+}
+
+% This subheading allows for two titles
+\newcommand{\resumeSubheadingTwo}[7]{
+  \vspace{-1pt}\item[]
+  \begin{tabular*}{1\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} #2 & \textbf{#3} \\
+    \textbf{#4} #5 \\
+    \textbf{#6} #7 \\
+  \end{tabular*}\vspace{-5pt}
+}
+
+% Education subheading
+\newcommand{\resumeEducationSubheading}[2]{
+  \vspace{-1pt}\item[]
+  \begin{tabular*}{1\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} \\
+    #2 \\
+  \end{tabular*}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\bullet$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt]}
+  \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=10pt]}
+  \newcommand{\resumeItemListEnd}{\end{itemize}}
+
+% -------------------------------------------
+  %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+% ----------HEADING-----------------
+
+% Centered heading with name, location, and contact info
+\begin{center}
+  \textbf{\Large Vineet Naik} \\
+  Bangalore, India
+\end{center}\vspace{-4pt}
+
+% Space for phone number and website link below header
+\begin{tabular*}{1\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  {\href{mailto:naikvin@gmail..com}{naikvin@gmail.com} | +91 9820776899} & {\href{https://www.naiquev.in}{Website} | \href{https://github.com/naiquevin}{Github} | \href{https://www.linkedin.com/in/vineetnaik/}{LinkedIn}}
+\end{tabular*}\vspace{-6pt}
+
+% HR divider
+\rule{\textwidth}{1pt}
+
+% --------SUMMARY------------
+\resumeSubHeadingListStart
+\item[]{ Seasoned software engineer with 15+ years of experience that
+    includes building and maintaining terabyte-scale production
+    systems. Strong focus on performance, stability, resiliency,
+    observability, and security. Proven track record of building
+    high-quality, long lasting solutions. Active open
+    source contributor. \\~\\
+    Available for part-time or full-time roles, preferably those
+    leveraging Rust, PostgreSQL, and/or local-first technologies. }
+
+  \resumeSubHeadingListEnd \vspace{-8pt}
+
+  \rule{\textwidth}{0.2pt}
+
+  % -------------------------------------------
+
+  % --------PROGRAMMING SKILLS------------
+  \section{TECHNICAL SKILLS} \vspace{-4pt}
+  % Bulleted multi-column list of skills
+  \begin{multicols}{2}
+    \begin{itemize}[leftmargin=10pt]
+    \item Full-stack development \vspace{-8pt}
+    \item Databases (operational \& internals) \vspace{-8pt}
+    \item Distributed systems \vspace{-8pt}
+    \item CD/CI \& automation \vspace{-8pt}
+    \item Documentation \vspace{-8pt}
+    \item Process standardization \vspace{-8pt}
+    \item Code reviews \& Mentoring \vspace{-8pt}
+    \item Open source software \vspace{-8pt}
+    \end{itemize}
+  \end{multicols} \vspace{1pt}
+
+  \resumeSubHeadingListStart
+\item[]
+  \textbf{Languages}{: Rust, Javascript, Clojure, Python, Bash, Emacs Lisp } \\
+  \textbf{Databases}{: PostgreSQL, Yugabyte, SQLite, MongoDB, Redis, Elasticsearch } \\
+  \textbf{Other technologies}{: Vue.js, IndexedDB, AWS, Git, Kafka, Containers/VMs, Ansible }
+  \resumeSubHeadingListEnd \vspace{1pt}
+  % -------------------------------------------
+
+  % -----------EXPERIENCE-----------------
+  \section{EXPERIENCE}
+  \resumeSubHeadingListStart
+
+  \resumeSubheading
+  {Sabbatical/Career break}{}{Oct 2023 - Present}
+  {Independent developer}
+  \resumeItemListStart
+
+  \resumeItem
+
+  {\href{www.captrice.io}{captrice.io}: A guitar practice app that I'm
+    building as a ``passion project'' using Rust (compiled to
+    webassembly), Vue.js, PostgreSQL and follows the local-first
+    paradigm.}
+
+  \resumeItem
+
+  {Open source contributor in
+    \href{https://github.com/cosdata/cosdata}{cosdata} - a vector
+    database and AI platform written in Rust. Implemented low-level
+    buffered-IO abstraction and metadata filtering functionality in
+    HNSW index.}
+
+  \resumeItem
+
+  {\href{https://hint.naiquev.in}{HINT}: A home-inventory tracking app
+    that can generate grocery checklists. It's an invite-only app I
+    built for myself + family \& friends. Written using Axum (Rust),
+    Vue.js and PostgreSQL.}
+
+  \resumeItemListEnd \vspace{8pt}
+
+  \resumeSubheading
+  {Helpshift,}{Remote}{Jan 2020 - Sep 2023}
+  {Staff engineer, platforms team}
+  \resumeItemListStart
+
+  \resumeItem
+
+  {Led the efforts to stabilize and scale a critical PosgreSQL cluster
+    after a major outage. Have published a
+    \href{https://medium.com/helpshift-engineering/auto-vacuum-tuning-in-postgresql-3408f8b62ad8}{blog
+      post} about it. }
+
+  \resumeItem
+
+  {Migration of transactional data from MongoDB to Yugabyte with near
+    zero-downtime, unlocking horizontal scaling of writes. Major
+    contributions in achieving operational stability of the
+    self-hosted Yugabyte cluster.}
+
+  \resumeItem
+
+  {Led migration of multiple PostgreSQL clusters across AWS regions
+    with zero-downtime as part of a larger migration project that gave
+    us \$2M+ savings per year in AWS bills. Co-authored a
+    \href{https://medium.com/helpshift-engineering/migrating-postgresql-databases-using-aws-dms-e91cf26fa6e}{blog
+      post} about it.}
+
+  \resumeItemListEnd
+
+  % put a break in page, so job position doesn't wrap pages
+  \newpage
+
+  \resumeSubHeadingListEnd
+
+  % properly position header for second page
+  \setlength{\headsep}{0.2in}
+  \setlength{\headheight}{14pt}
+
+  \resumeSubHeadingListStart
+
+  \resumeSubheading
+  {Helpshift,}{Pune,}{Oct 2018 - Dec 2019}
+  {Staff engineer, ``Architects'' team}
+  \resumeItemListStart
+  \resumeItem
+  {Foundational work on an extensible framework for integrating Helpshift with external messaging platforms such as Facebook, SMS, Apple business chat, Whatsapp.}
+  \resumeItem
+  {Proposed, designed, implemented and ensured company-wide adoption of a Clojure framework for gradually modularizing a large monolithic code base, reducing the test suite duration by 20-30\%.}
+  \resumeItem
+  {Standardization of processes and tooling for platform/architecture reviews, incident reports, change management, on-call workflows.}
+  \resumeItem
+  {Trained and mentored multiple junior and senior ICs.}
+  \resumeItemListEnd \vspace{8pt}
+
+  \resumeSubheading
+  {Helpshift,}{Pune,}{Aug 2014 - Oct 2018}
+  {Sofware artisan, ``Prodeng'' team}
+  \resumeItemListStart
+  \resumeItem
+  {Major contribution in building a job scheduling platform on top of Jenkins. Spoke about it at Rootconf 2018 (\href{https://youtu.be/Gk0GLQFe4po?si=C6Gv9dv6I3oRrmyJ}{video}). In use as of Sep 2023.}
+  \resumeItem
+  {Designed, implemented and maintained self-served release automation platform built on top of AWS, ansible, JIRA and Jenkins. In use as of Sep 2023.}
+  \resumeItem
+  {Custom solution for incremental backups of Apache Kylin data stored in HBase.}
+  \resumeItem
+  {Implemented and maintained tooling for local/dev setup by reusing the production ansible workflows developed by our devops/infra team.}
+  \resumeItemListEnd \vspace{8pt}
+
+  \resumeSubheading
+  {Kodeplay,}{Mumbai,}{Jul 2009 - Jul 2014}
+  {Technical Lead}
+  \resumeItemListStart
+  \resumeItem
+  {KodeCRM, an interactive chat solution and CRM for ecommerce site owners (dysfunctional).}
+  \resumeItem
+  {\href{https://github.com/kodeplay/kodelearn}{KodeLearn} - Open source learning management system.}
+  \resumeItem
+  {Multi-vendor ecommerce and marketplace extension for Opencart.}
+  \resumeItem
+  {In the initial years, we offered software services as well. Kodeplay was a fully bootstrapped company. I was the first employee.}
+  \resumeItemListEnd \vspace{8pt}
+
+  \resumeSubheading
+  {Greaves Cotton Ltd.,}{Pune,}{Jul 2007 - Jul 2008}
+  {Manufacturing trainee engineer}
+  \resumeItemListStart
+  \resumeItem
+  {During my small stint of 1 year in the manufacturing industry I worked as an assembly line engineer in the first 5 months and then in the Production Planning and Control department for the later months.}
+  \resumeItem
+  {This was my first job after graduation, before I found interest in the  field of software engineering and computer science.}
+  \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+  % -------------------------------------------
+
+  % -----------EDUCATION-----------------
+  \section{EDUCATION}
+  \resumeSubHeadingListStart
+  \resumeEducationSubheading
+  {Bachelor of Engineering, Mechanical (2003 - 2007)}
+  {Rajiv Gandhi Institute of Technology, Mumbai University}
+  \resumeSubHeadingListEnd
+  % -------------------------------------------
+
+\end{document}
