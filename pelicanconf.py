@@ -30,8 +30,7 @@ DEFAULT_PAGINATION = 10
 
 THEME = 'naiq'
 
-MENUITEMS = (('archive', '/archives.html'),
-             ('music', '/pages/music.html'),
+MENUITEMS = (('music', '/pages/music.html'),
              ('talks', '/pages/talks.html'),
              ('projects', '/pages/code.html'),
              ('about', '/pages/about-me.html'),)
