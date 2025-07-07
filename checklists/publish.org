@@ -1,9 +1,10 @@
 * TODO Publish to www.naiquev.in
-  SCHEDULED: <2025-06-08 Sun .+1d>
+  SCHEDULED: <2025-07-08 Tue .+1d>
   :PROPERTIES:
   :RESET_CHECK_BOXES: t
-  :LAST_REPEAT: [2025-06-07 Sat 22:46]
+  :LAST_REPEAT: [2025-07-07 Mon 22:45]
   :END:
+  - State "DONE"       from "TODO"       [2025-07-07 Mon 22:45]
   - State "DONE"       from "TODO"       [2025-06-07 Sat 22:46]
   - State "DONE"       from "TODO"       [2025-03-20 Thu 14:20]
   - State "DONE"       from "TODO"       [2025-02-24 Mon 23:33]
@@ -17,6 +18,12 @@
     directory
     #+begin_src bash
       . ../.venv/bin/activate
+    #+end_src
+  - [ ] Generate resume (optional)
+    #+begin_src bash
+      cd resume
+      ./generate-resume
+      cd ../
     #+end_src
   - [ ] Generate files
     #+begin_src bash
