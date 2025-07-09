@@ -1,9 +1,10 @@
 * TODO Publish to www.naiquev.in
-  SCHEDULED: <2025-07-08 Tue .+1d>
+  SCHEDULED: <2025-07-10 Thu .+1d>
   :PROPERTIES:
   :RESET_CHECK_BOXES: t
-  :LAST_REPEAT: [2025-07-07 Mon 22:45]
+  :LAST_REPEAT: [2025-07-09 Wed 10:54]
   :END:
+  - State "DONE"       from "TODO"       [2025-07-09 Wed 10:54]
   - State "DONE"       from "TODO"       [2025-07-07 Mon 22:45]
   - State "DONE"       from "TODO"       [2025-06-07 Sat 22:46]
   - State "DONE"       from "TODO"       [2025-03-20 Thu 14:20]
