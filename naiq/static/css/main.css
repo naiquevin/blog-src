@@ -12,6 +12,8 @@ div.header ul { list-style: none; max-width: 470px; float: right; padding-left: 
 div.header ul li { float: right; }
 div.header ul li a { padding: 8px; }
 
+h3 { margin-top: 40px; }
+
 div.content { clear: both; padding: 20px 10px; height: auto; min-height: 500px; }
 
 ul.articleList { list-style: none; padding: 0; }
@@ -59,6 +61,6 @@ code:not(.highlight code) { color: #cb4b16; background: #f8f8f8; }
 .code-container .rs-compile-error { position: absolute; width: 56px; height: 40px; top: 12px; left: 90%; z-index: 1; }
 .code-container .rs-compile-error img { width: 100%; }
 
-blockquote { margin-left: 0; padding-left: 20px; color: #333; font-style: italic; border-left: 5px solid #666; }
+blockquote { margin: 40px 0; padding-left: 20px; color: #555; font-style: italic; border-left: 5px solid #813181; }
 
 .help { font-size: 0.8em; font-style: italic; color: #839496; }
