@@ -47,10 +47,10 @@ MARKDOWN = {
     'output_format': 'html5'
 }
 
-STATIC_PATHS = ['presentations', 'extra', 'files']
+STATIC_PATHS = ['presentations', 'extra', 'files', 'images']
 
-PAGE_EXCLUDES = ['presentations', 'files']
-ARTICLE_EXCLUDES = ['pages', 'presentations', 'files']
+# PAGE_EXCLUDES = ['presentations', 'files']
+ARTICLE_EXCLUDES = ['presentations', 'files']
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
