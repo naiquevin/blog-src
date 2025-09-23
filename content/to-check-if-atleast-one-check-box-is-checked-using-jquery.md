@@ -1,8 +1,9 @@
 Title: To check if atleast one check box is checked using Jquery
 Author: Vineet Naik
 Date: 2009-08-04 23:32:45
-Category: jquery
-Summary: 
+Tags: jquery
+Category: programming
+Summary:
 Status: published
 
 It happens so many times that I need to code something to make the UI

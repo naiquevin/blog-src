@@ -1,11 +1,10 @@
 Title: Pelicanized!
 Author: Vineet Naik
 Date: 2013-02-17
-Tags: pelican
-Category: pelican
+Tags: pelican, octopress
+Category: blogging
 Summary: Moved the blog to Pelican from Octopress
 Status: published
-
 
 Just moved my blog from Octopress to
 [Pelican](http://docs.getpelican.com/en/3.1.1/), another fine static

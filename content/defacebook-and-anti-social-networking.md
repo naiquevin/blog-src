@@ -1,9 +1,9 @@
 Title: De-facebook and Anti-social networking.
 Author: Vineet Naik
 Date: 2010-02-08 22:16:50
-Tags: social networking, facebook, boredom
+Tags:
 Category: humour
-Summary: 
+Summary:
 Status: published
 
 Following is an excerpt from a conversation between two developers -

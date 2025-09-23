@@ -1,7 +1,8 @@
 Title: Hello Octopress
 Author: Vineet Naik
 Date: 2012-02-18 22:50
-Category: octopress
+Tags: octropress
+Category: blogging
 Summary: Switching from Wordpress to Octopress
 Status: published
 

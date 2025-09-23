@@ -1,8 +1,8 @@
 Title: Reduce testing while writing code
 Author: Vineet Naik
 Date: 2009-09-13 23:38:17
-Tags: ajax, php, web development
-Category: javascript
+Tags: ajax, javascript, php
+Category: programming
 Summary: 
 Status: published
 

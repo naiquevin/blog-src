@@ -1,7 +1,7 @@
 Title: Bookmarking in Emacs
 Author: Vineet Naik
 Date: 2011-07-22
-Tags: emacs, editing
+Tags: emacs
 Category: emacs
 Summary:
 Status: published

@@ -1,11 +1,10 @@
 Title: A look at some of Python's useful itertools
 Author: Vineet Naik
 Date: 2013-05-23
-Tags: python
-Category: python
+Tags: python, itertools
+Category: programming
 Summary: .. with examples and use cases
 Status: published
-
 
 Couple of months back I enrolled for the
 [Functional Programming Principles in Scala](https://www.coursera.org/course/progfun)

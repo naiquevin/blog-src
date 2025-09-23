@@ -1,8 +1,8 @@
 Title: Reviving the blog
 Author: Vineet Naik
 Date: 2023-10-15
-Tags: blog
-Category: blog, hosting, devops
+Tags: blog, pelican
+Category: blogging
 Summary: Trying to revive this blog yet again
 Status: published
 

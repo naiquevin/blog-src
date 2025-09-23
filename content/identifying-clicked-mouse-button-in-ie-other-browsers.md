@@ -1,8 +1,9 @@
 Title: Identifying clicked mouse button in IE &amp; other browsers
 Author: Vineet Naik
 Date: 2010-07-28 23:37:34
-Category: javascript
-Summary: 
+Tags: javascript
+Category: programming
+Summary:
 Status: published
 
 Last month I spent some hours coding the popular game

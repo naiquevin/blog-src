@@ -1,11 +1,10 @@
 Title: Dan Carlin's Blueprint for Armageddon
 Author: Vineet Naik
 Date: 2017-08-13
-Tags: podcasts, history
-Category: history
+Tags: history
+Category: podcasts
 Summary: Podcast recommendation
 Status: published
-
 
 I recently finished listening to
 [Blueprint for Armageddon](http://www.dancarlin.com/home-hh-54/), a

@@ -1,8 +1,8 @@
 Title: 5 Eclipse PDT configuration tips
 Author: Vineet Naik
 Date: 2009-12-17 17:51:20
-Tags: code templates, Eclipse PDT, php, web development, www.kodeplay.com
-Category: eclipse
+Tags: eclipse, emacs, php
+Category: programming
 Summary: Tweaking Eclipse for the good
 Status: published
 

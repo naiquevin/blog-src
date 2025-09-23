@@ -1,7 +1,7 @@
 Title: Speeding up projectile on Windows
 Author: Vineet Naik
 Date: 2025-03-20
-Tags: emacs
+Tags: emacs, projectile
 Category: programming
 Summary: How to configure projectile in emacs to fix the sluggishness on Windows
 Status: published

@@ -1,8 +1,8 @@
 Title: HTML forms problem in IE6 solved
 Author: Vineet Naik
 Date: 2009-05-12 17:28:55
-Tags: PHP, $_POST, images as buttons, HTML, form, IE6
-Category: ie6
+Tags: php, html, ie6
+Category: programming
 Summary: 
 Status: published
 

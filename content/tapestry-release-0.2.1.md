@@ -1,8 +1,8 @@
 Title: Tapestry 0.2.0 and 0.2.1
 Author: Vineet Naik
 Date: 2024-09-18
-Tags: release, tapestry
-Category: programming
+Tags: rust, tapestry, opensource
+Category: release-notes
 Summary: Tapestry versions 0.2.0 and 0.2.1 released with fixes and new features
 Status: published
 

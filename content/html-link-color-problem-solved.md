@@ -1,9 +1,9 @@
 Title: HTML link color problem solved
 Author: Vineet Naik
 Date: 2009-05-14 17:21:00
-Tags: hover, Chrome, IE6, HTML, link color, CSS
-Category: ie6
-Summary: 
+Tags: html, css, google-chrome, ie6
+Category: programming
+Summary:
 Status: published
 
 **Problem:** Some browsers show links in the default color in spite of being styled in CSS. On hover the CSS styling works.

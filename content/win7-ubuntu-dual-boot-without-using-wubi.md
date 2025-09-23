@@ -1,11 +1,10 @@
 Title: Windows 7-Ubuntu dual boot without using wubi
 Author: Vineet Naik
 Date: 2010-06-12 23:29:03
-Tags: Ubuntu, disk, partition, wubi, Linux
-Category: ubuntu
+Tags: ubuntu, linux
+Category: programming
 Summary: Step by step guide to setting up Windows7-Ubuntu dual boot
 Status: published
-
 
 Last week I finally managed to set up a windows 7 - Ubuntu dual boot
 system on my home computer after spending substantial amount of time

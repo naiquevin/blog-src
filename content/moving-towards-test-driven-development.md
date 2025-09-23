@@ -1,7 +1,8 @@
 Title: Moving towards Test Driven Development
 Author: Vineet Naik
 Date: 2010-12-14 17:48:28
-Category: testing
+Tags: tdd
+Category: programming
 Summary: Using Poor man's TDD techniques
 Status: published
 

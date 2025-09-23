@@ -2,10 +2,9 @@ Title: Using postgresql's enum types with Korma
 Author: Vineet Naik
 Date: 2014-02-24
 Tags: clojure, postgresql
-Category: clojure
-Summary: 
+Category: programming
+Summary:
 Status: published
-
 
 I have been playing with Clojure on the side for a few months and
 these days I am trying to build a simple webapp using compojure,

@@ -1,7 +1,7 @@
 Title: Adding text vertically on multiple lines (region)
 Author: Vineet Naik
 Date: 2011-08-04
-Tags: emacs, editing
+Tags: emacs
 Category: emacs
 Summary:
 Status: published

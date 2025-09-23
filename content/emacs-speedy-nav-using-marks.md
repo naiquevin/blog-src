@@ -1,11 +1,10 @@
 Title: Speedy navigation across the buffer in emacs
 Author: Vineet Naik
 Date: 2011-07-15
-Tags: emacs, editing
+Tags: emacs
 Category: emacs
 Summary:
 Status: published
-
 
 Okay. So here goes the first one. Very often I find myself searching
 for a line of code in the same file so that I can copy it over into

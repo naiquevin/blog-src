@@ -1,7 +1,7 @@
 Title: Nights in Shining Karma - guitar-pro tab
 Author: Vineet Naik
 Date: 2010-04-04 12:33:53
-Tags: guitar-pro, tablature, music, warren mendonsa, blackstratblues
+Tags: guitar-pro, tablature, music
 Category: music
 Summary: Guitar Pro tabs for Warren Mendonsa's "Nights in Shining Karma"
 Status: published

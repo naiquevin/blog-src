@@ -2,7 +2,7 @@ Title: Top 10 comments my blog received (and will keep receiving!)
 Author: Vineet Naik
 Date: 2010-04-04 00:28:35
 Category: humour
-Summary: 
+Summary:
 Status: published
 
 10. "The subject is fully clear but why does the text lack clarity? But

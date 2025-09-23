@@ -1,7 +1,7 @@
 Title: Keyboard macros in emacs
 Author: Vineet Naik
 Date: 2011-07-16
-Tags: emacs, editing, macros
+Tags: emacs, kbd-macros
 Category: emacs
 Summary:
 Status: published

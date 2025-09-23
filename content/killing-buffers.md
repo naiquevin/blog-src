@@ -1,7 +1,7 @@
 Title: Killing buffers
 Author: Vineet Naik
 Date: 2011-07-19
-Tags: emacs, editing
+Tags: emacs
 Category: emacs
 Summary:
 Status: published

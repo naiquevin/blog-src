@@ -1,9 +1,9 @@
 Title: IE6 FIX-ed......Part I
 Author: Vineet Naik
 Date: 2009-05-06 03:44:44
-Tags: IE6 fix, web development languages, CSS
-Category: ie6
-Summary: 
+Tags: ie6, css
+Category: programming
+Summary:
 Status: published
 
 Imagine a scenario,
