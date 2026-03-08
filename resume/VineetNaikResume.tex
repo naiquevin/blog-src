@@ -21,13 +21,13 @@
 \usepackage{multicol}
 \usepackage{geometry}
 
-\geometry{paper=letterpaper, top=15mm, left=18mm, right=18mm, bottom=20mm}
+\geometry{paper=letterpaper, top=20mm, left=18mm, right=18mm, bottom=20mm}
 
 % set header text and sizing
-\fancyhf{}
-\fancyhead[L]{Vineet Naik}\fancyhead[R]{Page 2}
-\pagestyle{fancy}
-\thispagestyle{empty}
+% \fancyhf{}
+% \fancyhead[L]{Vineet Naik}\fancyhead[R]{Page 2}
+% \pagestyle{fancy}
+% \thispagestyle{empty}
 
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -111,7 +111,7 @@
 
 % Space for phone number and website link below header
 \begin{tabular*}{1\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  {\href{mailto:naikvin@gmail..com}{naikvin@gmail.com} | +91 9820776899} & {\href{https://www.naiquev.in}{Website} | \href{https://github.com/naiquevin}{Github} | \href{https://www.linkedin.com/in/vineetnaik/}{LinkedIn}}
+  {\href{mailto:naikvin@gmail..com}{naikvin@gmail.com} | +91 9820776899} & {\href{https://www.naiquev.in}{Website/Blog} | \href{https://github.com/naiquevin}{Github} | \href{https://www.linkedin.com/in/vineetnaik/}{LinkedIn}}
 \end{tabular*}\vspace{-6pt}
 
 % HR divider
@@ -119,14 +119,15 @@
 
 % --------SUMMARY------------
 \resumeSubHeadingListStart
-\item[]{ Seasoned software engineer with 15+ years of experience that
+\item[]{ Seasoned software engineer with 16+ years of experience that
     includes building and maintaining terabyte-scale production
     systems. Strong focus on performance, stability, resiliency,
     observability, and security. Proven track record of building
     high-quality, long lasting solutions. Active open
     source contributor. \\~\\
-    Available for part-time or full-time roles, preferably those
-    leveraging Rust, PostgreSQL, and/or local-first technologies. }
+    Available for contract work (full-time or part-time), preferably
+    leveraging Rust, PostgreSQL, and/or local-first technologies. Open
+    to full time positions if there's strong alignment. }
 
   \resumeSubHeadingListEnd \vspace{-8pt}
 
@@ -152,7 +153,7 @@
 
   \resumeSubHeadingListStart
 \item[]
-  \textbf{Languages}{: Rust, Javascript, Typescript, Clojure, Python, Bash, Emacs Lisp } \\
+  \textbf{Languages}{: Rust, Typescript/Javascript, Clojure, Python, Bash, Emacs Lisp } \\
   \textbf{Databases}{: PostgreSQL, Yugabyte, SQLite, MongoDB, Redis, Elasticsearch } \\
   \textbf{Other technologies}{: Vue.js, IndexedDB, AWS, Git, Kafka, Containers/VMs, Ansible }
   \resumeSubHeadingListEnd \vspace{1pt}
@@ -163,32 +164,47 @@
   \resumeSubHeadingListStart
 
   \resumeSubheading
-  {Sabbatical/Career break}{}{Oct 2023 - Present}
-  {Independent developer}
+  {Self-employed}{}{Dec 2024 - Present}
+  {Software and technology consultant}
   \resumeItemListStart
 
   \resumeItem
 
-  {\href{www.captrice.io}{captrice.io}: A guitar practice app that I'm
-    building as a ``passion project'' using Rust (compiled to
+  {Conversational memory platform built on top of
+    \href{cosdata.io}{cosdata}, an opensource vector db and AI
+    platform written in Rust. I am also a core contributor in
+    cosdata. My notable contributions are a low-level buffered-IO
+    abstraction and metadata filtering functionality in HNSW index}
+
+  \resumeItemListEnd \vspace{8pt}
+
+  \resumeSubheading
+  {Sabbatical/Career break}{}{Oct 2023 - Dec 2024}
+  {Open source contributor}
+  \resumeItemListStart
+
+  \resumeItem
+
+  {\href{www.captrice.io}{captrice.io}: A guitar practice app that
+    started as a ``passion project'' built using Rust (compiled to
     webassembly), Vue.js, PostgreSQL and the local-first paradigm.}
 
   \resumeItem
 
-  {Open source contributor in
-    \href{https://github.com/cosdata/cosdata}{cosdata} - a vector
-    database and AI platform written in Rust. Implemented low-level
-    buffered-IO abstraction and metadata filtering functionality in
-    HNSW index.}
+  Notable open source projects:
+  \href{https://github.com/naiquevin/tapestry}{tapestry},
+  \href{https://github.com/naiquevin/plectrum}{plectrum},
+  \href{https://github.com/naiquevin/axy}{axy}
 
   \resumeItem
 
-  {\href{https://hint.naiquev.in}{HINT}: A home-inventory tracking app
-    that can generate grocery checklists. It's an invite-only app I
-    built for myself + family \& friends. Written using Axum (Rust),
-    Vue.js and PostgreSQL.}
+  Built a couple of personal apps that are being used by family and
+  friends (more details upon request).
 
   \resumeItemListEnd \vspace{8pt}
+
+  % put a page break
+  \newpage
 
   \resumeSubheading
   {Helpshift,}{Remote}{Jan 2020 - Sep 2023}
@@ -218,9 +234,6 @@
       post} about it.}
 
   \resumeItemListEnd
-
-  % put a break in page, so job position doesn't wrap pages
-  \newpage
 
   \resumeSubHeadingListEnd
 
@@ -271,6 +284,9 @@
   \resumeItem
   {In the initial years, we offered software services as well. Kodeplay was a fully bootstrapped company. I was the first employee.}
   \resumeItemListEnd \vspace{8pt}
+
+  % put a page break
+  \newpage
 
   \resumeSubheading
   {Greaves Cotton Ltd.,}{Pune,}{Jul 2007 - Jul 2008}
