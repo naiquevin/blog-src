@@ -24,6 +24,9 @@ ul.articleList li h1 { font-size: 1.11em; padding: 0; margin: 0; }
 
 .article .postInfo { font-size: 0.9em; color: #839496; }
 .article h1.articleTitle { color: #073642; margin-bottom: 5px; }
+
+.article .articleContent img { width: 100%; }
+
 .article .postInfoBottom { margin-top: 40px; font-size: 0.9em; color: #839496; text-align: right; }
 .article .postInfoBottom ul li { list-style: none; display: inline; }
 .article .postInfoBottom ul li:after { content: ", "; }
