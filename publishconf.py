@@ -23,3 +23,7 @@ DELETE_OUTPUT_DIRECTORY = True
 DEBUG = False
 
 OUTPUT_RETENTION = ('.git', '.gitignore', 'README.md')
+
+# For tracking visitors and traffic. This variable is added only to
+# publishconf so the script gets added in prod
+GOAT_COUNTER_SITE = "naiquevin"

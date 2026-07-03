@@ -22,6 +22,10 @@
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/main.css"/>
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/tango.css"/>
 
+    {% if GOAT_COUNTER_SITE %}
+    <script data-goatcounter="https://{{ GOAT_COUNTER_SITE }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    {% endif %}
+
   </head>
   <body>
     <div class="container">

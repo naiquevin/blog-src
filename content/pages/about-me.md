@@ -33,3 +33,7 @@ This site is created using [pelican](https://getpelican.com/). The
 theme is [my
 own](https://github.com/naiquevin/blog-src/tree/master/naiq) and is
 inspired by [Armin Ronacher's blog](https://lucumr.pocoo.org/).
+
+[Goatcounter](https://www.goatcounter.com) (hosted service) is used
+for traffic and visitor analytics. It doesn't collect any personally
+identifiable information and no cookies are used.
