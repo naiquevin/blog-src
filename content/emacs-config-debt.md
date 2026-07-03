@@ -4,6 +4,7 @@ Date: 2024-12-24
 Tags: emacs
 Category: programming
 Summary: Lessons learnt from getting my emacs config to work on Windows
+SeoDescription: How two unnecessary coding-system settings in my Emacs config caused line-ending bugs on Windows, and what fixing them taught me about tech debt.
 Status: published
 
 I have been using emacs since 2011 and if git commit history is to be

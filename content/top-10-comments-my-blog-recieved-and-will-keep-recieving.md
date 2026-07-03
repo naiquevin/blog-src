@@ -4,6 +4,7 @@ Date: 2010-04-04 00:28:35
 Category: humour
 Summary:
 Status: published
+SeoDescription: A tongue-in-cheek collection of the most absurd, spammy blog comments received over the years, straight from the trash folder.
 
 10. "The subject is fully clear but why does the text lack clarity? But
 in general your blog is great." - **gualetar**

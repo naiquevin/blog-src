@@ -4,6 +4,7 @@ Date: 2011-07-16
 Tags: emacs, kbd-macros
 Category: emacs
 Summary:
+SeoDescription: How to record and replay keyboard macros in Emacs using C-x ( and C-x e to automate repetitive code edits and refactoring tasks.
 Status: published
 
 Just learnt how to set and use Keyboard Macros in emacs. This looks

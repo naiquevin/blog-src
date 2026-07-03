@@ -5,6 +5,7 @@ Tags: python, itertools
 Category: programming
 Summary: .. with examples and use cases
 Status: published
+SeoDescription: Practical examples of Python's itertools module — ifilter, islice, count, groupby, and chain — for writing memory-efficient, lazily evaluated code.
 
 Couple of months back I enrolled for the
 [Functional Programming Principles in Scala](https://www.coursera.org/course/progfun)

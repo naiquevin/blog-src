@@ -5,6 +5,7 @@ Tags: rust, opensource
 Category: programming
 Summary: An open source library to map lookup/reference tables in db with Rust enums in code
 Status: published
+SeoDescription: Plectrum is a Rust crate and derive macro that maps database lookup/reference tables to enums, avoiding hard-coded IDs and costly joins. See how it works with sqlx, Tauri, and Axum.
 
 Last year, I implemented
 [Plectrum](https://github.com/naiquevin/plectrum){target="_blank"}, a

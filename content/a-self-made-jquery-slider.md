@@ -4,6 +4,7 @@ Date: 2009-08-23 23:47:23
 Tags: javascript, jquery
 Category: programming
 Summary: 
+SeoDescription: Build a simple image or product slider from scratch with jQuery, including the full HTML, CSS and JavaScript code for a sliding carousel effect.
 Status: published
 
 Now this post has been in the drafts section for quite some

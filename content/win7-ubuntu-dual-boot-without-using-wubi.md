@@ -5,6 +5,7 @@ Tags: ubuntu, linux
 Category: programming
 Summary: Step by step guide to setting up Windows7-Ubuntu dual boot
 Status: published
+SeoDescription: A step-by-step guide to dual-booting Windows 7 and Ubuntu 10.04 using manual disk partitioning instead of the Wubi installer.
 
 Last week I finally managed to set up a windows 7 - Ubuntu dual boot
 system on my home computer after spending substantial amount of time

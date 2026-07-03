@@ -4,6 +4,7 @@ Date: 2010-12-14 17:48:28
 Tags: tdd
 Category: programming
 Summary: Using Poor man's TDD techniques
+SeoDescription: Simple poor-man's TDD techniques in PHP and JavaScript using dummy controller actions and mock AJAX callbacks before adopting PHPUnit.
 Status: published
 
 Recently, I have been reading a lot about Unit Testing and other stuff

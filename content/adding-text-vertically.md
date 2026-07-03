@@ -4,6 +4,7 @@ Date: 2011-08-04
 Tags: emacs
 Category: emacs
 Summary:
+SeoDescription: How to insert or comment out text vertically across multiple lines in Emacs using string-rectangle (C-x r t), a handy trick for php-mode.
 Status: published
 
 Ok. Finally a new emacs trick. Actually I had come across this a while

@@ -5,6 +5,7 @@ Tags: rust
 Category: programming
 Summary: A practical example to understand the concept of lifetimes and lifetime specifiers/parameters in Rust
 Status: published
+SeoDescription: A beginner-friendly walkthrough of Rust lifetimes and lifetime specifiers using a practical validation example with structs and enums.
 
 This article is meant for Rust beginners who are trying to wrap their
 head around lifetimes. I don't claim to be an expert on this topic. I

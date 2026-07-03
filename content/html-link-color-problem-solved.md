@@ -4,6 +4,7 @@ Date: 2009-05-14 17:21:00
 Tags: html, css, google-chrome, ie6
 Category: programming
 Summary:
+SeoDescription: Fix unstyled link colors in Chrome and IE6 by avoiding a:link alone and declaring CSS states in the correct link-visited-hover-active order.
 Status: published
 
 **Problem:** Some browsers show links in the default color in spite of being styled in CSS. On hover the CSS styling works.

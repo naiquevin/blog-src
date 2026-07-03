@@ -5,6 +5,7 @@ Tags: python, generators
 Category: programming
 Summary: A post/tutorial on Python generators with examples
 Status: published
+SeoDescription: A beginner-friendly tutorial on Python generators and lazy evaluation, covering the yield keyword, generator expressions, and common scoping gotchas with code examples.
 
 This is going to be a rather long post (call it a tutorial if you
 wish), but in case you are a beginner I hope it will help you

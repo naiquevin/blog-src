@@ -4,6 +4,7 @@ Date: 2012-07-21 18:14
 Tags: erlang, clojure
 Category: programming
 Summary: On why I decided to learn Erlang instead of Clojure
+SeoDescription: Why I chose to learn Erlang before Clojure, driven by hands-on work with the Ejabberd XMPP server and the need for real Erlang knowledge.
 Status: published
 
 A few weeks back, when I was close to completing chapter 1 exercises

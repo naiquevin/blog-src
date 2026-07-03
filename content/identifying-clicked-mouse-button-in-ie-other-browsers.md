@@ -4,6 +4,7 @@ Date: 2010-07-28 23:37:34
 Tags: javascript
 Category: programming
 Summary:
+SeoDescription: How to detect left, right, and middle mouse clicks consistently across IE and other browsers using event.button and a JavaScript IE-sniff hack.
 Status: published
 
 Last month I spent some hours coding the popular game

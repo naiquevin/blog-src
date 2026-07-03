@@ -3,10 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{{ SITENAME }} :: {{ SITETITLE }}{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="index, follow">
+
+    {% block pagemeta %}
+    <!-- SEO metadata -->
+    <meta name="description" content="{{ SITETITLE }}">
+
+    <!-- Social media open graph metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ SITENAME }}" />
+    <meta property="og:url" content="{{ SITEURL }}" />
+    <meta property="og:description" content="{{ SITETITLE }}" />
+    {% endblock %}
+
     <link href="//fonts.googleapis.com/css?family=Merriweather" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/main.css"/>
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/tango.css"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+
   </head>
   <body>
     <div class="container">

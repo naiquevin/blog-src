@@ -4,6 +4,7 @@ Date: 2013-04-01
 Tags: emacs, NaturalDocs, javascript
 Category: emacs
 Summary: Adding NaturalDocs support for JS in emacs
+SeoDescription: Writing custom Emacs Lisp to auto-insert NaturalDocs style docstring skeletons for JavaScript functions, since no existing mode supported it.
 Status: published
 
 Last week we decided to use [NaturalDocs](http://www.naturaldocs.org/)

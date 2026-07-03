@@ -4,6 +4,7 @@ Date: 2011-07-15
 Tags: emacs
 Category: emacs
 Summary:
+SeoDescription: Use Emacs's automatic mark-setting and C-u C-SPC to jump back to previous cursor positions for a faster search-copy-paste workflow.
 Status: published
 
 Okay. So here goes the first one. Very often I find myself searching

@@ -5,6 +5,7 @@ Tags: jquery
 Category: programming
 Summary:
 Status: published
+SeoDescription: A simple jQuery snippet to validate that at least one checkbox in a group is checked before allowing form submission.
 
 It happens so many times that I need to code something to make the UI
 fool proof. While I have the logic clear in my mind, i often find that

@@ -5,6 +5,7 @@ Tags: clojure, postgresql
 Category: programming
 Summary:
 Status: published
+SeoDescription: How to fix "column is of type X but expression is of type character varying" errors when using PostgreSQL enum types with Clojure's Korma library, using PGobject and prepare/transform hooks.
 
 I have been playing with Clojure on the side for a few months and
 these days I am trying to build a simple webapp using compojure,

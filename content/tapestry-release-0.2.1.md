@@ -5,6 +5,7 @@ Tags: rust, tapestry, opensource
 Category: release-notes
 Summary: Tapestry versions 0.2.0 and 0.2.1 released with fixes and new features
 Status: published
+SeoDescription: Release notes for Tapestry 0.2.0 and 0.2.1: a builtin SQL formatter, support for pg_format, sql-formatter and sqlfluff, and a status command fix.
 
 The first working version of
 [tapestry](https://github.com/naiquevin/tapestry) was released a few

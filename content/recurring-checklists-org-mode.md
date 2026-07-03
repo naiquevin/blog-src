@@ -5,6 +5,7 @@ Tags: emacs, org mode, checklists
 Category: emacs
 Summary: How I manage recurring checklists in org mode using a hidden gem from the org-contrib package
 Status: published
+SeoDescription: How to automatically reset checkboxes on recurring org-mode TODOs using org-checklist.el from org-contrib, for managing repeatable build and deploy checklists in Emacs.
 
 Based on my experience of building and maintaining professional and
 personal/hobby projects, I've come to realize that I often tend to

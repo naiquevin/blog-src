@@ -5,6 +5,7 @@ Tags: emacs, projectile
 Category: programming
 Summary: How to configure projectile in emacs to fix the sluggishness on Windows
 Status: published
+SeoDescription: Fix slow projectile file indexing in Emacs on Windows by switching to alien indexing with Cygwin and enabling caching for faster project search.
 
 Last few months, I've occasionally needed to run emacs on Windows. In
 a previous [post]({filename}/emacs-config-debt.md) I wrote about how I

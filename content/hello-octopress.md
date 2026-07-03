@@ -4,6 +4,7 @@ Date: 2012-02-18 22:50
 Tags: octropress
 Category: blogging
 Summary: Switching from Wordpress to Octopress
+SeoDescription: Why this blog moved from a self-hosted WordPress install to Octopress, a static site generator using Markdown, Git, and GitHub Pages hosting.
 Status: published
 
 _Note: I no longer use Octopress. The blog is currently powered by

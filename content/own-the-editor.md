@@ -5,6 +5,7 @@ Tags: emacs
 Category: emacs
 Summary: On getting the most out of the editor of your choice
 Status: published
+SeoDescription: A guide to mastering any text editor (Emacs, Vim, Sublime, or an IDE) covering shortcuts, navigation, macros, and other must-know productivity features.
 
 
 Recently I have noticed a changing trend in the choice of text editor/IDE among my

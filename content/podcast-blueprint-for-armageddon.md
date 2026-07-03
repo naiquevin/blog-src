@@ -5,6 +5,7 @@ Tags: history
 Category: podcasts
 Summary: Podcast recommendation
 Status: published
+SeoDescription: A recommendation for Dan Carlin's Hardcore History series "Blueprint for Armageddon," a 22-hour deep dive into World War I told through soldiers' and civilians' own accounts.
 
 I recently finished listening to
 [Blueprint for Armageddon](http://www.dancarlin.com/home-hh-54/), a

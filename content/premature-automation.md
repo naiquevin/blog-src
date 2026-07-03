@@ -5,6 +5,7 @@ Tags: checklists
 Category: engineering
 Summary: When and why I prefer checklists over automated scripts
 Status: published
+SeoDescription: Why manual checklists often beat automation for high-risk or infrequent engineering workflows, illustrated with a real cross-region PostgreSQL cluster migration.
 
 <i>This began as a paragraph in the [previous article about recurring
 checklists]({filename}/recurring-checklists-org-mode.md), but it

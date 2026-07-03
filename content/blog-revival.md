@@ -4,6 +4,7 @@ Date: 2023-10-15
 Tags: blog, pelican
 Category: blogging
 Summary: Trying to revive this blog yet again
+SeoDescription: How I revived my blog by upgrading Pelican, redesigning the theme, and migrating hosting from GitHub Pages to S3 and CloudFront with TLS.
 Status: published
 
 I have made numerous attempts to revive my blog. Here's another one!

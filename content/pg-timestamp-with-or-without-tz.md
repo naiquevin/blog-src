@@ -5,6 +5,7 @@ Tags: postgresql
 Category: programming
 Summary: PostgreSQL provides the timestamp type in two variants - with time zone and without time zone. How to decide which one to use?
 Status: published
+SeoDescription: A hands-on comparison of PostgreSQL's timestamptz vs timestamp types, with SQL examples of AT TIME ZONE conversions and guidance on which to use in your schema.
 
 I am currently building a toy project to learn Rust and VueJS. Like
 most applications it needs to store data and I'm using PostgreSQL (PG)

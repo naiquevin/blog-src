@@ -5,6 +5,7 @@ Tags: pelican, octopress
 Category: blogging
 Summary: Moved the blog to Pelican from Octopress
 Status: published
+SeoDescription: Why I migrated this blog from Octopress (Ruby) to Pelican, a Python static site generator, including a script for converting Markdown posts.
 
 Just moved my blog from Octopress to
 [Pelican](http://docs.getpelican.com/en/3.1.1/), another fine static

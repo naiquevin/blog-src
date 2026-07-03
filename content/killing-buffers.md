@@ -4,6 +4,7 @@ Date: 2011-07-19
 Tags: emacs
 Category: emacs
 Summary:
+SeoDescription: How to quickly kill multiple accumulated buffers in Emacs at once using the buffer list instead of closing them one by one with C-x k.
 Status: published
 
 In emacs, as we open files, a lot of dired buffers get accumulated. I

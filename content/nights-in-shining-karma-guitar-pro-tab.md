@@ -5,6 +5,7 @@ Tags: guitar-pro, tablature, music
 Category: music
 Summary: Guitar Pro tabs for Warren Mendonsa's "Nights in Shining Karma"
 Status: published
+SeoDescription: Free Guitar Pro 5 tab download for "Nights in Shining Karma" by Blackstratblues (Warren Mendonsa), covering guitar, bass, and drum tracks.
 
 For a change I am deviating from the usual programming stuff and a
 posting a music related update. This one is a guitar-pro TAB of the

@@ -4,6 +4,7 @@ Date: 2010-01-05 18:11:05
 Tags: javascript, php
 Category: programming
 Summary: 
+SeoDescription: A simple way to filter a list of records by multiple categories using PHP-generated CSS classes and jQuery show/hide, without any AJAX requests.
 Status: published
 
 I came upon a method for filtering records using jquery and php. I am

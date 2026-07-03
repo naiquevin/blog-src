@@ -5,6 +5,7 @@ Tags: emacs, python
 Category: programming
 Summary: An overview of emacs packages for Python, including a mild rant about confusing package names.
 Status: published
+SeoDescription: A guide to the confusing world of Emacs Python packages: python-mode, jedi, company-mode, eglot, lsp-mode, and virtualenvwrapper explained.
 
 Revisiting emacs config after a long gap can be challenging. There
 might be some packages deprecated or no longer actively maintained

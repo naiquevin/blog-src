@@ -3,6 +3,7 @@ Author: Vineet Naik
 Date: 2009-11-22 11:16:46
 Category: programming
 Summary: 
+SeoDescription: Why Firefox's lenient HTML and XML parsing can mask invalid markup bugs that only surface when the same code is tested in Chrome.
 Status: published
 
 We all know how good Firefox is and if something works in FF and

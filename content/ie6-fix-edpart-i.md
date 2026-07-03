@@ -4,6 +4,7 @@ Date: 2009-05-06 03:44:44
 Tags: ie6, css
 Category: programming
 Summary:
+SeoDescription: Fixing IE6 cross-browser bugs including transparent PNG backgrounds using the IE PNG fix script and broken CSS-styled link colors.
 Status: published
 
 Imagine a scenario,

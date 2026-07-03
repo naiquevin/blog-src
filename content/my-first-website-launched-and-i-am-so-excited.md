@@ -4,6 +4,7 @@ Date: 2009-05-28 16:53:18
 Tags: web development, music
 Category: projects
 Summary:
+SeoDescription: A retrospective on launching Noise OK Please, a self-built PHP community website for musicians, and lessons learned building it from scratch.
 Status: published
 
 _Note: This post exists for historical reasons! The website I had

@@ -4,6 +4,7 @@ Date: 2009-12-17 17:51:20
 Tags: eclipse, emacs, php
 Category: programming
 Summary: Tweaking Eclipse for the good
+SeoDescription: 5 practical Eclipse PDT tips for PHP developers: faster startup, workspace auto-refresh, code templates, and filtering the open resource dialog.
 Status: published
 
 Update: I have stopped using Eclipse and moved to Emacs

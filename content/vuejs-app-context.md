@@ -5,6 +5,7 @@ Tags: vuejs, frontend, captrice
 Category: programming
 Summary: How to initialize app context in Vue.js app using promises
 Status: published
+SeoDescription: How to initialize a Vue.js app context asynchronously using promises so router views can safely access an IndexedDB client after it's ready.
 
 My guitar practice app, [Captrice](https://www.captrice.io) is built
 using Vue.js. As a backend developer (although with some Backbone.js

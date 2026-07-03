@@ -5,6 +5,7 @@ Tags: python, toolbox, histogram
 Category: programming
 Summary: A command line tool to quickly plot histograms based on matplotlib
 Status: published
+SeoDescription: histit.py is a command-line tool built on matplotlib and numpy for quickly plotting histograms from text files or piped stdin data.
 
 (This is the first post of the series I plan to write on some tools I
 have built over the last couple of years to help me in my day-to-day

@@ -5,6 +5,7 @@ Tags: rust
 Category: programming
 Summary: What I wish I had known earlier about some of Rust's convenience features for elegant error handling
 Status: published
+SeoDescription: A practical guide to Rust error handling covering Result, the ? operator, map_err, custom error enums, the Error trait, and thiserror.
 
 Rust doesn't have exceptions. Instead, functions and methods have to
 return a special type to indicate failure. This is the `Result` type

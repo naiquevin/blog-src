@@ -4,6 +4,7 @@ Date: 2010-08-24 12:07:11
 Tags: jquery, javascript, html
 Category: programming
 Summary:
+SeoDescription: Learn vanilla JavaScript DOM selection methods like getElementById, getElementsByTagName, and childNodes as alternatives to jQuery selectors.
 Status: published
 
 I remember when the first time I tried to learn some Javascript for

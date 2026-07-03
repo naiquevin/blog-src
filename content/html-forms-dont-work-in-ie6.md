@@ -4,6 +4,7 @@ Date: 2009-05-12 17:28:55
 Tags: php, html, ie6
 Category: programming
 Summary: 
+SeoDescription: Fix for HTML image submit buttons not triggering form submission in IE6 by checking submit_x and submit_y instead of the submit parameter.
 Status: published
 
 Ah relieved!... finally my website works on IE6. A big problem

@@ -5,6 +5,7 @@ Tags: ajax, javascript, php
 Category: programming
 Summary: 
 Status: published
+SeoDescription: A technique for debugging AJAX code faster by stubbing the server response first, isolating JavaScript errors before writing the real server-side logic.
 
 Very often it happens that more time goes into testing than writing code. Particularly when ajax is involved.
 

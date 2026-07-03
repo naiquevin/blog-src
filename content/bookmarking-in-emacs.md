@@ -4,6 +4,7 @@ Date: 2011-07-22
 Tags: emacs
 Category: emacs
 Summary:
+SeoDescription: A quick guide to setting, viewing, and deleting persistent buffer bookmarks in Emacs using the C-x r m, C-x r b, and C-x r l keybindings.
 Status: published
 
 Emacs allows bookmarking inside buffers so that you can quicky visit

@@ -5,6 +5,7 @@ Tags: tagref, org-mode, opensource
 Category: programming
 Summary: About the tagref tool and my recent patch that makes it play nicely with org-mode files
 Status: published
+SeoDescription: How tagref, a tool for cross-referencing tags between code and docs, was patched to support relative file paths in Emacs org-mode links.
 
 ![tagref screenshot](images/tagref-ss.webp "tagref screenshot")
 
