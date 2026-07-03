@@ -21,7 +21,7 @@
 \usepackage{multicol}
 \usepackage{geometry}
 
-\geometry{paper=letterpaper, top=20mm, left=18mm, right=18mm, bottom=20mm}
+\geometry{paper=letterpaper, top=18mm, left=18mm, right=18mm, bottom=18mm}
 
 % set header text and sizing
 % \fancyhf{}
@@ -77,6 +77,16 @@
   \end{tabular*}\vspace{-5pt}
 }
 
+% Community subheading
+\newcommand{\resumeCommunitySubheading}[3]{
+  \vspace{-1pt}\item[]
+  \begin{tabular*}{1\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} \\
+    #2 \\
+    #3 \\
+  \end{tabular*}
+}
+
 % Education subheading
 \newcommand{\resumeEducationSubheading}[2]{
   \vspace{-1pt}\item[]
@@ -119,15 +129,14 @@
 
 % --------SUMMARY------------
 \resumeSubHeadingListStart
-\item[]{ Seasoned software engineer with 16+ years of experience that
-    includes building and maintaining terabyte-scale production
-    systems. Strong focus on performance, stability, resiliency,
-    observability, and security. Proven track record of building
-    high-quality, long lasting solutions. Active open
-    source contributor. \\~\\
-    Available for contract work (full-time or part-time), preferably
-    leveraging Rust, PostgreSQL, and/or local-first technologies. Open
-    to full time positions if there's strong alignment. }
+\item[]{ Seasoned software engineer with 17+ years of hands-on
+    experience that includes designing, implementing and maintaining
+    terabyte-scale production systems. Proven track record of building
+    high-quality, long lasting solutions. Active open source
+    contributor and maintainer. Available for contract work,
+    preferably for projects leveraging the Rust programming
+    language. Open to full time employment if there's strong
+    alignment. Open to advisory roles if my experience fits the bill.}
 
   \resumeSubHeadingListEnd \vspace{-8pt}
 
@@ -137,25 +146,17 @@
 
   % --------PROGRAMMING SKILLS------------
   \section{TECHNICAL SKILLS} \vspace{-4pt}
-  % Bulleted multi-column list of skills
-  \begin{multicols}{2}
-    \begin{itemize}[leftmargin=10pt]
-    \item Full-stack development \vspace{-8pt}
-    \item Databases (operational \& internals) \vspace{-8pt}
-    \item Distributed systems \vspace{-8pt}
-    \item CD/CI \& automation \vspace{-8pt}
-    \item Documentation \vspace{-8pt}
-    \item Process standardization \vspace{-8pt}
-    \item Code reviews \& Mentoring \vspace{-8pt}
-    \item Open source software \vspace{-8pt}
-    \end{itemize}
-  \end{multicols} \vspace{1pt}
 
   \resumeSubHeadingListStart
 \item[]
-  \textbf{Languages}{: Rust, Typescript/Javascript, Clojure, Python, Bash, Emacs Lisp } \\
+
+  \textbf{Overview}{: Databases (operational \& internals),
+    Distributed systems, GenAI applications, CD/CI automation,
+    Documentation, Process standardization, Code reviews, Mentoring,
+    Open source software} \\
+  \textbf{Languages}{: Rust (Tokio, Axum, Tauri), Typescript/Javascript, Clojure, Python, Bash, Emacs Lisp } \\
   \textbf{Databases}{: PostgreSQL, Yugabyte, SQLite, MongoDB, Redis, Elasticsearch } \\
-  \textbf{Other technologies}{: Vue.js, IndexedDB, AWS, Git, Kafka, Containers/VMs, Ansible }
+  \textbf{Other technologies}{: Vue.js, Vite, IndexedDB, AWS, Git, Kafka, Containers/VMs, Ansible }
   \resumeSubHeadingListEnd \vspace{1pt}
   % -------------------------------------------
 
@@ -164,47 +165,54 @@
   \resumeSubHeadingListStart
 
   \resumeSubheading
-  {Self-employed}{}{Dec 2024 - Present}
+  {Self-employed}{}{Oct 2025 - March 2026}
   {Software and technology consultant}
   \resumeItemListStart
 
   \resumeItem
 
-  {Conversational memory platform built on top of
-    \href{cosdata.io}{cosdata}, an opensource vector db and AI
-    platform written in Rust. I am also a core contributor in
-    cosdata. My notable contributions are a low-level buffered-IO
-    abstraction and metadata filtering functionality in HNSW index}
+  {Developed a platform for building persistent memory graphs for LLM
+    applications, ingesting conversational data and organizational
+    documents to construct a rich contextual knowledge layer. Built on
+    top of a private fork of \href{https://cosdata.io}{cosdata}, a
+    vector db and AI platform written in Rust.}
 
   \resumeItemListEnd \vspace{8pt}
 
   \resumeSubheading
-  {Sabbatical/Career break}{}{Oct 2023 - Dec 2024}
+  {Captrice}{}{Aug 2024 - present}
+  {Founder, Solopreneur}
+  \resumeItemListStart
+
+  \resumeItem
+
+  {\href{https://www.captrice.io}{Captrice} is a guitar practice app that
+    started as a passion project. It's a local-first app built
+    using Vue.js, Typescript, Rust (compiled to webassembly), Axum
+    framework, PostgreSQL.}
+
+  \resumeItemListEnd \vspace{8pt}
+
+  \resumeSubheading
+  {Career break}{}{Oct 2023 - Aug 2024}
   {Open source contributor}
   \resumeItemListStart
 
   \resumeItem
 
-  {\href{www.captrice.io}{captrice.io}: A guitar practice app that
-    started as a ``passion project'' built using Rust (compiled to
-    webassembly), Vue.js, PostgreSQL and the local-first paradigm.}
+  Open source contributor in \href{https://cosdata.io}{cosdata}. Notable
+  contributions: a low-level buffered-IO abstraction and
+  metadata filtering functionality in HNSW index.
 
   \resumeItem
 
-  Notable open source projects:
+  Open sourced some of my own projects:
   \href{https://github.com/naiquevin/tapestry}{tapestry},
   \href{https://github.com/naiquevin/plectrum}{plectrum},
-  \href{https://github.com/naiquevin/axy}{axy}
-
-  \resumeItem
-
-  Built a couple of personal apps that are being used by family and
-  friends (more details upon request).
+  \href{https://github.com/naiquevin/axy}{axy},
+  \href{https://github.com/naiquevin/ape}{ape}
 
   \resumeItemListEnd \vspace{8pt}
-
-  % put a page break
-  \newpage
 
   \resumeSubheading
   {Helpshift,}{Remote}{Jan 2020 - Sep 2023}
@@ -237,6 +245,9 @@
 
   \resumeSubHeadingListEnd
 
+  % put a page break
+  \newpage
+
   % properly position header for second page
   \setlength{\headsep}{0.2in}
   \setlength{\headheight}{14pt}
@@ -266,35 +277,32 @@
   \resumeItem
   {Designed, implemented and maintained self-served release automation platform (AWS, ansible, gerrit, JIRA, Jenkins) enabling developers to deploy about >50 services independently and safely, with automated tagging, CD/CI, canary deployments and rollbacks. In use as of Sep 2023.}
   \resumeItem
-  {Custom solution for incremental backups of Apache Kylin data stored in HBase. It leveraged the existing Java libraries in the Hadoop ecosystem through Clojure and used SQLite for backup metadata.}
-  \resumeItem
-  {Implemented and maintained tooling for local/dev setup by reusing the production ansible workflows developed by our devops/infra team.}
+  {Implemented and maintained tooling for local/dev setup by reusing the production ansible workflows developed by our infra (SRE) team.}
   \resumeItemListEnd \vspace{8pt}
 
   \resumeSubheading
-  {Kodeplay,}{Mumbai,}{Jul 2009 - Jul 2014}
+  {Kodeplay,}{Mumbai,}{Jun 2009 - Jul 2014}
   {Technical Lead}
   \resumeItemListStart
   \resumeItem
-  {KodeCRM, an interactive chat solution and CRM for ecommerce site owners (dysfunctional).}
+  {KodeCRM, an interactive chat solution and CRM for ecommerce site owners.}
   \resumeItem
   {\href{https://github.com/kodeplay/kodelearn}{KodeLearn} - Open source learning management system.}
   \resumeItem
   {Multi-vendor ecommerce and marketplace extension for Opencart.}
-  \resumeItem
-  {In the initial years, we offered software services as well. Kodeplay was a fully bootstrapped company. I was the first employee.}
   \resumeItemListEnd \vspace{8pt}
 
-  % put a page break
-  \newpage
+  \resumeSubHeadingListEnd
+  % -------------------------------------------
 
-  \resumeSubheading
-  {Greaves Cotton Ltd.,}{Pune,}{Jul 2007 - Jul 2008}
-  {Manufacturing trainee engineer}
-  \resumeItemListStart
-  \resumeItem
-  {This was my first job after graduation, before I found interest in the  field of software engineering and computer science.}
-  \resumeItemListEnd
+  % -----------COMMUNITY-----------------
+  \section{COMMUNITY}
+  \resumeSubHeadingListStart
+  \resumeCommunitySubheading
+  {Rust Bangalore user group}
+  {Active member and regular participant.}
+  {Member of the talk selection and review panel for Rust India
+    Conference 2026.}
 
   \resumeSubHeadingListEnd
   % -------------------------------------------
