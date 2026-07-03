@@ -50,7 +50,7 @@ MARKDOWN = {
     'output_format': 'html5'
 }
 
-STATIC_PATHS = ['presentations', 'extra', 'files', 'images']
+STATIC_PATHS = ['presentations', 'extra', 'files', 'images', 'videos']
 
 # PAGE_EXCLUDES = ['presentations', 'files']
 ARTICLE_EXCLUDES = ['presentations', 'files']
