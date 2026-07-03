@@ -13,23 +13,23 @@ alongside freelancing/consulting as well as contributing to some open
 source projects. Previously I worked at Helpshift (2014-2023) and
 Kodeplay (2009-2014).
 
-I am presently available for short-to-medium term freelance/contract
-work, preferably with organizations that are leveraging Rust,
-PostgreSQL, and/or local-first technologies. Here is my updated
-[resume](/files/VineetNaikResume.pdf).
+I am presently available for freelance/contract work, preferably on
+projects leveraging Rust, PostgreSQL, and/or local-first
+technologies. I am also open to advisory roles if my experience fits
+the bill. Here is my updated [resume](/files/VineetNaikResume.pdf).
 
-You can get in touch with me at <email>anvxiva@tznvy.pbz</email> or
-find me by my usual handle, `@naiquevin` on the Internet.
+Get in touch with me at <email>anvxiva@tznvy.pbz</email> or find me by
+my usual handle, `@naiquevin` on the Internet.
 
 ### Articles published elsewhere
 
-I have published some [articles](https://medium.com/@naikvin_34014) on
-medium, as part of the [Helpshift Engineering
-blog](https://medium.com/helpshift-engineering).
+[Captrice blog](https://www.captrice.io/blog/index.html)
+
+[Helpshift Engineering blog](https://medium.com/@naikvin_34014)
 
 ### About this site
 
-This site is created using [pelican](https://getpelican.com/). I am
-using [my own
-theme](https://github.com/naiquevin/blog-src/tree/master/naiq) which
-is inspired by [Armin Ronacher's blog](https://lucumr.pocoo.org/).
+This site is created using [pelican](https://getpelican.com/). The
+theme is [my
+own](https://github.com/naiquevin/blog-src/tree/master/naiq) and is
+inspired by [Armin Ronacher's blog](https://lucumr.pocoo.org/).
